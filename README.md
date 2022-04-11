@@ -1,11 +1,13 @@
-# Practica de GIT **Grupo 3**
+# Proyecto Integrador de GIT **Grupo 3**
 
 Este es un **Proyecto integrador** para el curso de **Web Fullstack** de Digitalhouse.
 
 
 ## Clonado 🚀
 Para clonar el proyecto en el repositorio local de su pc ejecute:
-`git clone https://github.com/jfferreyra/grupo_3_vmauto.git`
+```sh
+git clone https://github.com/jfferreyra/grupo_3_vmauto.git
+```
 ---
 ## Descripción 📝
 
@@ -20,21 +22,29 @@ En una primera etapa destinado a ser un e-commerce por parte de una concesionari
 - **J. Federico Ferreyra**
 ## Temática del Sitio 📖
 + **¿Que productos o servicios brinda el sitio?**
+    
     Venta de coches nuevos y usados.
 + **¿Quién será nuestra audiencia objetivo?**
+    
     Todo público.
 + **¿Cómo ajustaremos nuestra oferta a ese público?**
+    
     En etapas, atendiendo a los aspectos psicologicos de la apariencia del sitio y a las últimas tendencias.
 ## Referentes de inspiración 💡
 + **[DeRuedas.com](https://www.deruedas.com.ar/)**
+    
     Estructura y Estética.
 + **[DeAutos](https://www.deautos.com/)**
+    
     Estética e imágenes.
 + **[Kavak](https://www.kavak.com/ar)**
+    
     Referencia.
 + **[MercadoLibre Autos](https://autos.mercadolibre.com.ar/)**
+    
     Funcionalidad y estructura.
 + **[Juan Carlos Mejia Llano](https://www.juancmejia.com/marketing-digital/psicologia-del-color-utilice-los-colores-para-aumentar-sus-ventas-online-y-offline/)**
+    
     Psicología del color y otros temas de psicología en el marketing.
 
 ## Licencia 📄
