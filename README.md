@@ -47,6 +47,46 @@ En una primera etapa destinado a ser un e-commerce por parte de una concesionari
     
     Psicología del color y otros temas de psicología en el marketing.
 
+## Colores
+| Nombre Figma | Color HEX | Nombre de variable en vscode |
+| ------------ | --------- | ---------------------------- |
+|Naranja-btnCompra-obscuro | #FF9900 | narObc |
+|Naranja-btnCompra-claro | #FF7511   | narClc
+|Naranja|	                    #FFAA00|     nar|
+|Naranja-IcMenu|	            #FFCB6C|     narMe|
+|Naranja-btn-Pregunta-obscuro|	#FFDDA0|     narObp|
+|Naranja-btn-Pregunta-claro|	#FFF9F0|     narClp|
+|Negro-Texto|	                #111111|     negT|
+|Negro-Claro|	                #333333|     negC|
+|Gris-Texto-obscuro|	        #3F3F3F|    grisTo|
+|Gris-Texto|	                #6A6A6A|     grisT|
+|Gris-Placeholder|	            #B9B9B9|     grisP|
+|Gris-Fondo-Card|	            #F1F1F1|    grisFc|
+|Gris-Fondo|	                #F5F5F5|     grisF|
+
+### Codigo variables CSS
+```css
+:root{
+  --narObc:#FF7511;
+  --narClc:#FF9900;
+  --nar:#FFAA00;
+  --narMe:#FFCB6C;
+  --narObp:#FFDDA0;
+  --narClp:#FFF9F0;
+  --negT:#111;
+  --negC:#333;
+  --grisTo:#3F3F3F;
+  --grisT:#6A6A6A;
+  --grisP:#B9B9B9;
+  --grisFc:#F1F1F1;
+  --grisF:#F5F5F5;
+}
+```
+## Fuentes
++ Rubik
++ Nunito
++ Inter
+
 ## Licencia 📄
 
 Este proyecto está bajo la Licencia (practica).
