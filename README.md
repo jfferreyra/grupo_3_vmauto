@@ -2,6 +2,9 @@
 
 Este es un **Proyecto integrador** para el curso de **Web Fullstack** de Digitalhouse.
 
+**Wireframe del prototipo en Figma:**\
+[VendoMiAuto](https://www.figma.com/proto/7dMdPjIj7cgAW11LfzPx4n/home?node-id=168%3A533&scaling=scale-down-width&page-id=0%3A1&starting-point-node-id=3%3A2)
+
 
 ## Clonado 💾➟💾
 Para clonar el proyecto en el repositorio local de su pc ejecute:
@@ -20,6 +23,7 @@ En una primera etapa destinado a ser un e-commerce por parte de una concesionari
 - **Nicolas Bava**
 - **Iván Donata Ngua**
 - **J. Federico Ferreyra**
+
 ## Temática del Sitio 📖
 + **¿Qué productos o servicios brinda el sitio?**
     
@@ -83,9 +87,7 @@ En una primera etapa destinado a ser un e-commerce por parte de una concesionari
 }
 ```
 ## Fuentes
-+ Rubik
-+ Nunito
-+ Inter
+![fuentes](./public/assets/fonts/Fuentes.jpg)
 
 ## Licencia 📄
 
