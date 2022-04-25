@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/svg/logo/logo.svg"> 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/assets.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>VendoMiAuto</title>
+  </head>
+<body>
+  <%- include("templates/header") %>
+  <main class="main">
+    <h1 class="ofertas__titulo"><span>Ofertas</span>12</h1>
+    <section class="ofertas">
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/2.jpg"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/3.jpg"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/4.jpg"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/5.jpg"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/6.jpg"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/7.webp"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/1.jpg"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/8.webp"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/9.webp"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/10.webp"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/11.webp"}) %>
+      <%- include("templates/card",{imgcar:"/assets/img/jpg/12.webp"}) %>
+    </section>
+  </main>
+
+  <%- include("templates/footer") %>
+</body>
+</html>

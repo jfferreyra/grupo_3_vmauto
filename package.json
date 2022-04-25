@@ -1,0 +1,34 @@
+{
+  "name": "grupo_3_vmauto",
+  "version": "1.0.0",
+  "description": "Proyecto integrador para curso de Web Fullstack de DigitalHouse.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfferreyra/grupo_3_vmauto.git"
+  },
+  "keywords": [
+    "auto",
+    "venta",
+    "coche",
+    "automovil"
+  ],
+  "author": "Leonardo Montoy, Nicolas Bava, Ivan Donata Ngua, J. Federico Ferreyra.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfferreyra/grupo_3_vmauto/issues"
+  },
+  "homepage": "https://github.com/jfferreyra/grupo_3_vmauto#readme",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

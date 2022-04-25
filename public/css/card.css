@@ -1,0 +1,48 @@
+.card{
+  height: 420px;
+  /* max-width: 275px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: black 1px solid; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: transparent 3px solid;
+  background-color: var(--grisFc);
+}
+.card:hover{
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+  border: var(--narMe) 3px solid;
+  background-color: white;
+}
+.card__car{
+  margin: 0;
+  padding: 0;
+  /* border: violet 1px solid; */
+}
+.card__imgcar{
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.card__titulo{
+  font-family:rubik-r;
+  font-size: 1em;
+  text-align: center;
+}
+.card__titulo :nth-child(2){
+  margin: 0 10px;
+  padding: 0 10px;
+  border-left: var(--grisT) 1px solid;
+  border-right: var(--grisT) 1px solid;
+}
+
+
+.card__precio{
+  margin: 0;
+  margin-bottom: 15px;
+  font-family: rubik-r;
+  font-size: 2rem;
+  text-align: center;
+  /* border: green 1px solid; */
+}

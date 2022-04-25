@@ -87,7 +87,7 @@ En una primera etapa destinado a ser un e-commerce por parte de una concesionari
 }
 ```
 ## Fuentes
-![fuentes](./fuentes.jpg)
+![fuentes](./public/assets/img/jpg/fuentes.jpg)
 
 ## Licencia 📄
 
