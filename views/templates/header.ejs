@@ -34,14 +34,8 @@
         <input class="search__ipt" type="search" placeholder="Buscá tu auto">
         <button class="search__btn" type="submit"><i class="ficon-lupa"></i></button>
     </form>
-    <div class="header__bottom">
-      <div class="header-card"><img src="/assets/img/gif/hatchback.gif" alt="hatchback" class="header-card__img"><span class="header-card_text">hatchback</span></div>
-      <div class="header-card"><img src="/assets/img/gif/sedan.gif" alt="sedan" class="header-card__img"><span class="header-card_text">sedan</span></div>
-      <div class="header-card"><img src="/assets/img/gif/deportivo.gif" alt="deportivo" class="header-card__img"><span class="header-card_text">deportivo</span></div>
-      <div class="header-card"><img src="/assets/img/gif/suv.gif" alt="suv" class="header-card__img"><span class="header-card_text">suv</span></div>
-      <div class="header-card"><img src="/assets/img/gif/van.gif" alt="van rural" class="header-card__img"><span class="header-card_text">van rural</span></div>
-      <div class="header-card"><img src="/assets/img/gif/pickup.gif" alt="pickup" class="header-card__img"><span class="header-card_text">pickup</span></div>
-      <div class="header-card"><img src="/assets/img/gif/furgon.gif" alt="utilitario" class="header-card__img"><span class="header-card_text">utilitario</span></div>
-    </div>
+    <% if (op==1) { %>
+      <%- include("headerBottom") %>
+    <% } %>
   </div>
 </header>

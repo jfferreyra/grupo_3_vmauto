@@ -1,4 +1,4 @@
-# Proyecto Integrador de GIT **Grupo 3** 🚀
+# Proyecto Integrador de GIT **Grupo 3** 🚗
 
 Este es un **Proyecto integrador** para el curso de **Web Fullstack** de Digitalhouse.
 

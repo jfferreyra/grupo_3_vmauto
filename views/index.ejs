@@ -14,7 +14,8 @@
     <title>VendoMiAuto</title>
   </head>
 <body>
-  <%- include("templates/header") %>
+  <%- include("templates/header",{op:1}) %>
+  <div class="banner"><img class="banner__img" src="/assets/img/jpg/banner.jpg" alt="banner" srcset=""></div>
   <main class="main">
     <h1 class="ofertas__titulo"><span>Ofertas</span>12</h1>
     <section class="ofertas">
@@ -32,7 +33,6 @@
       <%- include("templates/card",{imgcar:"/assets/img/jpg/12.webp"}) %>
     </section>
   </main>
-
   <%- include("templates/footer") %>
 </body>
 </html>
