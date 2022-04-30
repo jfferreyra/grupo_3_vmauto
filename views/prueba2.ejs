@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/svg/logo/logo.svg"> 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/assets.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cardwide.css">
+    <% imgcar="/assets/img/jpg/12.webp" %>
+    <title>Prueba</title>
+  </head>
+<body>
+  <%- include("templates/header",{op:0}) %> <!-- con op:1 incluye fondo auto y nav de categorias -->
+  <main class="main">
+    <!-- aca va el codigo a probar que luego irá en la carpeta templates ejemplo cardwide -->
+    <!-- Simple pop-up dialog box, containing a form -->
+<dialog id="favDialog">
+  <form method="dialog">
+    <section>
+      <p><label for="favAnimal">Favorite animal:</label>
+      <select id="favAnimal">
+        <option></option>
+        <option>Brine shrimp</option>
+        <option>Red panda</option>
+        <option>Spider monkey</option>
+      </select></p>
+    </section>
+    <menu>
+      <button id="cancel" type="reset">Cancel</button>
+      <button type="submit">Confirm</button>
+    </menu>
+  </form>
+</dialog>
+
+<menu>
+  <button id="updateDetails">Update details</button>
+</menu>
+
+<script>
+  (function() {
+    var updateButton = document.getElementById('updateDetails');
+    var cancelButton = document.getElementById('cancel');
+    var favDialog = document.getElementById('favDialog');
+
+    // Update button opens a modal dialog
+    updateButton.addEventListener('click', function() {
+      favDialog.showModal();
+    });
+
+    // Form cancel button closes the dialog box
+    cancelButton.addEventListener('click', function() {
+      favDialog.close();
+    });
+
+  })();
+</script>
+    <!-- aca termina. No olvidar poner el link en head del estilo css para este codigo y no sacar el del header, footer y assets -->
+  </main>
+<%- include("templates/footer") %>
+</body>
+</html>

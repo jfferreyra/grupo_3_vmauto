@@ -67,10 +67,11 @@
 }
 
 .cardmax__miniphoto{
-  padding: 4px;
+  padding: 1px;
   flex: 1 1 15%;
   border-radius: 7px;
   border: var(--nar) 1px solid;
+  background-color: white;
 }
 
 .cardmax__minimg{

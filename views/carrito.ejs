@@ -17,8 +17,21 @@
 <body>
   <%- include("templates/header",{op:0}) %>
   <main class="main">
-    <%- include("templates/cardwide",{imgcar:"/assets/img/jpg/12.webp"}) %>
-    <%- include("templates/cardwide",{imgcar:"/assets/img/jpg/11.webp"}) %>
+    <section class="carrito">
+      <h2>Carrito (2)</h2>
+      <%- include("templates/cardwide",{imgcar:"/assets/img/jpg/12.webp"}) %>
+      <%- include("templates/cardwide",{imgcar:"/assets/img/jpg/11.webp"}) %>
+      <div class="carrito__bottom">
+        <div class="carrito__total">
+          <p>Articulos Seleccionados: (2)</p>
+          <p>Subtotal: u$s 39.200</p>
+        </div>
+        <div class="carrito__compra">
+          <button class="btnNar">Finalizar Compra</button>
+          <button class="btnNar btnNar--claro">Continuar Buscando</button>
+        </div>
+      </div>
+    </section>
     <h1 class="ofertas__titulo">Publicaciones sugeridas</h1>
     <section class="ofertas">
       <%- include("templates/card",{imgcar:"/assets/img/jpg/9.webp"}) %>

@@ -15,7 +15,7 @@
   background-color: white;
 }
 .card__car{
-  margin: 0;
+  margin: 0 0 1em;
   padding: 0;
   /* border: violet 1px solid; */
 }
@@ -39,10 +39,20 @@
 
 
 .card__precio{
-  margin: 0;
+  margin: 0.25em 0 0;
   margin-bottom: 15px;
   font-family: rubik-r;
   font-size: 2rem;
   text-align: center;
   /* border: green 1px solid; */
+}
+.card__datacar p{
+  width: 85%;
+  margin: 0 auto 0.5em;
+  font-family: nunito-r;
+  font-weight: normal;
+  font-size: 0.875rem;
+  text-align-last: justify;
+  border-bottom: var(--grisT) 1px solid;
+  white-space: nowrap;
 }
