@@ -1,0 +1,188 @@
+/* Tarjeta principal se divide en top y bottom*/
+
+.cardmax{
+  width: 80vw;
+  margin: 0 auto 5vw ;
+
+}
+
+/* top se divide en photos y data */
+
+.cardmax__top{
+  height: 40vw;
+  margin-bottom: 0.8vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* photos se divide en photos-h2 photo y gallery */
+
+.cardmax__photos{
+  margin-right: 1%;
+  flex: 0 1 60%;
+  border: var(--nar) 2px solid;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cardmax__photos-h2{
+  width: 100%;
+  height: 19%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align:left;
+}
+
+.cardmax__photos-h2 span{
+  margin: 0 0.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: inter-r;
+  font-size: 1.375rem;
+  font-weight: normal;
+}
+
+.cardmax__photos-h2 span:first-child{
+  font-family: inter-b;
+  font-size: 1.75rem;
+}
+
+.cardmax__photo{
+  height: 63.5%;
+}
+
+.cardmax__photo img{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+.cardmax__gallery{
+  height: 17.5%;
+  padding: 2px;
+  display: flex;
+  background-color: var(--grisTo);
+}
+
+.cardmax__miniphoto{
+  padding: 4px;
+  flex: 1 1 15%;
+  border-radius: 7px;
+  border: var(--nar) 1px solid;
+}
+
+.cardmax__minimg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* data se divide en precio y spec */
+
+.cardmax__data{
+  flex: 0 1 39%;
+  text-align: center;
+  border: var(--nar) 2px solid;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cardmax__precio{
+  margin: 0.5em 0 1em 0;
+  font-family:rubik-r;
+  font-size: 40px;
+  text-align: center;
+}
+
+.cardmax__spec{
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardmax__prop{
+  padding-bottom: 5px;
+  font-family: nunito-r;
+  font-size: 1.25rem;
+  text-align-last: justify;
+  color: var(--grisT);
+  border-bottom: var(--grisT) 1px solid;
+}
+
+.cardmax__value{
+  color:var(--negT);
+}
+
+/* bottom se divide en observaciones y compra */
+
+.cardmax__bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardmax__obs{
+  padding: 1em;
+  flex: 0 0 60%;
+  border: var(--nar) 2px solid;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cardmax__obs p{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: nunito-r;
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-align: justify;
+  color: var(--grisT);
+}
+
+.cardmax__compra{
+  padding: 2em 0;
+  flex: 0 0 39%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: var(--nar) 2px solid;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btnNar{
+  width: 55%;
+  margin:0.3em 0;
+  padding: 0.7em 0;
+  font-family: nunito-b;
+  font-size: 1.375rem;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: var(--narObc) 1px solid;
+  color: white;
+  background-color: var(--narClc);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btnNar:hover{
+  background-color: var(--narObc);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btnNar--claro{
+  color: var(--grisT);
+  background-color: var(--narClp);
+}
+
+.btnNar--claro:hover{
+  background-color: var(--narObp);
+}
+
+.cardmax__obs h2{
+  margin: 0;
+  font-family: nunito-r;
+  font-size: 1.125rem;
+  font-weight: normal;
+  color: var(--negT);
+}

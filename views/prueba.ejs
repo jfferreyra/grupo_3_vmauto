@@ -9,17 +9,42 @@
     <link rel="stylesheet" href="css/assets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/cardwide.css">
+    <% imgcar="/assets/img/jpg/12.webp" %>
     <title>Prueba</title>
   </head>
 <body>
-  <article class="card">
-    <figure class="card__car">
-      <img class="card__imgcar" src="/assets/img/jpg/10.webp" alt="" srcset="">
-      <figcaption class="card__titulo"><span>Marca</span><span>año</span><span>km</span></figcaption>
-    </figure>
-    <div class="card__datacar">Datos del Coche</div>
-    <p class="card__precio">u$s 19.500</p>
-  </article>
+  <%- include("templates/header",{op:0}) %> <!-- con op:1 incluye fondo auto y nav de categorias -->
+  <main class="main">
+    <!-- aca va el codigo a probar que luego irá en la carpeta templates ejemplo cardwide -->
+    <article class="cardwide">
+      <div class="cardwide__photo">
+        <img src= <%= imgcar %> alt="" srcset="">
+      </div>
+      <div class="cardwide__data">
+        <div class="cardwide__top">
+          <p class="cardwide__marca"><span>Marca</span><span>año</span><span>km</span></p>
+          <p class="cardwide__precio">u$s 19.600</p>
+        </div>
+        <div class="cardwide__spec">
+          <div class="cardwide__tec">
+            <p class="cardwide__prop">Tipo: <span class="cardwide__value">Sedan</span></p>
+            <p class="cardwide__prop">Año: <span class="cardwide__value">2019</span></p>
+            <p class="cardwide__prop">Km: <span class="cardwide__value">34.265</span></p>
+            <p class="cardwide__prop">Combustible: <span class="cardwide__value">Nafta</span></p>
+          </div>
+          <div class="cardwide_tec">
+            <p class="cardwide__prop">Color: <span class="cardwide__value">Blanco</span></p>
+            <p class="cardwide__prop">Airbags: <span class="cardwide__value">7</span></p>
+            <p class="cardwide__prop">Transmisión: <span class="cardwide__value">Automática</span></p>
+            <p class="cardwide__prop">Puertas: <span class="cardwide__value">5</span></p>
+          </div>
+        </div>
+        <button class="cardwide__btn">Eliminar</button>
+      </div>
+    </article>
+    <!-- aca termina. No olvidar poner el link en head del estilo css para este codigo y no sacar el del header, footer y assets -->
+  </main>
+<%- include("templates/footer") %>
 </body>
 </html>
