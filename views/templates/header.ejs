@@ -3,7 +3,9 @@
     <div class="header__top">
       <div class="logo">
         <img src="/assets/svg/logo/logo.svg" alt="logo" class="logo__img">
-        VendoMiAuto
+        <img class="logo__texto" src="/assets/img/png/logoVMA2.png" alt="VendoMiAuto Logo">
+
+        <!-- VendoMiAuto -->
       </div>
       <nav class="nav">
           <ul class="nav__menu">
@@ -18,7 +20,7 @@
               </a>
             </li>
             <li class="nav__item">
-              <a href="" class="nav__link">
+              <a href="" class="nav__link open__button">
                 <span class="nav__text">Carrito</span><div class="nav__icfondo"><i class="ficon-cart"></i></div>
               </a>
             </li>
@@ -37,5 +39,7 @@
     <% if (op==1) { %>
       <%- include("headerBottom") %>
     <% } %>
+
+
   </div>
 </header>

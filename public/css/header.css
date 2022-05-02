@@ -32,7 +32,12 @@ body{
 .logo__img{
   vertical-align: middle;
   width: 100px; 
-  margin-right: 10px;
+  /* margin-right: 10px; NICO- COMENTE ASI QUEDA MAS PEGADO A LA IMAGEN EL TEXTO */
+}
+/* AGREGUE ESTILOS A LA IMAGEN LOGO */
+.logo__texto {
+  width: 66%;
+  height: 56px;
 }
 .nav{
   /* border: black 2px solid; */
