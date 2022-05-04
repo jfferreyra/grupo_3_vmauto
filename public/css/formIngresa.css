@@ -1,0 +1,133 @@
+.form{
+    margin: auto;
+    width: 40%;
+    /* height: 90vh; */
+
+    /* border: red 2px solid; */
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    padding: 2em 3em;
+    font-family: inherit;
+    background-image: 
+        linear-gradient(180deg, #ff9900 0%, rgba(51, 51, 51, 0) 88%, rgba(51, 51, 51, 0) 100%),
+        url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-position: center;
+    background-size: cover;
+    
+     background-color: rgba(0, 0, 0, .5); 
+     background-blend-mode: multiply;
+}
+
+.form form {
+    width: 100%;
+    padding-top: 2em;
+    font-size: 1.6rem;
+}
+
+::placeholder {
+    color:darkgray;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.individual {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3em;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+.individual label {
+    margin-bottom: .5em;
+    font-family: nunito-r;
+}
+
+.individual input {
+    font-family: nunito-r;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: white;
+    margin-bottom: 2em;
+    border-radius: 10px;
+}
+
+.contraseña {
+    margin-bottom: 2em;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;  
+    
+    margin:auto;
+    margin-bottom: 1em;
+}
+
+.boton__registrate button {
+    border: rgb(204, 133, 0) 2px solid;
+    color: #6A6A6A;
+    background: white;
+    padding: .7em 1.2em;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 300ms ease;
+    font-family: nunito-r;
+}
+.boton__registrate button:hover,
+.boton__acceder button:hover {
+    transform: scale(1.02);
+}
+.signin {
+    text-align: center;
+    text-transform: none;
+    line-height: 1.2;
+    transition: 300ms ease;
+    font-family: nunito-r;
+    margin-bottom: 1em;    
+}
+.signin p {
+    margin-bottom: .3em;
+}
+.signin a {
+    text-decoration: none;
+    color: orange;
+}
+.signin a:hover {
+    text-decoration: underline;
+}
+.boton__acceder button {
+    background:#FFAA00;
+    border: rgb(212, 138, 0) 2px solid;
+    color: white;
+    /* background: white; */
+    padding: .7em 1.2em;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 300ms ease;
+    font-family: nunito-r;
+}
+.container p a {
+    color: white;
+    font-size: .8rem;
+    text-transform: none;
+    font-family: nunito-r;
+}
+
+.container p {
+    margin: 0;
+}

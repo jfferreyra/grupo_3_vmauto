@@ -25,6 +25,7 @@
   app.get('/product',(req,res)=>res.render('product'));
   app.get('/carrito',(req,res)=>res.render('carrito'));
   app.get('/prueba2',(req,res)=>res.render('prueba2'));
+  app.get('/formRegistro',(req,res)=>res.render('formRegistro'));
 
 // Carga del servidor en puerto 5000
   app.listen(app.get('port'),()=>console.log('Server Ok in port',app.get('port')));
