@@ -20,12 +20,16 @@
 
 // Ruteo 
   app.get('/',(req,res)=>res.render('index'));
+  app.post('/',(req,res)=>res.render('index'));
   // app.get('/footer',(req,res)=>res.render('footer'));
   app.get('/prueba',(req,res)=>res.render('prueba'));
   app.get('/product',(req,res)=>res.render('product'));
   app.get('/carrito',(req,res)=>res.render('carrito'));
+  app.get('/registro',(req,res)=>res.render('registro'));
+  app.get('/login',(req,res)=>res.render('login'));
+  app.get('/busqueda',(req,res)=>res.render('busqueda'));
+  app.post('/busqueda',(req,res)=>res.render('busqueda'));
   app.get('/prueba2',(req,res)=>res.render('prueba2'));
-  app.get('/formRegistro',(req,res)=>res.render('formRegistro'));
 
 // Carga del servidor en puerto 5000
-  app.listen(app.get('port'),()=>console.log('Server Ok in port',app.get('port')));
+  app.listen(process.env.PORT || 5000,()=>console.log('Server Ok in port',app.get('port')));

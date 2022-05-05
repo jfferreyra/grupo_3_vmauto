@@ -1,4 +1,5 @@
 .card{
+  position: relative;
   height: 420px;
   /* max-width: 275px; */
   display: flex;
@@ -56,4 +57,12 @@
   text-align-last: justify;
   border-bottom: var(--grisT) 1px solid;
   white-space: nowrap;
+}
+.card__link{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 10;
 }

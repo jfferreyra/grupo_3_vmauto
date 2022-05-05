@@ -14,6 +14,7 @@
   --grisP:#B9B9B9;
   --grisFc:#F1F1F1;
   --grisF:#F5F5F5;
+  --verde: #3a990e;
 }
 
 /* FUENTES */
@@ -87,3 +88,31 @@
 .ficon-redes__whatsapp:before{content:'\0044';}
 .ficon-redes__email:before{content:'\0045';}
 .ficon-redes__copyr:before{content:'\0046';}
+
+/*----------------------------------- Botones------------------------------- */
+
+.btnNar{
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  border: var(--narObc) 1px solid;
+  color: white;
+  background-color: var(--narClc);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btnNar:hover{
+  background-color: var(--narObc);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s;
+}
+
+.btnNar--claro{
+  color: var(--grisT);
+  background-color: var(--narClp);
+  transition: all 0.25s;
+}
+
+.btnNar--claro:hover{
+  background-color: var(--narObp);
+}

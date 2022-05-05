@@ -9,40 +9,64 @@
     <link rel="stylesheet" href="css/assets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/cardwide.css">
-    <% imgcar="/assets/img/jpg/12.webp" %>
+    <link rel="stylesheet" href="css/formRegistro.css">
+    <link rel="stylesheet" href="css/formLogin.css">
+    
     <title>Prueba</title>
   </head>
 <body>
   <%- include("templates/header",{op:0}) %> <!-- con op:1 incluye fondo auto y nav de categorias -->
   <main class="main">
     <!-- aca va el codigo a probar que luego irá en la carpeta templates ejemplo cardwide -->
-    <article class="cardwide">
-      <div class="cardwide__photo">
-        <img src= <%= imgcar %> alt="" srcset="">
-      </div>
-      <div class="cardwide__data">
-        <div class="cardwide__top">
-          <p class="cardwide__marca"><span>Marca</span><span>año</span><span>km</span></p>
-          <p class="cardwide__precio">u$s 19.600</p>
-        </div>
-        <div class="cardwide__spec">
-          <div class="cardwide__tec">
-            <p class="cardwide__prop">Tipo: <span class="cardwide__value">Sedan</span></p>
-            <p class="cardwide__prop">Año: <span class="cardwide__value">2019</span></p>
-            <p class="cardwide__prop">Km: <span class="cardwide__value">34.265</span></p>
-            <p class="cardwide__prop">Combustible: <span class="cardwide__value">Nafta</span></p>
+    <!-- <div class="form">
+      <form class="" action="" method="post">
+        <div class="container">
+          <div class="nombre individual">
+            <label for="nombre">Nombre:</label>
+            <input type="text" placeholder="Juan Manuel..." name="nombre" id="nombre">
           </div>
-          <div class="cardwide_tec">
-            <p class="cardwide__prop">Color: <span class="cardwide__value">Blanco</span></p>
-            <p class="cardwide__prop">Airbags: <span class="cardwide__value">7</span></p>
-            <p class="cardwide__prop">Transmisión: <span class="cardwide__value">Automática</span></p>
-            <p class="cardwide__prop">Puertas: <span class="cardwide__value">5</span></p>
+          <div class="apellido individual">
+            <label for="apellido">Apellido:</label>
+            <input type="text" placeholder="Fangio..." name="apellido" id="apellido">
+          </div>
+          <div class="email individual">
+            <label for="email">Email:</label>
+            <input type="email" placeholder="fangio32@gmail.com..." name="email" id="email">
+          </div>
+          <div class="password individual">
+            <label for="password">Contraseña:</label>
+            <input type="password" placeholder="**********" name="password" id="password">
+          </div>
+          <div class="boton">
+            <button type="submit" class="boton__registro">Crea tu cuenta</button>
           </div>
         </div>
-        <button class="cardwide__btn">Eliminar</button>
+        <div class="individual container signin">
+          <p>Ya estas registrado? </p>
+          <a href="#">Ingresa</a>
+        </div>
+      </form>
+    </div>   -->
+    <form class="login" action="/" method="post">
+      <fieldset class="login__data">
+        <legend class="login__legend">Login</legend>
+        <p class="login__p">
+          <label for="username" class="login__lbl">Nombre de usuario *</label><br>
+          <input required type="text" name="username" id="username"  class="login__ipt" placeholder="Elegí tu nombre de usuario" minlength="4">
+        </p>
+        <p class="login__p">
+          <label for="password" class="login__lbl">Contraseña *</label><br>
+          <input required type="password" name="password" id="password"  class="login__ipt" placeholder="Elegí tu contraseña" minlength="6">
+        </p>
+      </fieldset>
+      <div class="login__container-btn">
+        <button type="submit" class="btnNar login__btn">Ingresar</button>
       </div>
-    </article>
+      <div class="login__container-olvido">
+        <p class="login__p"><a href="/" class="login__olvido">¿Olvidaste tu usuario o contraseña?</a></p>
+        <p class="login__p"><a href="/registro" class="login__registrarse">Registrate</a></p>
+      </div>
+    </form>
     <!-- aca termina. No olvidar poner el link en head del estilo css para este codigo y no sacar el del header, footer y assets -->
   </main>
 <%- include("templates/footer") %>
