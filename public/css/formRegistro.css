@@ -40,7 +40,8 @@ input:-webkit-autofill:active */{
   border: none;
 }
 .personales__legend{
-  font-size: 1.25rem;
+  font-size: 1.55rem;
+  color: var(--blanco);
 }
 
 .personales--login{
@@ -84,7 +85,8 @@ input:-webkit-autofill:active */{
 }
 
 .usuario__legend{
-  font-size: 1.25rem;
+  font-size: 1.55rem;
+  color: var(--blanco);
   font-weight: normal;
 }
 

@@ -15,6 +15,7 @@
   --grisFc:#F1F1F1;
   --grisF:#F5F5F5;
   --verde: #3a990e;
+  --blanco: #f7f7f7;
 }
 
 /* FUENTES */
@@ -41,6 +42,10 @@
 @font-face {
   font-family: 'nunito-sb';
   src: url(/assets/fonts/nunito/Nunito-SemiBold.woff2);
+}
+@font-face {
+  font-family: 'technovier';
+  src: url(/assets/fonts/technovier/Techovier.otf) format('otf');
 }
 @font-face {
   font-family: 'ficon';

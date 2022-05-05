@@ -29,8 +29,10 @@ input:-webkit-autofill:active */{
   text-align: left;
 }
 .login__legend{
-  font-size: 1.25rem;
+  font-size: 1.55rem;
+  color: var(--blanco);
 }
+
 .login__p{
   margin: 1.5rem 0; 
   color: white;

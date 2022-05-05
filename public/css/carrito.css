@@ -13,6 +13,7 @@ div, p{
 .ofertas{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 .ofertas__titulo{
   margin: 0;
@@ -52,7 +53,7 @@ div, p{
   /* width: 90%; */
   margin:3rem auto 0;
   padding: 1.5rem;
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
   border: var(--nar) 3px solid;
@@ -102,4 +103,18 @@ div, p{
 .carrito__total :nth-child(2){
   font-family: rubik-r;
   font-size: 1.5rem;
+}
+
+.carrito__total {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 696px){
+  .carrito__bottom {
+    display:flex;
+  }
+
+  .carrito__total {
+    margin-bottom: 0;
+}
 }
