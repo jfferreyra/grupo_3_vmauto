@@ -122,6 +122,12 @@
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.4); 
 }
 
+.footer__titulo {
+  font-family: technovier;
+  font-weight: bold;
+  margin: 0;
+}
+
 @media (min-width: 696px){
 
   .footer__redes{
