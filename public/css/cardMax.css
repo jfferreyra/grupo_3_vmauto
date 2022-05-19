@@ -1,133 +1,141 @@
-/* Tarjeta principal se divide en top y bottom*/
+/* Variables */
+
+:root{
+  --miniPhoto:15vw;
+  --photo:60vw
+}
+
+/* Tarjeta Contenedor Principal */
 
 .cardmax{
-  width: 80vw;
-  margin: 0 auto 5vw ;
-
+  width: 90vw;
+  margin: 0 auto;
+  
 }
 
-/* top se divide en photos y data */
+/* Tarjeta principal se divide en Left y Rigth*/
 
-.cardmax__top{
-  height: 40vw;
-  margin-bottom: 0.8vw;
+.cardmax__left{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-/* photos se divide en photos-h2 photo y gallery */
+.cardmax__rigth{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: var(--nar) 2px solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Left se divide en Photos y Observaciones (obs) */
 
 .cardmax__photos{
-  margin-right: 1%;
-  flex: 0 1 60%;
-  border: var(--nar) 2px solid;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-}
-
-.cardmax__photos-h2{
-  width: 100%;
-  height: 19%;
-  margin: 0;
-  padding: 0;
+  margin-bottom: 0.5rem;
+  flex: 0 1 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  border: var(--nar) 2px solid;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* photos se divide en photos-titulo photo y gallery */
+
+.cardmax__photos-titulo{
+  margin: 0;
+  padding: 0.5em 0.5em;
+  flex: 0 0 auto;
+  display: flex;
   flex-wrap: wrap;
-  text-align:left;
+  justify-content: space-evenly;
 }
 
-.cardmax__photos-h2 span{
-  margin: 0 0.5rem;
-  margin-top: auto;
-  margin-bottom: auto;
+.cardmax__photos-titulo span{
+  flex: 1 0 auto;
   font-family: inter-r;
-  font-size: 1.375rem;
+  font-size: 2rem;
   font-weight: normal;
+  text-align: center;
 }
 
-.cardmax__photos-h2 span:first-child{
+.cardmax__photos-titulo span:first-child{
   font-family: inter-b;
-  font-size: 1.75rem;
+  font-size: 2.2rem;
+}
+
+.cardmax__photos-titulo span:nth-child(2) {
+  border-left: var(--grisT) 1px solid;
+  
+}
+
+.cardmax__photos-titulo span:nth-child(3) {
+  display:none;
 }
 
 .cardmax__photo{
-  height: 63.5%;
+  max-height: var(--photo);
+  flex: 1 1 auto;
 }
 
 .cardmax__photo img{
   width: 100%;
-  height: 100%;
+  height: var(--photo);
   object-fit:cover;
 }
 
 .cardmax__gallery{
-  height: 17.5%;
-  padding: 2px;
+  flex: 1 1 auto;
   display: flex;
+  border-radius: 5px;
   background-color: var(--grisTo);
 }
 
 .cardmax__miniphoto{
-  padding: 1px;
-  flex: 1 1 15%;
-  border-radius: 7px;
-  border: var(--nar) 1px solid;
-  background-color: white;
+  max-height: var(--miniPhoto) ;
+  padding: 2px;
+  flex: 1 1 16.6%;
+  border-radius: 5px;
+  border: var(--grisTo) 2px solid;
+  transition: all 0.25s;
+}
+
+.cardmax__miniphoto:hover{
+  padding: 0;
+  border: var(--nar) 2px solid;
+}
+
+.cardmax__miniphoto:hover .cardmax__minimg{
+  height: calc(var(--miniPhoto) - 4px);
 }
 
 .cardmax__minimg{
   width: 100%;
-  height: 100%;
+  height:calc(var(--miniPhoto) - 8px);
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 4px;
+  transition: all 0.25s;
 }
 
-/* data se divide en precio y spec */
-
-.cardmax__data{
-  flex: 0 1 39%;
-  text-align: center;
-  border: var(--nar) 2px solid;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-}
-
-.cardmax__precio{
-  margin: 0.5em 0 1em 0;
-  font-family:rubik-r;
-  font-size: 40px;
-  text-align: center;
-}
-
-.cardmax__spec{
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cardmax__prop{
-  padding-bottom: 5px;
-  font-family: nunito-r;
-  font-size: 1.25rem;
-  text-align-last: justify;
-  color: var(--grisT);
-  border-bottom: var(--grisT) 1px solid;
-}
-
-.cardmax__value{
-  color:var(--negT);
-}
-
-/* bottom se divide en observaciones y compra */
-
-.cardmax__bottom{
-  display: flex;
-  justify-content: space-between;
-}
+/* Observaciones (obs) */
 
 .cardmax__obs{
   padding: 1em;
-  flex: 0 0 60%;
+  flex: 1 1 auto;
+  font-size: 1.6rem;
   border: var(--nar) 2px solid;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cardmax__obs-titulo{
+  margin: 0;
+  font-family: nunito-r;
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: var(--negT);
 }
 
 .cardmax__obs p{
@@ -135,36 +143,71 @@
   margin-left: auto;
   margin-right: auto;
   font-family: nunito-r;
-  font-size: 0.75rem;
+  font-size: 1.6rem;
   font-weight: normal;
   text-align: justify;
   color: var(--grisT);
 }
 
-.cardmax__compra{
-  padding: 2em 0;
-  flex: 0 0 39%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: var(--nar) 2px solid;
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+/* Rigth se divide en data y compra */
+
+.cardmax__data{
+  text-align: center;
 }
 
+/* data se divide en precio y spec */
+
+.cardmax__precio{
+  margin: 0.5em 0 1em 0;
+  font-family:rubik-r;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.cardmax__spec{
+  padding: 0 3rem;
+}
+
+.cardmax__prop{
+  padding-bottom: 5px;
+  font-family: nunito-r;
+  font-size: 1.6rem;
+  text-align-last: justify;
+  color: var(--grisT);
+  border-bottom: var(--grisT) 1px solid;
+}
+
+.cardmax__key{
+  text-transform: capitalize;
+}
+
+.cardmax__value{
+  color:var(--negT);
+}
+
+/* Compra */
+
+.cardmax__compra{
+  padding: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Compra se divide en dos botones btnNar */
+
 .btnNar{
-  width: 55%;
-  margin:0.3em 0;
-  padding: 0.7em 0;
+  margin:0.3em;
+  padding: 0.8rem 0.5em;
   font-family: nunito-b;
-  font-size: 1.375rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
-  border-radius: 10px;
-  border: var(--narObc) 1px solid;
   color: white;
+  border-radius: 0.5rem;
+  border: var(--narObc) 1px solid;
   background-color: var(--narClc);
-  transition: all 0.25s;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s;
 }
 
 .btnNar:hover{
@@ -182,10 +225,75 @@
   background-color: var(--narObp);
 }
 
-.cardmax__obs h2{
-  margin: 0;
-  font-family: nunito-r;
-  font-size: 1.125rem;
-  font-weight: normal;
-  color: var(--negT);
+
+/* ---------------------------------------------------------------------------- */
+/* ----------------------------- Media querys --------------------------------- */
+/* ---------------------------------------------------------------------------- */
+
+/* -------------------------------- 480 --------------------------------------- */
+
+@media screen and (min-width:480px) {
+
+  .cardmax__photos-titulo span:nth-child(3) {
+    display:inline;
+  }
+
+  .cardmax__photos-titulo span:nth-child(2) {
+    border-right: var(--grisT) 1px solid;
+  }
+  
+}
+
+/* -------------------------------- 688 -------------------------------------- */
+
+@media screen and (min-width:688px) {
+
+  :root{
+    --miniPhoto:8vw;
+    --photo:32vw
+  }
+
+  .cardmax{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cardmax__left{
+    margin-right: 0.5rem;
+    flex: 0 0 60%;
+  }
+  
+  .cardmax__rigth{
+    margin-top: 0;
+    flex: 1 0 auto;
+  }
+
+}
+
+/* -------------------------------- 960 -------------------------------------- */
+
+@media screen and (min-width:960px) {
+  
+}
+
+/* -------------------------------- 1024 -------------------------------------- */
+
+@media screen and (min-width:1024px) {
+
+  .cardmax{
+    width: 80vw;
+  }
+
+  .cardmax__left{
+    margin-right: 0.5rem;
+    flex: 0 0 60%;
+  }
+  
+  .cardmax__rigth{
+    margin-top: 0;
+    flex: 1 0 auto;
+  }
+
+  
 }

@@ -1,0 +1,133 @@
+input:-webkit-autofill
+/* input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active */{ 
+  transition-property: background-color color;
+  transition: 60000s;
+}
+
+.registro{
+  max-width: 500px;
+  margin: 0px auto 30px;
+  padding: 2.4rem 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: inter-r;
+  font-weight: normal;
+  /* border-radius: 0.5rem; */
+  box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.20);
+  background-image: 
+        linear-gradient(180deg, #ff9900 0%, rgba(0, 0, 0, 0.7) 88%, rgba(51, 51, 51, 0) 100%),
+        url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+  background-position: center;
+  background-size: cover;
+  /* background-color: rgba(255, 153, 0, .9);  */
+  /* background-blend-mode: multiply; */
+  /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,153,0,1) 100%); */
+}
+
+.registro--login{
+  max-width: 300px;
+  padding: 2rem;
+}
+
+.personales{
+  margin-bottom: 1.6rem;
+  padding: 0rem 1.6rem;
+  flex: 0 0 100%;
+  font-size: 1.6rem;
+  border: none;
+}
+.personales__legend{
+  font-size: 2rem;
+}
+
+.personales--login{
+  padding: 0
+}
+
+.personales__p{
+  margin: 2.1rem 0; 
+  color: white;
+}
+
+.personales__lbl{
+  font-size: 1.4rem;
+}
+
+.personales__ipt{
+  width: 100%;
+  margin-top: 0.8rem;
+  font-size: 1.4rem;
+  border: none;
+  border-bottom: var(--grisP) 1px solid;
+  background-color: transparent;
+  color: white;
+  
+}
+
+.personales__ipt::placeholder{
+  color: var(--grisP);
+}
+
+.personales__ipt:focus{
+  outline: none;
+  border-bottom:white 1px solid;
+}
+
+.usuario{
+  flex: 0 0 100%;
+  margin-bottom: 1.6rem;
+  padding: 0rem 1.6rem;
+  border: none;
+}
+
+.usuario__legend{
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.registro__btn{
+  margin-top: 6.4rem;
+  padding-top:1.6rem ;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.registro__btnEnviar,.registro__btnBorrar{
+  padding: 0.48rem 1.6rem;
+  margin: 0 0.8rem; 
+}
+
+.registrado{
+  margin-top: 3.2rem;
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: center;
+}
+.registrado__login{
+  text-decoration: none;
+  color: var(--grisP);
+}
+.registrado__login:hover{
+  color: white;
+}
+/* ---------------------------- 1024 -------------------------------- */
+
+@media screen and (min-width: 1024px) {
+
+  .registro{
+    max-width: 900px;
+  }
+
+  .personales{
+    flex: 0 0 48%;
+  }
+
+  .usuario{
+    flex: 0 0 48%;
+  }
+
+}

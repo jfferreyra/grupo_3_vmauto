@@ -1,0 +1,31 @@
+<article class="cardwide">
+  <div class="cardwide__photo">
+    <img src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-1.webp" alt="" srcset="">
+  </div>
+  <div class="cardwide__data">
+    <div class="cardwide__top">
+      <p class="cardwide__marca"><span><%=auto.marca%></span><span><%=auto.anio%></span></p>
+      <p class="cardwide__precio"><%=auto.moneda%> <%=Intl.NumberFormat('de-DE').format(auto.precio)%></p>
+    </div>
+    <div class="cardwide__spec">
+      <div class="cardwide__tec">
+        <p class="cardwide__prop">Tipo: <span class="cardwide__value"><%=auto.categoria%></span></p>
+        <p class="cardwide__prop">Año: <span class="cardwide__value"><%=auto.anio%></span></p>
+        <p class="cardwide__prop">Km: <span class="cardwide__value"><%=auto.km%></span></p>
+        <p class="cardwide__prop">Combustible: <span class="cardwide__value"><%=auto.combustible%></span></p>
+      </div>
+      <div class="cardwide__tec">
+        <p class="cardwide__prop">Color: <span class="cardwide__value"><%=auto.color%></span></p>
+        <p class="cardwide__prop">Airbags: <span class="cardwide__value"><%=auto.airbags%></span></p>
+        <p class="cardwide__prop">Transmisión: <span class="cardwide__value"><%=auto.transmision%></span></p>
+        <p class="cardwide__prop">Puertas: <span class="cardwide__value"><%=auto.puertas%></span></p>
+      </div>
+      </div>
+      <div class="cardwide__btns">
+      <% if (op==1) { %>
+        <a href="/adminProducts/addProduct/<%=auto.id%>" class="cardwide__btn cardwide__btn-editar cardwide__btn--claro">Editar</a>
+      <% } %>
+      <a href="/adminProducts/addProduct/<%=auto.id%>" class="cardwide__btn">Eliminar</a>
+    </div>
+  </div>
+</article>

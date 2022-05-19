@@ -1,74 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="/assets/svg/logo/logo.svg"> 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/assets.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/formRegistro.css">
-    <link rel="stylesheet" href="css/formLogin.css">
-    
-    <title>Prueba</title>
-  </head>
+  <%-include("partials/head.ejs",{'css':['cardItem','adminProducts']})%>
 <body>
-  <%- include("templates/header",{op:0}) %> <!-- con op:1 incluye fondo auto y nav de categorias -->
+  <%- include("partials/header",{op:0}) %> <!-- con op:1 incluye fondo auto y nav de categorias -->
   <main class="main">
-    <!-- aca va el codigo a probar que luego irá en la carpeta templates ejemplo cardwide -->
-    <!-- <div class="form">
-      <form class="" action="" method="post">
-        <div class="container">
-          <div class="nombre individual">
-            <label for="nombre">Nombre:</label>
-            <input type="text" placeholder="Juan Manuel..." name="nombre" id="nombre">
-          </div>
-          <div class="apellido individual">
-            <label for="apellido">Apellido:</label>
-            <input type="text" placeholder="Fangio..." name="apellido" id="apellido">
-          </div>
-          <div class="email individual">
-            <label for="email">Email:</label>
-            <input type="email" placeholder="fangio32@gmail.com..." name="email" id="email">
-          </div>
-          <div class="password individual">
-            <label for="password">Contraseña:</label>
-            <input type="password" placeholder="**********" name="password" id="password">
-          </div>
-          <div class="boton">
-            <button type="submit" class="boton__registro">Crea tu cuenta</button>
-          </div>
-        </div>
-        <div class="individual container signin">
-          <p>Ya estas registrado? </p>
-          <a href="#">Ingresa</a>
-        </div>
-      </form>
-    </div>   -->
-    <form class="login" action="/" method="post">
-      <fieldset class="login__data">
-        <legend class="login__legend">Login</legend>
-        <p class="login__p">
-          <label for="username" class="login__lbl">Nombre de usuario *</label><br>
-          <input required type="text" name="username" id="username"  class="login__ipt" placeholder="Elegí tu nombre de usuario" minlength="4">
-        </p>
-        <p class="login__p">
-          <label for="password" class="login__lbl">Contraseña *</label><br>
-          <input required type="password" name="password" id="password"  class="login__ipt" placeholder="Elegí tu contraseña" minlength="6">
-        </p>
-      </fieldset>
-      <div class="login__container-btn">
-        <button type="submit" class="btnNar login__btn">Ingresar</button>
-      </div>
-      <div class="login__container-olvido">
-        <p class="login__p"><a href="/" class="login__olvido">¿Olvidaste tu usuario o contraseña?</a></p>
-        <p class="login__p"><a href="/registro" class="login__registrarse">Registrate</a></p>
-      </div>
-    </form>
-    <!-- aca termina. No olvidar poner el link en head del estilo css para este codigo y no sacar el del header, footer y assets -->
+    <!-- aca va el codigo a probar -->
+    <section class="adminproducts">
+      <%- include('partials/cardItem',{'auto':{
+        "id":2,
+        "marca":"Mercedes-Benz",
+        "modelo":"Clase-A",
+        "condicion":"usado",
+        "anio":2021,
+        "km":10700,
+        "motor":"1.3",
+        "combustible":"nafta",
+        "transmision":"automática",
+        "color":"blanco",
+        "puertas":5,
+        "airbags":7,
+        "categoria":"hatchback",
+        "precio":11100000,
+        "moneda":"$"
+      }}) %>
+    </section>
+    <!-- aca termina. No olvidar poner los css en el array del include head -->
   </main>
-<%- include("templates/footer") %>
+<%- include("partials/footer") %>
 </body>
 </html>

@@ -1,0 +1,11 @@
+Marca	Porsche
+Modelo	Cayman
+Año	2007
+Tipo de combustible	Nafta
+Puertas	2
+Transmisión	Manual
+Motor	3.4
+Tipo de carrocería	Coupé
+Kilómetros	98000 km
+
+precio 78.000 u$s

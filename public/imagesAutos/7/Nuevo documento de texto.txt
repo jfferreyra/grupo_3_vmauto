@@ -1,0 +1,11 @@
+Marca	BMW
+Modelo	X6
+Año	2011
+Tipo de combustible	Nafta
+Puertas	5
+Transmisión	Automática
+Motor	3.0
+Tipo de carrocería	SUV
+Kilómetros	102500 km
+
+37.000 u$s

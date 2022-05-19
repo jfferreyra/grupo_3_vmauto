@@ -1,0 +1,11 @@
+Marca	Citroën
+Modelo	DS3
+Año	2012
+Color	Blanco
+Tipo de combustible	Nafta
+Puertas	3
+Transmisión	Manual
+Motor	1.6
+Tipo de carrocería	Hatchback
+Kilómetros	80000 km
+precio 2490000

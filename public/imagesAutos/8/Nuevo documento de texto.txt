@@ -1,0 +1,12 @@
+Marca	Toyota
+Modelo	Yaris
+Año	2020
+Color	Rojo
+Tipo de combustible	Nafta
+Puertas	4
+Transmisión	Automática
+Motor	1.5
+Tipo de carrocería	Sedán
+Kilómetros	17000 km
+
+precio 4.489.000

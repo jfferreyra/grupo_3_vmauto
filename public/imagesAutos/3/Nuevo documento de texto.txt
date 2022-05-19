@@ -1,0 +1,10 @@
+Marca	Volkswagen
+Modelo	Amarok
+Año	2013
+Tipo de combustible	Diésel
+Puertas	4
+Transmisión	Manual
+Motor	2.0
+Tipo de carrocería	Pick-Up
+Kilómetros	211000 km
+precio 4.000.000

@@ -16,6 +16,7 @@
 .ofertas{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   
 }
 .ofertas__titulo{
@@ -29,9 +30,32 @@
   padding-right: 10px;
 }
 .card{
-  flex: 0 0 23%;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin: 20px 1% 20px 1%;
+  flex: 0 0 90%;
+  /* margin-bottom: 20px;
+  margin-right: 20px; */
+  margin: 20px 0 20px 0;
 }
 
+@media screen and (min-width:480px) {
+  
+  .card{
+    flex: 0 0 45%;
+  }
+
+}
+
+@media screen and (min-width:768px) {
+  
+  .card{
+    flex: 0 0 30%;
+  }
+
+}
+
+@media screen and (min-width:960px) {
+  
+  .card{
+    flex: 0 0 23%;
+  }
+
+}

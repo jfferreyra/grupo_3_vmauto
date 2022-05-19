@@ -1,38 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="/assets/svg/logo/logo.svg"> 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/assets.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/card.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>VendoMiAuto</title>
-  </head>
+  <%-include("partials/head.ejs",{'css':['card','index']})%>
 <body>
-  <%- include("templates/header",{op:1}) %>
+  <%- include("partials/header",{op:1}) %>
   <div class="banner"><img class="banner__img" src="/assets/img/jpg/banner.jpg" alt="banner" srcset=""></div>
   <main class="main">
     <h1 class="ofertas__titulo"><span>Ofertas</span>12</h1>
     <section class="ofertas">
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/2.jpg"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/3.jpg"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/4.jpg"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/5.jpg"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/6.jpg"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/7.webp"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/1.jpg"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/8.webp"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/9.webp"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/10.webp"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/11.webp"}) %>
-      <%- include("templates/card",{imgcar:"/assets/img/jpg/12.webp"}) %>
+
+      <%ofertas.forEach(auto=>{%>
+        <%-include("partials/card",{'auto':auto})%>
+      <%});%>
+      
     </section>
   </main>
-  <%- include("templates/footer") %>
+  <%- include("partials/footer") %>
 </body>
 </html>

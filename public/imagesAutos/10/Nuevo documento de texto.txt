@@ -1,0 +1,11 @@
+Marca	Toyota
+Modelo	Hiace
+Año	2021
+Tipo de combustible	Diésel
+Puertas	4
+Transmisión	Automática
+Motor	2.8
+Tipo de carrocería	Minivan
+Kilómetros	1850 km
+
+55.500 u$s
