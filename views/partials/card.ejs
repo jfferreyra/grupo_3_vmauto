@@ -1,6 +1,6 @@
 <article class="card">
   <figure class="card__car">
-    <img class="card__imgcar" src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-1.webp" alt="" srcset="">
+    <img class="card__imgcar" src="/products/carsImages/<%=auto.id%>-img1.webp" alt="" srcset="">
     <figcaption class="card__titulo"><span><%=auto.marca%></span><span><%=auto.anio%></span><span><%=Intl.NumberFormat('de-DE').format(auto.km)%> kms</span></figcaption>
   </figure>
   <div class="card__datacar">
@@ -10,5 +10,5 @@
     <p>Puertas: <%=auto.puertas%></p>
   </div>
   <p class="card__precio"><%=auto.moneda%> <%=Intl.NumberFormat('de-DE').format(auto.precio)%></p>
-  <a href="/product/<%=auto.id%> " class="card__link"></a>
+  <a href="/products/detail/<%=auto.id%> " class="card__link"></a>
 </article>

@@ -1,45 +1,76 @@
 <div class="cardmax">
+  <!-- Parte Izquierda -->
   <div class="cardmax__left">
+    <!-- Foto principal y galeria -->
     <div class="cardmax__photos">
-      <h1 class="cardmax__photos-titulo"><span><%=auto.marca%></span><span><%=auto.modelo%></span><span><%=auto.anio%></span></h1>
+      <h1 class="cardmax__photos-titulo"><span><%=product.marca%></span><span><%=product.modelo%></span><span><%=product.anio%></span></h1>
+      <!-- Imagen Principal grande -->
       <div class="cardmax__photo">
-        <img  src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-1.webp" alt="" srcset="">
+        <img id="img1" src="/products/carsImages/<%=product.images[0]%>" onerror="this.style.visibility='hidden'" alt="">
       </div>
+      <!-- Mini fotos de galeria -->
       <div class="cardmax__gallery">
-        <div class="cardmax__miniphoto"><img src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-2.webp" alt="" class="cardmax__minimg"></div>
-        <div class="cardmax__miniphoto"><img src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-3.webp" alt="" class="cardmax__minimg"></div>
-        <div class="cardmax__miniphoto"><img src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-4.webp" alt="" class="cardmax__minimg"></div>
-        <div class="cardmax__miniphoto"><img src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-5.webp" alt="" class="cardmax__minimg"></div>
-        <div class="cardmax__miniphoto"><img src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-6.webp" alt="" class="cardmax__minimg"></div>
-        <div class="cardmax__miniphoto"><img src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-7.webp" alt="" class="cardmax__minimg"></div>
-      </div>
-    </div>
-    <div class="cardmax__obs">
-      <h2 class="cardmax__obs-titulo">Observaciones:</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id aliquam massa nibh sit eget morbi
-         id urna. Vitae nisl ultrices solo para machos nunc accumsan donec. In natoque aliquam porttitor urna risus sagittis in
-          lectus. Sagittis suspendisse eget odio aenean sed. Viverra commodo id vulputate nunc. Commodo nunc,
-          velit, auctor venenatis, hendrerit dapibus erat. Gravida et molestie lacus vel lobortis sagittis
-          magna hac. Aliquam suscipit dapibus ac egestas sagittis. Nisi, nisl felis ullamcorper enim, arcu
-          habitant donec dolor.
-      </p>
-    </div>
-  </div>
-  <div class="cardmax__rigth">
-    <div class="cardmax__data">
-      <div class="cardmax__precio">
-        <span><%=Intl.NumberFormat('de-DE').format(auto.precio)%> <%=auto.moneda%></span>
-      </div>
-      <div class="cardmax__spec">
-        <% Object.entries(auto).slice(1,).forEach(([key, value]) => { %> 
-          <p class="cardmax__prop"><span class="cardmax__key"><%=key%>:</span> <span class="cardmax__value"><%=value%></span></p>
+        <%product.images.slice(1,).forEach((image,i)=>{%>
+          <%if(image==='placeholder.svg'){%>
+            <div class="cardmax__miniphotoEmpty">
+          <%}else{%>
+            <div class="cardmax__miniphoto" onclick="showMax('<%=i+2;%>');">
+          <%}%>
+          <img id="img<%=i+2;%>" src="/products/carsImages/<%=image;%>" onerror="this.style.visibility='hidden'" class="cardmax__minimg" alt="">
+        </div>
         <%});%>
       </div>
     </div>
+    <!-- Observaciones -->
+    <div class="cardmax__obs">
+      <h2 class="cardmax__obs-titulo">Observaciones:</h2>
+      <p>
+        <%=product.observaciones%>
+      </p>
+    </div>
+  </div>
+  <!-- Parte Derecha -->
+  <div class="cardmax__rigth">
+    <!-- Especificaciones Datos -->
+    <div class="cardmax__data">
+      <!-- Precio. -->
+      <div class="cardmax__precio">
+        <span><%=Intl.NumberFormat('de-DE').format(product.precio)%> <%=product.moneda%></span>
+      </div>
+      <!-- Lista de detalles Especificaciones. -->
+      <div class="cardmax__spec">
+          <p class="cardmax__prop"><span class="cardmax__key">Marca:</span> <span class="cardmax__value"><%=product.marca%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Modelo:</span> <span class="cardmax__value"><%=product.modelo%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Condición:</span> <span class="cardmax__value"><%=product.condicion%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Año:</span> <span class="cardmax__value"><%=product.anio%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Kms:</span> <span class="cardmax__value"><%=new Intl.NumberFormat('de-DE').format(product.km)%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Motor:</span> <span class="cardmax__value"><%=product.motor%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Combustible:</span> <span class="cardmax__value"><%=product.combustible%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Transmisión:</span> <span class="cardmax__value"><%=product.transmision%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Color:</span> <span class="cardmax__value"><%=product.color%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Puertas:</span> <span class="cardmax__value"><%=product.puertas%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Airbags:</span> <span class="cardmax__value"><%=product.airbags%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Categoría:</span> <span class="cardmax__value"><%=product.categoria%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Precio:</span> <span class="cardmax__value"><%=new Intl.NumberFormat('de-DE').format(product.precio)%></span></p>
+          <p class="cardmax__prop"><span class="cardmax__key">Moneda:</span> <span class="cardmax__value"><%=product.moneda%></span></p>
+      </div>
+    </div>
+    <!-- Botones editar resetear -->
     <div class="cardmax__compra">
         <button class="btnNar">Comprar</button>
         <button class="btnNar btnNar--claro">Preguntar</button>
     </div>
   </div>
 </div>
+
+<!-- Scripts de javascript -->
+<script>
+  // Función showMax cuando se hace click en una minifoto ésta se intercambia con la principal
+  var showMax= function(img) {
+    let imgBig = document.getElementById('img1');
+    let imgSmall = document.getElementById('img'+img);
+    imgBig.style.visibility='visible';
+    imgSmall.style.visibility='visible';
+    [imgBig.src,imgSmall.src] = [imgSmall.src,imgBig.src];
+  };
+</script>

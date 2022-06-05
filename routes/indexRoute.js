@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const indexController=require('../controllers/indexController')
+//Importación de Controlador Index
+  const indexController=require('../controllers/indexController')
 
-router.get('/', indexController.index);
-router.post('/', indexController.index);
+//Index e Index post de recepcion de login y register temporario solo demostracion.
+  router.get('/', indexController.index);
+  router.post('/', indexController.index);
 
 module.exports = router;

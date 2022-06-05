@@ -275,6 +275,7 @@
 }
 
 .cardmax__value{
+  width: 50%;
   padding: 0.5em;
   color: var(--grisT);
   border: var(--nar) 1px solid;

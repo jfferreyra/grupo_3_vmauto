@@ -1,7 +1,8 @@
-const ofertas= require('../bd/autos/ofertas.json'); 
+const ofertas= require('../models/data/products/ofertas.json'); 
 
 const indexController={
-  'index': function(req, res) {
+  //Muestra index con las ofertas del día.
+  index: function(req, res) {
     res.render('index', {'ofertas':ofertas});
   },
 }

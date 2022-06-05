@@ -94,7 +94,7 @@
   background-color: var(--grisTo);
 }
 
-.cardmax__miniphoto{
+.cardmax__miniphoto, .cardmax__miniphotoEmpty{
   max-height: var(--miniPhoto) ;
   padding: 2px;
   flex: 1 1 16.6%;
@@ -282,7 +282,7 @@
 @media screen and (min-width:1024px) {
 
   .cardmax{
-    width: 80vw;
+    width: 90%;
   }
 
   .cardmax__left{

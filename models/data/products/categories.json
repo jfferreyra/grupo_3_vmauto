@@ -1,0 +1,9 @@
+[
+  {
+    "category":["hatchback","sedan","deportivo","suv","van-rural","pickup","utilitario"],
+    "condition":["nuevo","usado"],
+    "fuel":["nafta","gnc","diesel","eléctrico","híbrido"],
+    "transmission":["manual","automática"],
+    "currency":["$","u$s"]
+  }
+]

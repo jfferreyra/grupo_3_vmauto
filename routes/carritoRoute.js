@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const  carritoController=require('../controllers/carritoController')
+//Importación de Controlador Carrito
+  const  carritoController=require('../controllers/carritoController')
 
-router.get('/:id', carritoController.carrito);
+//Administración de Carrito
+  router.get('/:id', carritoController.carrito);
 
 module.exports = router;

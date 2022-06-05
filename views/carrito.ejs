@@ -9,7 +9,7 @@
     <section class="carrito">
       <h2>Carrito (<%=carrito.length%>)</h2>
         <% let suma=0;carrito.forEach(auto => {(auto.moneda==="$")?factor=200:factor=1;suma+=auto.precio/factor;%>
-            <%- include("partials/cardWide",{"auto":auto,"op":0}) %>
+            <%- include("partials/cardWide",{"product":auto,"op":0}) %>
         <%});%>  
       <div class="carrito__bottom">
         <div class="carrito__total">

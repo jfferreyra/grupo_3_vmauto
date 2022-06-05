@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const searchController=require('../controllers/searchController');
+//Importación de Controlador de Buscador
+  const searchController=require('../controllers/searchController');
 
-router.get('/', searchController.search);
-router.post('/', searchController.search);
+//Muestra Buscador recibe por post resultado de consulta temporario y simulado.
+  router.get('/', searchController.search);
+  router.post('/', searchController.search);
 
 module.exports = router;
