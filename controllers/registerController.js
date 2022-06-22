@@ -35,7 +35,7 @@ const registerController={
 
     // chekea que no haya 2 usuarios con el mismo mail
     //let userInDB = registerController.findByField('email', req.body.email)
-  
+    // con leo
     // if(userInDB){
 
     // }
