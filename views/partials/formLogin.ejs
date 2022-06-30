@@ -1,13 +1,19 @@
-<form class="login" action="/" method="post">
+<form class="login" action="/user/login" method="post">
 	<fieldset class="login__data">
 		<legend class="login__legend">Login</legend>
 		<p class="login__p">
-			<label for="username" class="login__lbl">Nombre de usuario *</label><br>
-			<input required type="text" name="username" id="username"  class="login__ipt" placeholder="Usuario" minlength="4">
+			<label for="email" class="login__lbl">Email de usuario *</label><br>
+			<% if(locals.errors['email']?.msg){%><p class="login__hint"><%=locals.errors['email'].msg%></p><%}%>
+			<input type="email" name="email" id="email"  class="login__ipt" value="<%=locals.old?.email??""%>">
 		</p>
 		<p class="login__p">
-			<label for="password" class="login__lbl">Contraseña *</label><br>
-			<input required type="password" name="password" id="password"  class="login__ipt" placeholder="Contraseña" minlength="6">
+			<label for="pass" class="login__lbl">Contraseña *</label><br>
+			<% if(locals.errors['pass']?.msg){%><p class="login__hint"><%=locals.errors['pass'].msg%></p><%}%>
+			<input type="password" name="pass" id="pass"  class="login__ipt">
+		</p>
+		<p class="login__p login__p--check">
+			<input type="checkbox" name="rememberUser" id="rememberUser"  class="" placeholder="Contraseña" minlength="6">
+			<label for="rememberUser" class="login__lbl">Recordarme</label>
 		</p>
 	</fieldset>
 	<div class="login__container-btn">
@@ -15,6 +21,6 @@
 	</div>
 	<div class="login__container-olvido">
 		<p class="login__p"><a href="/" class="login__olvido">¿Olvidaste tu usuario o contraseña?</a></p>
-		<p class="login__p"><a href="/register" class="login__registrarse">Registrate</a></p>
+		<p class="login__p"><a href="/user/register" class="login__registrarse">Registrate</a></p>
 	</div>
 </form>

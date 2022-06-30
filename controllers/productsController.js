@@ -21,7 +21,7 @@
   const productsController={
     //Muestra panel de administración de productos consulta solo para el administrador. 
     main:function(req, res) {
-      res.render('products/products', {'tlistProducs':productsQuery});
+      res.render('products/products', {'listProducts':productsQuery});
     },
     //Muestra detalle de producto hecha por el administrador o el usuario.
     detail: function(req, res) {

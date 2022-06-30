@@ -2,14 +2,23 @@
   const path=require('path');
   const express=require('express');
   const app=express();
+  const session=require('express-session');
   const methodOverride=require('method-override');
-
+  const userMware=require('./middlewares/user/userMware');
+  const cookies=require('cookie-parser');
   
 
 //Post por formulario.
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
   app.use(methodOverride('_method'));
+  app.use(session({
+    secret:'topsecret2040',
+    resave:false,
+    saveUninitialized: false,
+  }));
+  app.use(cookies()) //Middleware de aplicacion para mantener usuario luego de cerrar explorador.
+  app.use(userMware.logued); //Middleware de aplicacion usuario logueado en sesion.
 
 //Declaracion de variables
 
@@ -30,16 +39,15 @@
   const searchRoute=require('./routes/searchRoute');
   const productsRoute=require('./routes/productsRoute');  
   const carritoRoute=require('./routes/carritoRoute');
-  const registerRoute=require('./routes/registerRoute');
+  const userRoute=require('./routes/userRoute');
   const loginRoute=require('./routes/loginRoute');
   
 //Ruteadores
   app.use('/',indexRoute);
+  app.use('/user',userRoute);         //rutas: /user/
   app.use('/search',searchRoute);     //rutas: /search/
   app.use('/products',productsRoute); //rutas: /products/ ,detail/id ,edit/id ,create/
   app.use('/carrito',carritoRoute);   //rutas: /carrito/idcarrito (1-4)
-  app.use('/register',registerRoute); //rutas: /register/
-  app.use('/login',loginRoute);       //rutas: /login/
 
 // Carga del servidor en puerto 5000
   app.listen(app.get('port'),()=>console.log('Server Ok in port',app.get('port')));

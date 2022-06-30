@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 //Importación Controlador Login
-  const registerController = require('../controllers/registerController');
-
-  //const loginController=require('../controllers/registerController')
+  const loginController=require('../controllers/loginController')
 
 //Muestra Formulario de Login
-  router.get('/', registerController.login);
+  router.get('/', loginController.login);
 
 module.exports = router;

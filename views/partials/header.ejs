@@ -12,9 +12,21 @@
                 <span class="nav__text">Inicio</span><div class="nav__icfondo"><i class="ficon-home"></i></div>
               </a>
             </li>
+          <% if (!locals.userlog) { %>
             <li class="nav__item">
-              <a href="/login" class="nav__link">
+              <a href="/user/register" class="nav__link">
+                <span class="nav__text">Registrate</span><div class="nav__icfondo"><i class="ficon-register"></i></div>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="/user/login" class="nav__link">
                 <span class="nav__text">Ingresá</span><div class="nav__icfondo"><i class="ficon-login"></i></div>
+              </a>
+            </li>
+          <% } else { %>
+            <li class="nav__item"></li>
+              <a href="/user/profile/<%=locals.userlog.id%> " class="nav__link">
+                <span class="nav__text">Mi Perfil</span><div class="nav__icUser"><img src="/users/images/<%=locals.userlog.image%> " alt=""></div>
               </a>
             </li>
             <li class="nav__item">
@@ -22,15 +34,16 @@
                 <span class="nav__text">Carrito</span><div class="nav__icfondo"><i class="ficon-cart"></i></div>
               </a>
             </li>
-            <li class="nav__item">
-              <a href="/register" class="nav__link">
-                <span class="nav__text">Registrate</span><div class="nav__icfondo"><i class="ficon-register"></i></div>
+            <li class="nav__item"></li>
+              <a href="/user/logout" class="nav__link">
+                <span class="nav__text">Salir</span><div class="nav__icfondo"><i class="ficon-login"></i></div>
               </a>
             </li>
+          <% } %>
           </ul>
       </nav>
     </div>
-    <form class="searchBar" action="/search" method="post">
+    <form class="searchBar" action="/search" method="get">
         <input class="searchBar__ipt" type="searchBar" placeholder="Buscá tu auto">
         <button class="searchBar__btn" type="submit"><i class="ficon-lupa"></i></button>
     </form>
