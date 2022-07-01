@@ -84,7 +84,7 @@ const userController={
   profile:function(req,res){
     let user=userModel.findByField('id',+req.session.userlog.id);
     return res.render('users/profile',{user});
-  },
+  }
 }
 
 module.exports = userController;
