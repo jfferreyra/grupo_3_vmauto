@@ -82,7 +82,7 @@ const userController={
     return res.redirect('/user/admin');
   },
   profile:function(req,res){
-    let user=userModel.findByField('id',+req.params.id);
+    let user=userModel.findByField('id',+req.session.userlog.id);
     return res.render('users/profile',{user});
   },
 }
