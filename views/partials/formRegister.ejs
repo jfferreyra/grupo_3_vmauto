@@ -60,7 +60,7 @@
 			<button type="button" onclick="borrar()" class="personales__lbl-img-borra">BORRAR</button>
 			<label for="img" class="personales__lbl-img-cambia">CAMBIAR</label>
 			<input type="file" accept="image/*" name="img" id="img" onchange="loadImg(event)" style="display: none;">
-			<input type="text" name="oldImg" id="oldImg" onchange="loadImg(event)" style="display: none;" value="<%= locals.oldImg ?? null %>">
+			<input type="text" name="oldImg" id="oldImg" onchange="loadImg(event)" style="display: none;" value="<%= locals.oldImg ?? "userPlaceholder.png" %>">
 			<img id="personales__img" src="/users/images/<%=locals.oldImg??"userPlaceholder.png"%>" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" srcset="">
 		</div>
 		<div class="registro__btn">

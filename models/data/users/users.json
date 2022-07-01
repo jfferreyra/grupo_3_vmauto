@@ -262,5 +262,19 @@
     "email": "willy@gmail.com",
     "pass": "$2a$10$rUlVNXoBRak4GAi9zdIeXOHgMw.KHTd9HzEL9TTOumUD8WPdvDng6",
     "image": "18-img.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Martin",
+    "surname": "Fangio",
+    "dni": "25336691",
+    "birth": "2022-06-15",
+    "state": "Córdoba",
+    "location": "Córdoba",
+    "address": "Colon 2236",
+    "phone": "+5493512639852",
+    "email": "martin@gmail.com",
+    "pass": "$2a$10$2Pc34choJGzoxCNusBCCouJ.LWW4vuDHko67Bu/6Jttai78mV8VQe",
+    "image": "userPlaceholder.png"
   }
 ]
