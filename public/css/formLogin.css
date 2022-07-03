@@ -32,11 +32,25 @@ input:-webkit-autofill:active */{
   font-size: 2rem;
 }
 .login__p{
-  margin: 2.4rem 0; 
+  margin: 1rem 0; 
   color: white;
+}
+.login__p--check{
+  margin-top: 3rem;
+  text-align: center;
 }
 .login__container-olvido .login__p{
   margin-bottom: 0.48rem;
+}
+.login__hint{
+  font-size:1.2rem;
+  padding:0.5rem;
+  /* color: rgb(250, 93, 93); */
+  color: white;
+  border-radius: 5px;
+  border: rgba(255, 94, 0, 0.50) solid 1px;
+  box-shadow: 0px 0px 3px 4px rgba(255, 167, 126, 0.856);
+  background-color: rgba(255,255,255,0.2);
 }
 
 .login__lbl{
@@ -45,13 +59,13 @@ input:-webkit-autofill:active */{
 
 .login__ipt{
   width: 100%;
+  padding:1rem 0;
   margin-top: 0.8rem;
   font-size: 1.4rem;
   border: none;
   border-bottom: var(--grisP) 1px solid;
   background-color: transparent;
   color: white;
-  
 }
 
 .login__ipt:focus{
@@ -63,7 +77,7 @@ input:-webkit-autofill:active */{
 }
 
 .login__container-btn{
-  margin-top: 4.8rem;
+  margin-top: 3rem;
 }
 
 .login__btn{

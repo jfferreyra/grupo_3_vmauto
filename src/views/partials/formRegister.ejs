@@ -1,0 +1,94 @@
+<form class="registro" action="/user/register" method="post" enctype="multipart/form-data">
+	<fieldset class="personales">
+		<legend class="personales__legend">Datos Personales</legend>
+		<p class="personales__p">
+			<label for="name" class="personales__lbl">Nombres *</label>
+			<% if(locals.errors['name']?.msg){%><span class="personales__hint"> <%=locals.errors['name'].msg%></span><%}%>
+		</p>
+		<input type="text" name="name" id="name" class="personales__ipt" value="<%=locals.old?.name??""%>">
+		<p class="personales__p">
+			<label for="surname" class="personales__lbl">Apellidos *</label>
+			<% if(locals.errors['surname']?.msg){%><span class="personales__hint"> <%=locals.errors['surname'].msg%></span><%}%>
+		</p>
+		<input type="text" name="surname" id="surname" class="personales__ipt" placeholder="Fangio" value="<%=locals.old?.surname??""%>">
+		<p class="personales__p">
+			<label for="dni" class="personales__lbl">DNI *</label>
+			<% if(locals.errors['dni']?.msg){%><span class="personales__hint"> <%=locals.errors['dni'].msg%></span><%}%>
+		</p>
+		<input type="text" name="dni" id="dni" class="personales__ipt" value="<%=locals.old?.dni??""%>">
+		<p class="personales__p">
+			<label for="birth" class="personales__lbl">Fecha de Nacimiento *</label>
+			<% if(locals.errors['birth']?.msg){%><span class="personales__hint"> <%=locals.errors['birth'].msg%></span><%}%>
+		</p>
+		<input type="text" name="birth" id="birth" class="personales__ipt" onblur="(this.type='text')" onfocus="(this.type='date')" value="<%=locals.old?.birth??""%>">
+		<p class="personales__p">
+			<label for="state" class="personales__lbl">Provincia *</label><br>
+		</p>
+		<input type="text" name="state" id="state" class="personales__ipt" placeholder="Córdoba">
+		<p class="personales__p">
+			<label for="location" class="personales__lbl">Localidad *</label><br>
+		</p>
+		<input type="text" name="location" id="location" class="personales__ipt" placeholder="Villa Carlos Paz">
+		<p class="personales__p">
+			<label for="address" class="personales__lbl">Domicilio *</label>
+			<% if(locals.errors['address']?.msg){%><span class="personales__hint"> <%=locals.errors['address'].msg%></span><%}%>
+		</p>
+		<input type="text" name="address" id="address" class="personales__ipt" placeholder="Calle y número" value="<%=locals.old?.address??""%>">
+		<p class="personales__p">
+			<label for="phone" class="personales__lbl">Telefono</label>
+			<% if(locals.errors['phone']?.msg){%><span class="personales__hint"> <%=locals.errors['phone'].msg%></span><%}%>
+		</p>
+		<input type="phone" name="phone" id="phone" class="personales__ipt" placeholder="+549351361518" value="<%=locals.old?.phone??""%>">
+	</fieldset>
+	<fieldset class="usuario">
+		<legend class="usuario__legend">Usuario</legend>
+		<p class="personales__p">
+			<label for="email" class="personales__lbl">email *</label>
+			<% if(locals.errors['email']?.msg){%><span class="personales__hint"> <%=locals.errors['email'].msg%></span><%}%>
+		</p>
+		<input type="email" name="email" id="email" class="personales__ipt" value="<%=locals.old?.email??""%>">
+		<p class="personales__p">
+			<label for="pass" class="personales__lbl">Elegí tu contraseña *</label>
+			<% if(locals.errors['pass']?.msg){%><span class="personales__hint"> <%=locals.errors['pass'].msg%></span><%}%>
+		</p>
+		<input type="password" name="pass" id="pass"  class="personales__ipt">
+		<p class="personales__p">
+			<label for="img" class="personales__lbl">Elegí tu foto *</label><br>
+			<% if(locals.errors['img']?.msg){%><p class="personales__hint"><%=locals.errors['img'].msg%></p><%}%>
+		</p>
+		<div class="personales__photo">
+			<button type="button" onclick="borrar()" class="personales__lbl-img-borra">BORRAR</button>
+			<label for="img" class="personales__lbl-img-cambia">CAMBIAR</label>
+			<input type="file" accept="image/*" name="img" id="img" onchange="loadImg(event)" style="display: none;">
+			<input type="text" name="oldImg" id="oldImg" onchange="loadImg(event)" style="display: none;" value="<%= locals.oldImg ?? "userPlaceholder.png" %>">
+			<img id="personales__img" src="/users/images/<%=locals.oldImg??"userPlaceholder.png"%>" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" srcset="">
+		</div>
+		<div class="registro__btn">
+			<button type="submit" class="registro__btnEnviar btnNar">Crea tu Cuenta</button>
+			<button type="reset" class="registro__btnBorrar btnNar btnNar--claro" onclick='borraspan()' >Borrar</button>
+		</div>
+		<div class="registrado">
+			<a href="/user/login" class="registrado__login">¿Ya estas registrado? Ingresá</a><br>
+		</div>
+	</fieldset>
+</form>
+
+<!-- Scripts de javascript -->
+<script>
+// Función loadImg cuando carga imagen nueva la sube a su div y marca el checker como "imgc"
+  var loadImg = function(event) {
+    var imageSec = document.getElementById('personales__img');
+    // var chk = document.getElementById('chk'+img);
+    imageSec.src = URL.createObjectURL(event.target.files[0]);
+    // chk.value="img"+img+"c";
+  };
+	// Función borrar. Borra foto del src del div, pone a null el value del input y marca checker como "del(numero de imagen)"
+  var borrar = function() {
+    var imageImg = document.getElementById('personales__img');
+    imageImg.src = "/users/images/userPlaceholder.png";
+    var inputImg = document.getElementById('img');
+    inputImg.value=null;
+    // var inputOldImg = document.getElementById('oldImg');
+    // inputOldImg.value=null;
+  };
+</script>
