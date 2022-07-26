@@ -80,9 +80,9 @@
 .cardwide__tec{
   flex: 0 0 100%;
 }
-.cardwide__prop{
-  /* text-align-last: justify; */
-}
+/* .cardwide__prop{
+  text-align-last: justify;
+} */
 
 .cardwide__value{
   float: right;
