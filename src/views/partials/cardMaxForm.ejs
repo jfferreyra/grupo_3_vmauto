@@ -1,20 +1,20 @@
-<form class="cardmax__form-producto-editor" action="/products/edit/<%=product.id%>?_method=PUT" method="post" enctype="multipart/form-data">
+<form class="cardmax__form-producto-editor" action="/products/edit/<%=car.id%>?_method=PUT" method="post" enctype="multipart/form-data">
   <div class="cardmax">
     <!-- Parte Izquierda -->
     <div class="cardmax__left">
       <!-- Foto principal y galeria -->
       <div class="cardmax__photos">
-        <h1 class="cardmax__photos-titulo"><span id="marcaTitle"><%=product.marca%></span><span id="modeloTitle"><%=product.modelo%></span><span id="anioTitle"><%=product.anio%></span></h1>
+        <h1 class="cardmax__photos-titulo"><span id="brandTitle"><%=car.brand?.name%></span><span id="modelTitle"><%=car.model%></span><span id="yearTitle"><%=car.year%></span></h1>
         <!-- Imagen Principal grande -->
         <div class="cardmax__photo">
           <button type="button" onclick="borrar(1)" class="cardmax__lbl-img-borra">BORRAR</button>
           <label for="img1" class="cardmax__lbl-img-cambia">CAMBIAR</label>
           <input type="file" accept="image/*" name="img1" id="img1" onchange="loadImg(event,1)" style="display: none;">
-          <img id="cardmax__img-1" src="/products/carsImages/<%=product.images[0]%>" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" srcset="">
+          <img id="cardmax__img-1" src="/products/carsImages/<%=JSON.parse(car.imgs)[0]%>" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" srcset="">
         </div>
         <!-- Mini fotos de galeria -->
         <div class="cardmax__gallery">
-          <% product.images.slice(1,).forEach((image,i)=>{%>
+          <% JSON.parse(car.imgs).slice(1,).forEach((image,i)=>{%>
             <div class="cardmax__miniphoto">
               <label for="img<%=i+2%>" class="cardmax__lbl-img-cambia cardmax__lbl-img-cambia--mini">CAMBIAR</label>
               <button type="button" onclick="borrar('<%=i+2%>')" class="cardmax__lbl-img-borra cardmax__lbl-img-borra--mini">BORRAR</button>
@@ -32,7 +32,7 @@
       <div class="cardmax__obs">
         <h2 class="cardmax__obs-titulo">Observaciones:</h2>
         <p>
-          <textarea name="observaciones" class="cardmax__txta" rows="15" cols="60" maxlength="770"><%=product.observaciones%></textarea>
+          <textarea name="observaciones" class="cardmax__txta" rows="15" cols="60" maxlength="770"><%=car.description%></textarea>
         </p>
       </div>
     </div>
@@ -40,94 +40,100 @@
     <div class="cardmax__rigth">
       <!-- Especificaciones Datos -->
       <div class="cardmax__data">
-        <!-- Precio. -->
+        <!-- Titulo Precio. -->
         <div class="cardmax__precio">
-          <span id="precioTitle"><%=Intl.NumberFormat('de-DE').format(product.precio)%></span> <span id="monedaTitle"><%=product.moneda%></span>
+          <span id="priceTitle"><%=Intl.NumberFormat('de-DE').format(car.price)%></span> <span id="currencyTitle"><%=car.currency?.symbol%></span>
         </div>
-        <!-- Lista de detalles Especificaciones. -->
+        <!-- Formulario de detalles Especificaciones. -->
         <div class="cardmax__spec">
             <p class="cardmax__prop">
-              <label for="marca" class="cardmax__key">Marca:</label>
-              <input type="text" value="<%=product.marca%>" class="cardmax__value" id="marca" onchange="changeTitle(this)" name="marca" required
-              minlength="3" maxlength="20">
+              <label for="brand" class="cardmax__key">Marca:</label>
+              <select name="brand" id="brand" class="cardmax__value" onchange="changeTitle(this)">
+                <%brands.forEach(brand=>{%> 
+                  <option value="<%=brand.id%>" <%=brand.id===car.brand?.id?"selected":""%> ><%=brand.name%></option>
+                <%})%>
+              </select>
             </p>
-            <p class="cardmax__prop">
-              <label for="modelo" class="cardmax__key">Modelo:</label>
-              <input type="text" value="<%=product.modelo%>" class="cardmax__value" id="modelo" onchange="changeTitle(this)" name="modelo" required
+            <div class="cardmax__prop">
+              <label for="model" class="cardmax__key">Modelo:</label>
+              <input type="text" value="<%=car.model%>" class="cardmax__value" id="model" onchange="changeTitle(this)" name="model" required
               minlength="3" maxlength="20">
-            </p>
+            </div>
             <p class="cardmax__prop">
-              <label for="condicion" class="cardmax__key">Condición:</label>
-              <select name="condicion" id="condition" class="cardmax__value">
-                <% categories[0].condition.forEach(cat=>{%> 
-                  <option value="<%=cat%>" <%=cat===product.condicion?"selected":""%> ><%=cat%></option>
+              <label for="condition" class="cardmax__key">Condición:</label>
+              <select name="condition" id="condition" class="cardmax__value">
+                <% conditions.forEach(condition=>{%> 
+                  <option value="<%=condition.id%>" <%=condition.id===car.condition?.id?"selected":""%> ><%=condition.name%></option>
                 <%})%>
               </select>
             </p>
             <p class="cardmax__prop">
-              <label for="anio" class="cardmax__key">Año:</label> 
-              <input type="number" value="<%=product.anio%>" class="cardmax__value" id="anio" onchange="changeTitle(this)" name="anio" required
+              <label for="year" class="cardmax__key">Año:</label> 
+              <input type="number" value="<%=car.year%>" class="cardmax__value" id="year" onchange="changeTitle(this)" name="year" required
               min="1900" max="2023">
             </p>
             <p class="cardmax__prop">
               <label for="km" class="cardmax__key">Km:</label>
-              <input type="text" value="<%=product.km%>" class="cardmax__value" id="km" name="km" required
+              <input type="text" value="<%=car.km%>" class="cardmax__value" id="km" name="km" required
               minlength="1" maxlength="20">
             </p>
             <p class="cardmax__prop">
-              <label for="motor" class="cardmax__key">Motor:</label>
-              <input type="text" value="<%=product.motor%>" class="cardmax__value" id="motor" name="motor" required
+              <label for="engine" class="cardmax__key">Motor:</label>
+              <input type="text" value="<%=car.engine%>" class="cardmax__value" id="engine" name="engine" required
               minlength="1" maxlength="4">
             </p>
             <p class="cardmax__prop">
-              <label for="combustible" class="cardmax__key">Combustible:</label>
-              <select name="combustible" id="fuel" class="cardmax__value">
-                <% categories[0].fuel.forEach(cat=>{%> 
-                  <option value="<%=cat%>" <%=cat===product.combustible?"selected":""%> ><%=cat%></option>
+              <label for="fuel" class="cardmax__key">Combustible:</label>
+              <select name="fuel" id="fuel" class="cardmax__value">
+                <% fuel.forEach(fuel=>{%> 
+                  <option value="<%=fuel.id%>" <%=fuel.id===car.fuel?.id?"selected":""%> ><%=fuel.name%></option>
                 <%})%>
               </select>
             </p>
             <p class="cardmax__prop">
-              <label for="transmision" class="cardmax__key">Transmisión:</label>
-              <select name="transmision" id="transmission" class="cardmax__value">
-                <% categories[0].transmission.forEach(cat=>{%> 
-                  <option value="<%=cat%>" <%=cat===product.transmision?"selected":""%> ><%=cat%></option>
+              <label for="transmission" class="cardmax__key">Transmisión:</label>
+              <select name="transmission" id="transmission" class="cardmax__value">
+                <% transmissions.forEach(transmission=>{%> 
+                  <option value="<%=transmission.id%>" <%=transmission.id===car.transmission?.id?"selected":""%> ><%=transmission.name%></option>
                 <%})%>
               </select>
             </p>
             <p class="cardmax__prop">
               <label for="color" class="cardmax__key">Color:</label>
-              <input type="text" value="<%=product.color%>" class="cardmax__value" id="color" name="color" required
-              minlength="3" maxlength="20">
+              <select name="color" id="color" class="cardmax__value">
+                <%colors.forEach(color=>{%> 
+                  <option value="<%=color.id%>" <%=color.id===car.color?.id?"selected":""%> ><%=color.name%></option>
+                <%})%>
+              </select> 
             </p>
             <p class="cardmax__prop">
-              <label for="puertas" class="cardmax__key">Puertas:</label>
-              <input type="text" value="<%=product.puertas%>" class="cardmax__value" id="puertas" name="puertas" required
+              <label for="doors" class="cardmax__key">Puertas:</label>
+              <input type="text" value="<%=car.doors%>" class="cardmax__value" id="doors" name="doors" required
               minlength="1" maxlength="1">
             </p>
             <p class="cardmax__prop">
               <label for="airbags" class="cardmax__key">Airbags:</label>
-              <input type="text" value="<%=product.airbags%>" class="cardmax__value" id="airbags" name="airbags" required
+              <input type="text" value="<%=car.airbags%>" class="cardmax__value" id="airbags" name="airbags" required
               minlength="1" maxlength="1">
             </p>
             <p class="cardmax__prop">
-              <label for="categoria" class="cardmax__key">Categoria:</label>
-              <select name="categoria" id="category" class="cardmax__value">
-                <% categories[0].category.forEach(cat=>{%> 
-                  <option value="<%=cat%>" <%=cat===product.categoria?"selected":""%> ><%=cat%></option>
+              <label for="category" class="cardmax__key">Categoria:</label>
+              <select name="category" id="category" class="cardmax__value">
+                <% categories.forEach(cat=>{%> 
+                  <option value="<%=cat.id%>" <%=cat.id===car.category?.id?"selected":""%> ><%=cat.name%></option>
                 <%})%>
               </select>
             </p>
             <p class="cardmax__prop">
-              <label for="precio" class="cardmax__key">Precio:</label>
-              <input type="text" value="<%=product.precio%>" class="cardmax__value" id="precio" onchange="changeTitle(this)" name="precio" required
+              <label for="price" class="cardmax__key">Precio:</label>
+              <input type="text" value="<%=car.price%>" class="cardmax__value" id="price" onchange="changeTitle(this)" name="price" required
               minlength="3" maxlength="20">
             </p>
             <p class="cardmax__prop">
-              <label for="moneda" class="cardmax__key">Moneda:</label>
-              <select name="moneda" id="currency" class="cardmax__value" onchange="changeTitle(this)">
-                <% categories[0].currency.forEach(cat=>{%> 
-                  <option value="<%=cat%>" <%=cat===product.moneda?"selected":""%> ><%=cat%></option>
+              <label for="currency" class="cardmax__key">Moneda:</label>
+              <select name="currency" id="currency" class="cardmax__value" onchange="changeTitle(this)">
+                <%currencies.forEach(cur=>{%> 
+                  <option value="<%=cur.id%>" <%=cur.id===car.currency?.id?"selected":""%>><%=cur.name%> - <%=cur.symbol%></option>
                 <%})%>
               </select>
             </p>
@@ -136,7 +142,7 @@
       <!-- Botones editar resetear -->
       <div class="cardmax__actualizar">
         <button type="submit" class="btnNar">editar</button>
-        <a href="/products/edit/<%=product.id%> " class="btnNar btnNar--claro">resetear</a>
+        <a href="/products/edit/<%=car.id%> " class="btnNar btnNar--claro">resetear</a>
       </div>
     </div>
   </div>
@@ -161,9 +167,23 @@
     chk.value="del"+img;
   };
   //Actualiza valores de Precio Moneda marca modelo y año en el título.
-  function changeTitle(prop){
-    let propCopy=document.getElementById(prop.name+"Title");
-    prop.name==="precio"? propCopy.innerText =Intl.NumberFormat('de-DE').format(prop.value||prop.placeholder): 
-    propCopy.innerText = prop.value||prop.placeholder;
+  function changeTitle(field){
+    let fieldCopy=document.getElementById(field.name+"Title");
+    if(field.name==="brand"||field.name==="currency"){
+      let fieldTitle = field.options[field.selectedIndex].text;
+      if(field.name==="currency"){
+        fieldCopy.innerText = fieldTitle.split('-')[1];
+      }else{
+        fieldCopy.innerText=fieldTitle;
+      };
+    }else{
+      let fieldTitle=field.value||field.placeholder;
+      if(field.name==="price"){
+        fieldCopy.innerText =Intl.NumberFormat('de-DE').format(fieldTitle)
+      }else{
+        fieldCopy.innerText =fieldTitle;
+      }
+    };
+    return null; 
   }
 </script>

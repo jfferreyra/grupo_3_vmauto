@@ -1,14 +1,14 @@
 <article class="card">
   <figure class="card__car">
-    <img class="card__imgcar" src="/products/carsImages/<%=auto.id%>-img1.webp" alt="" srcset="">
-    <figcaption class="card__titulo"><span><%=auto.marca%></span><span><%=auto.anio%></span><span><%=Intl.NumberFormat('de-DE').format(auto.km)%> kms</span></figcaption>
+    <img class="card__imgcar" src="/products/carsImages/<%=car.id%>-img1.webp" alt="" srcset="">
+    <figcaption class="card__titulo"><span><%=car.brand?.name%></span><span><%=car.year%></span><span><%=Intl.NumberFormat('de-DE').format(car.km)%> kms</span></figcaption>
   </figure>
   <div class="card__datacar">
-    <p>Combustible: <%=auto.combustible%></p>
-    <p>Color: <%=auto.color%></p>
-    <p>Transmisión: <%=auto.transmision%></p>
-    <p>Puertas: <%=auto.puertas%></p>
+    <p>Combustible: <%=car.fuel?.name%></p>
+    <p>Color: <%=car.color?.name%></p>
+    <p>Transmisión: <%=car.transmission?.name%></p>
+    <p>Puertas: <%=car.doors%></p>
   </div>
-  <p class="card__precio"><%=auto.moneda%> <%=Intl.NumberFormat('de-DE').format(auto.precio)%></p>
-  <a href="/products/detail/<%=auto.id%> " class="card__link"></a>
+  <p class="card__precio"><%=car.currency?.symbol%> <%=Intl.NumberFormat('de-DE').format(car.price)%></p>
+  <a href="/products/detail/<%=car.id%> " class="card__link"></a>
 </article>

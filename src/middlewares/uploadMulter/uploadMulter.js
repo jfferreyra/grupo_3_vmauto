@@ -6,7 +6,8 @@ const path=require('path');
       cb(null,'public/products/carsImages');
     },
     filename:(req,file,cb)=>{
-      const newFilename=`${req.params.id}-${file.fieldname}${path.extname(file.originalname)}`;
+      // const newFilename=`${req.params.id}-${file.fieldname}${path.extname(file.originalname)}`;
+      const newFilename=`${Date.now()}-${file.fieldname}${path.extname(file.originalname)}`;
       cb(null,newFilename);
     }
   });

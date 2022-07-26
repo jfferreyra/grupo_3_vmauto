@@ -7,25 +7,25 @@
   <%- include("partials/header",{op:0}) %>
   <main class="main">
     <section class="carrito">
-      <h2>Carrito (<%=carrito.length%>)</h2>
-        <% let suma=0;carrito.forEach(auto => {(auto.moneda==="$")?factor=200:factor=1;suma+=auto.precio/factor;%>
-            <%- include("partials/cardWide",{"product":auto,"op":0}) %>
+      <h2>Carrito (<%=cart.length%>)</h2>
+        <% let suma=0;cart.forEach(car => {(car.car.currency.symbol==="$")?factor=200:factor=1;suma+=car.car.price/factor;%>
+            <%- include("partials/cardWide",{"car":car.car,"op":0}) %>
         <%});%>  
       <div class="carrito__bottom">
         <div class="carrito__total">
-          <p>Articulos Seleccionados: (<%=carrito.length%>)</p>
+          <p>Articulos Seleccionados: (<%=cart.length%>)</p>
           <p>Subtotal: u$s <%=Intl.NumberFormat('de-DE').format(suma)%></p>
         </div>
         <div class="carrito__compra">
           <button class="btnNar">Finalizar Compra</button>
-          <button class="btnNar btnNar--claro">Continuar Buscando</button>
+          <a href="/" class="btnNar btnNar--claro">Continuar Buscando</a>
         </div>
       </div>
     </section>
     <h1 class="ofertas__titulo">Publicaciones sugeridas</h1>
     <section class="ofertas">
-      <%ofertasSugeridas.forEach(auto => {%>
-        <%- include("partials/card",{"auto":auto}) %>
+      <%hotcars.forEach(car => {%>
+        <%- include("partials/card",{car}) %>
       <%});%>
     </section>
   </main>

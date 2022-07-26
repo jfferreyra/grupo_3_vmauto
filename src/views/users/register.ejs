@@ -7,7 +7,7 @@
     <% locals.errors?errors:errors=0%>
     <% locals.old?old:old=0%>
     <% locals.oldImg?oldImg:oldImg=null%>
-    <%- include("../partials/formRegister",{errors,old,oldImg}) %>
+    <%- include("../partials/formRegister",{errors,old,oldImg,states,locations,userLocations,edit:0}) %>
   </main>
 <%- include("../partials/footer") %>
 </body>

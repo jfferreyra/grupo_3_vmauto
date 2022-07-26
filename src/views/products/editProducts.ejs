@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-  <%-include("../partials/head.ejs",{'css':['cardMaxForm','product']})%>
+  <%-include("../partials/head.ejs",{'css':['cardMaxForm','product']}) %>
 <body>
   <%- include("../partials/header",{op:0}) %>
   <main class="main">
-    <%- include("../partials/cardMaxForm",{product,categories})%>
+    <%- include("../partials/cardMaxForm",{car,brands,categories,colors,conditions,currencies,fuel,transmissions}) %>
   </main>
   <%- include("../partials/footer") %>
 </body>

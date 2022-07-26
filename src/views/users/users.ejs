@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-  
   <%-include("../partials/head.ejs",{'css':['adminProducts','userCardList','formSearchProduct']})%>
-  
 <body>
   <%- include("../partials/header",{op:0}) %>
   <main class="main">
-    
     <section class="admin-products">
       <div class="search-product">
         <form class="search-product__form" id="search-product__form" action="/" method="post">
@@ -53,9 +50,9 @@
           </fieldset>
         </form>
       </div>
-      <h2>Resultados (<%=listProducts.length%>)</h2>
-        <% listProducts.forEach(product => {;%>
-            <%- include("../partials/userCardList",{product,"op":1}) %>
+      <h2>Resultados (<%=users.length%>)</h2>
+        <% users.forEach(user => {;%>
+            <%- include("../partials/userCardList",{user}) %>
         <%});%>  
     </section>
   </main>

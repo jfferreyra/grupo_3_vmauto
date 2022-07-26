@@ -1,37 +1,37 @@
 <article class="cardwide">
   <div class="cardwide__photo">
-    <img src="/products/carsImages/<%=product.images[0]%>" alt="" srcset="">
+    <img src="/products/carsImages/<%=JSON.parse(car.imgs)[0]%>" alt="" srcset="">
   </div>
   <div class="cardwide__data">
     <div class="cardwide__top">
-      <p class="cardwide__marca"><span><%=product.marca%></span><span><%=product.anio%></span></p>
-      <p class="cardwide__precio"><%=product.moneda%> <%=Intl.NumberFormat('de-DE').format(product.precio)%></p>
+      <p class="cardwide__marca"><span><%=car.brand?.name%></span><span><%=car.year%></span></p>
+      <p class="cardwide__precio"><%=car.currency?.symbol%> <%=Intl.NumberFormat('de-DE').format(car.price)%></p>
     </div>
     <div class="cardwide__spec">
       <div class="cardwide__tec">
-        <p class="cardwide__prop">Tipo: <span class="cardwide__value"><%=product.categoria%></span></p>
-        <p class="cardwide__prop">Año: <span class="cardwide__value"><%=product.anio%></span></p>
-        <p class="cardwide__prop">Km: <span class="cardwide__value"><%=product.km%></span></p>
-        <p class="cardwide__prop">Combustible: <span class="cardwide__value"><%=product.combustible%></span></p>
+        <p class="cardwide__prop">Tipo: <span class="cardwide__value"><%=car.category?.name%></span></p>
+        <p class="cardwide__prop">Año: <span class="cardwide__value"><%=car.year%></span></p>
+        <p class="cardwide__prop">Km: <span class="cardwide__value"><%=Intl.NumberFormat('de-DE').format(car.km)%></span></p>
+        <p class="cardwide__prop">Combustible: <span class="cardwide__value"><%=car.fuel?.name%></span></p>
       </div>
       <div class="cardwide__tec">
-        <p class="cardwide__prop">Color: <span class="cardwide__value"><%=product.color%></span></p>
-        <p class="cardwide__prop">Airbags: <span class="cardwide__value"><%=product.airbags%></span></p>
-        <p class="cardwide__prop">Transmisión: <span class="cardwide__value"><%=product.transmision%></span></p>
-        <p class="cardwide__prop">Puertas: <span class="cardwide__value"><%=product.puertas%></span></p>
+        <p class="cardwide__prop">Color: <span class="cardwide__value"><%=car.color?.name%></span></p>
+        <p class="cardwide__prop">Airbags: <span class="cardwide__value"><%=car.airbags%></span></p>
+        <p class="cardwide__prop">Transmisión: <span class="cardwide__value"><%=car.transmission?.name%></span></p>
+        <p class="cardwide__prop">Puertas: <span class="cardwide__value"><%=car.doors%></span></p>
       </div>
       </div>
       <div class="cardwide__btns">
       <% if (op==1) { %>
-        <a href="/products/edit/<%=product.id%>" class="cardwide__btn cardwide__btn-editar cardwide__btn--claro">Editar</a>
-        <form action="/products/del/<%=product.id%>?_method=DELETE" method="POST">
+        <a href="/products/edit/<%=car.id%>" class="cardwide__btn cardwide__btn-editar cardwide__btn--claro">Editar</a>
+        <form action="/products/del/<%=car.id%>?_method=DELETE" method="POST">
           <button type="submit" class="cardwide__btn">Eliminar</button>
         </form>
         <% }else{%>
-        <form action="/carrito/1" >
-        <!-- <form action="/carrito/del/<%=product.id%>?_method=DELETE" method="POST"> -->
-          <button type="submit" class="cardwide__btn">Eliminar</button>
-        </form>
+          <form action="/carrito/delete" method="post">
+            <input type="text" style="display: none;" name="carId" value="<%= car.id %>">
+            <button class="cardwide__btn">Eliminar</button>
+          </form>
       <%};%>
 
     </div>

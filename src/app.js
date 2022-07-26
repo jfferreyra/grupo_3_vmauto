@@ -38,7 +38,7 @@
   const indexRoute=require('../src/routes/indexRoute');
   const searchRoute=require('../src/routes/searchRoute');
   const productsRoute=require('../src/routes/productsRoute');  
-  const carritoRoute=require('../src/routes/carritoRoute');
+  const cartRoute=require('../src/routes/cartRoute');
   const userRoute=require('../src/routes/userRoute');
   const loginRoute=require('../src/routes/loginRoute');
   
@@ -47,7 +47,7 @@
   app.use('/user',userRoute);         //rutas: /user/
   app.use('/search',searchRoute);     //rutas: /search/
   app.use('/products',productsRoute); //rutas: /products/ ,detail/id ,edit/id ,create/
-  app.use('/carrito',carritoRoute);   //rutas: /carrito/idcarrito (1-4)
+  app.use('/carrito',cartRoute);   //rutas: /carrito/idcarrito (1-4)
 
 // Carga del servidor en puerto 5000
   app.listen(app.get('port'),()=>console.log('Server Ok in port',app.get('port')));

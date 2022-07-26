@@ -6,10 +6,10 @@ const path=require('path');
 const registerValidations=[
   body('name').notEmpty().withMessage('Nombres no puede estar vacío.').bail()
               .isLength({min:3}).withMessage('3 caracteres como mínimo.').bail()
-              .isAlpha().withMessage('Solo letras.').bail(),
+              .isAlpha('es-ES', {ignore: ' '}).withMessage('Solo letras.').bail(),
   body('surname').notEmpty().withMessage('Apellidos no puede estar vacío.').bail()
                  .isLength({min:3}).withMessage('3 caracteres como mínimo.').bail()
-                 .isAlpha().withMessage('Solo letras.').bail(),
+                 .isAlpha('es-ES', {ignore: ' '}).withMessage('Solo letras.').bail(),
   body('dni').matches(/^\d{7,8}$/).withMessage('Introduzca un DNI válido sin puntos.').bail(),
   body('birth').notEmpty().withMessage('Debe introducir un fecha.').bail(),
   body('address').notEmpty().withMessage('Debe introducir una dirección.').bail(),

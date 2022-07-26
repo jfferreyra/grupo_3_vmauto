@@ -8,8 +8,8 @@
     <h1 class="ofertas__titulo"><span>Ofertas</span>12</h1>
     <section class="ofertas">
 
-      <%ofertas.forEach(auto=>{%>
-        <%-include("partials/card",{'auto':auto})%>
+      <%ofertas.forEach(car=>{%>
+        <%-include("partials/card",{car})%>
       <%});%>
       
     </section>

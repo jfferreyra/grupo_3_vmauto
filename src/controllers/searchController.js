@@ -1,4 +1,4 @@
-const search= require('../models/data/products/search.json'); 
+// const search= require('../models/data/products/search.json'); 
 
 const searchController={
   //Muestra resultados de busqueda realizada por usuario

@@ -24,17 +24,33 @@
               </a>
             </li>
           <% } else { %>
-            <li class="nav__item"></li>
+            <li class="nav__item">
               <a href="/user/profile/<%=locals.userlog.id%> " class="nav__link">
-                <span class="nav__text">Mi Perfil</span><div class="nav__icUser"><img src="/users/images/<%=locals.userlog.image%> " alt=""></div>
+                <span class="nav__text">Mi Perfil</span><div class="nav__icUser"><img src="/users/images/<%=locals.userlog.img??"userPlaceholder.png"%> " alt=""></div>
               </a>
             </li>
+            <% id=locals.userlog.user_type_id; if (id===2||id===3) { %>
+              <li class="nav__item">
+                <a href="/products" class="nav__link">
+                  <span class="nav__text">Productos</span><div class="nav__icfondo"><i class="ficon-cart"></i></div>
+                </a>
+              </li>
+            <% } %>
+            <% if (id===2||id===4) { %>
+              <li class="nav__item">
+                <a href="/user/admin" class="nav__link">
+                  <span class="nav__text">Usuarios</span><div class="nav__icfondo"><i class="ficon-cart"></i></div>
+                </a>
+              </li>
+            <% } %>
+            <% if (id===1) { %>
             <li class="nav__item">
-              <a href="/carrito/1" class="nav__link">
+              <a href="/carrito/<%= locals?.userlog.id %> " class="nav__link">
                 <span class="nav__text">Carrito</span><div class="nav__icfondo"><i class="ficon-cart"></i></div>
               </a>
             </li>
-            <li class="nav__item"></li>
+            <% } %>
+            <li class="nav__item">
               <a href="/user/logout" class="nav__link">
                 <span class="nav__text">Salir</span><div class="nav__icfondo"><i class="ficon-login"></i></div>
               </a>

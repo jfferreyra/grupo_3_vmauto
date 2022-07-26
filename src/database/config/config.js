@@ -2,9 +2,9 @@ module.exports ={
   "development": {
     "username": "root",
     "password": "1244",
-    "database": "database_development",
+    "database": "vma",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mariadb"
   },
   "test": {
     "username": "root",

@@ -1,4 +1,4 @@
-<form class="registro" action="/user/register" method="post" enctype="multipart/form-data">
+<form class="registro" action="/user/<%=edit?`edit/${old.id}?_method=PUT`:"register"%>" method="post" enctype="multipart/form-data">
 	<fieldset class="personales">
 		<legend class="personales__legend">Datos Personales</legend>
 		<p class="personales__p">
@@ -21,14 +21,27 @@
 			<% if(locals.errors['birth']?.msg){%><span class="personales__hint"> <%=locals.errors['birth'].msg%></span><%}%>
 		</p>
 		<input type="text" name="birth" id="birth" class="personales__ipt" onblur="(this.type='text')" onfocus="(this.type='date')" value="<%=locals.old?.birth??""%>">
+		
+		
 		<p class="personales__p">
 			<label for="state" class="personales__lbl">Provincia *</label><br>
 		</p>
-		<input type="text" name="state" id="state" class="personales__ipt" placeholder="Córdoba">
+		<select name="state" id="state" class="personales__sel">
+				<option value="0" selected disabled>Elija su Provincia</option>
+			<%states.forEach(state=>{%> 
+				<option value="<%=state.id%>" <%=state.id===old?.stateId?"selected":""%> ><%=state.name%></option>
+			<%})%>
+		</select>
+		
 		<p class="personales__p">
 			<label for="location" class="personales__lbl">Localidad *</label><br>
 		</p>
-		<input type="text" name="location" id="location" class="personales__ipt" placeholder="Villa Carlos Paz">
+		<select name="location" id="location" class="personales__sel">
+			<%userLocations.forEach(location=>{%> 
+				<option value="<%=location.id%>" <%=location.id===old?.locationId?"selected":""%> ><%=location.name%></option>
+			<%})%>
+		</select>
+		
 		<p class="personales__p">
 			<label for="address" class="personales__lbl">Domicilio *</label>
 			<% if(locals.errors['address']?.msg){%><span class="personales__hint"> <%=locals.errors['address'].msg%></span><%}%>
@@ -60,27 +73,27 @@
 			<button type="button" onclick="borrar()" class="personales__lbl-img-borra">BORRAR</button>
 			<label for="img" class="personales__lbl-img-cambia">CAMBIAR</label>
 			<input type="file" accept="image/*" name="img" id="img" onchange="loadImg(event)" style="display: none;">
-			<input type="text" name="oldImg" id="oldImg" onchange="loadImg(event)" style="display: none;" value="<%= locals.oldImg ?? "userPlaceholder.png" %>">
+			<input type="text" name="oldImg" id="oldImg" onchange="loadImg(event)" style="display: none;" value="<%= locals.oldImg ?? null %>">
 			<img id="personales__img" src="/users/images/<%=locals.oldImg??"userPlaceholder.png"%>" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" srcset="">
 		</div>
 		<div class="registro__btn">
-			<button type="submit" class="registro__btnEnviar btnNar">Crea tu Cuenta</button>
-			<button type="reset" class="registro__btnBorrar btnNar btnNar--claro" onclick='borraspan()' >Borrar</button>
+			<button type="submit" id="btnReg" class="registro__btnEnviar btnNar"><%=edit?"Actualizar":"Crea tu Cuenta"%></button>
+			<button id="reset" type="reset" class="registro__btnBorrar btnNar btnNar--claro" >Borrar</button>
 		</div>
 		<div class="registrado">
 			<a href="/user/login" class="registrado__login">¿Ya estas registrado? Ingresá</a><br>
 		</div>
 	</fieldset>
 </form>
+<script src="/js/validatorFront/user/regValidator.js"></script>
+<script src="/js/formRegister.js" data-param1= '<%=JSON.stringify(locations)%>' ></script>
 
 <!-- Scripts de javascript -->
 <script>
 // Función loadImg cuando carga imagen nueva la sube a su div y marca el checker como "imgc"
   var loadImg = function(event) {
     var imageSec = document.getElementById('personales__img');
-    // var chk = document.getElementById('chk'+img);
     imageSec.src = URL.createObjectURL(event.target.files[0]);
-    // chk.value="img"+img+"c";
   };
 	// Función borrar. Borra foto del src del div, pone a null el value del input y marca checker como "del(numero de imagen)"
   var borrar = function() {
@@ -88,7 +101,7 @@
     imageImg.src = "/users/images/userPlaceholder.png";
     var inputImg = document.getElementById('img');
     inputImg.value=null;
-    // var inputOldImg = document.getElementById('oldImg');
-    // inputOldImg.value=null;
+    var inputOldImg = document.getElementById('oldImg');
+    inputOldImg.value=null;
   };
 </script>

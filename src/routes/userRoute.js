@@ -1,38 +1,44 @@
-const express = require('express');
-const router = express.Router();
+// ****************************** USUARIO - RUTAS *************************************************
+//******************************* Importación *****************************************
+  const express = require('express');
+  const router = express.Router();
 
-//Importación de middlewares
-const userMware=require('../middlewares/user/userMware'); //Middlewares de auth y guest, autorizado e invitado
-const loginValidations=require('../middlewares/validator/loginValidations'); //Validaciones del Login.
-const registerValidations=require('../middlewares/validator/registerValidations');//Validaciones del Registro.
+  //Middlewares
+  const userMware=require('../middlewares/user/userMware'); //Middlewares de auth y guest, autorizado e invitado
+  const loginValidations=require('../middlewares/validator/loginValidations'); //Validaciones del Login.
+  const registerValidations=require('../middlewares/validator/registerValidations');//Validaciones del Registro.
+  
+  //Controladores
+  const userController=require('../controllers/userController')
+  
+  //********************************   RUTAS    ********************************************/
 
-//Importación del Controladores
-const userController=require('../controllers/userController')
+  // VISTA LOGIN. Muestra Formulario de login. Sólo lo puede ver el NO logueado.
+    router.get('/login',userMware.guest,userController.login);
+  
+  // LOGIN. Logueo de Usuario.
+    router.post('/login',loginValidations,userController.logued);
+  
+  // LOGOUT. Deslogueo de usuario.
+    router.get('/logout',userController.logout);
 
-//Registro Vista. Solo puede verlo el guest.
-  router.get('/register',userMware.guest,userController.register);
+  //Registro Vista. Solo puede verlo el que todavía no es usuario o el administrador general o de usaurio.
+    router.get('/register',userMware.register,userController.register);
 
-//Registro y alta de Usuario
-  router.post('/register',userController.newId,userController.upload,registerValidations,userController.registered);
+  //Registro y alta de Usuario
+    router.post('/register',userController.upload,registerValidations,userController.registered);
 
-//Muestra Formulario de Login. Solo puede verlo el guest
-  router.get('/login',userMware.guest,userController.login);
+  //Administrador de Usuarios. Sólo puede verlo el administrador. Por ahora chuck@chuck chuck22.
+  router.get('/admin',userMware.admin,userController.admin);
 
-//Login de Usuario
-  router.post('/login',loginValidations,userController.logued);
+  // Eliminar Usuario.
+  router.delete('/delete/:id',userMware.admin,userController.delete);
+  
+  // Perfil de Usuario sólo pueden verlo los usuarios registrados, faltaria evitar que otros loqueados vean el que no es suyo.
+  router.get('/profile/:id',userMware.auth,userController.profile);
 
-//Logout de usuario
-  router.get('/logout',userController.logout);
-
-//Administrador de Usuarios. Sólo puede verlo el auth admin. Por ahora cualquier registrado.
-router.get('/admin',userMware.auth,userController.admin);
-// Eliminar Usuario.
-router.delete('/delete/:id',userController.delete);
-// Perfil de Usuario sólo pueden verlo los usuarios registrados, faltaria evitar que otros loqueados vean el que no es suyo.
-router.get('/profile/:id',userMware.auth,userController.profile);
-
-//Edición de Usuario.
-// router.get('/edit/:id',userController.edit);
-// router.put('/edit/:id',userController.edited);
+  //Edición de Usuario.
+  router.get('/edit/:id',userMware.edit,userController.edit);
+  router.put('/edit/:id',userController.upload,registerValidations,userController.edited);
 
 module.exports = router;

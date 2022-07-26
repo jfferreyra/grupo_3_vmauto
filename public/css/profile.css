@@ -141,6 +141,7 @@ input:-webkit-autofill:active */{
 }
 .personales__photo img{
   width: 100%;
+  aspect-ratio: 1;
   height: var(--photo);
   object-fit:cover;
   border-radius: 50%;

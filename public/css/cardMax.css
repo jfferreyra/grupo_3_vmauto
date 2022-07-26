@@ -65,6 +65,7 @@
 .cardmax__photos-titulo span:first-child{
   font-family: inter-b;
   font-size: 2.2rem;
+  text-transform:capitalize;
 }
 
 .cardmax__photos-titulo span:nth-child(2) {
@@ -182,7 +183,9 @@
 }
 
 .cardmax__value{
+  float: right;
   color:var(--negT);
+  text-transform:capitalize;
 }
 
 /* Compra */

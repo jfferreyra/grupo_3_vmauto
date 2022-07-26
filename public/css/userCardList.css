@@ -81,7 +81,11 @@
   flex: 0 0 100%;
 }
 .cardwide__prop{
-  text-align-last: justify;
+  /* text-align-last: justify; */
+}
+
+.cardwide__value{
+  float: right;
 }
 
 .cardwide__btns{

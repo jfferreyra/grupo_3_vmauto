@@ -53,9 +53,9 @@
           </fieldset>
         </form>
       </div>
-      <h2>Resultados (<%=listProducts.length%>)</h2>
-        <% listProducts.forEach(product => {;%>
-            <%- include("../partials/cardWide",{product,"op":1}) %>
+      <h2>Resultados (<%=listCars.length%>)</h2>
+        <% listCars.forEach(car => {;%>
+            <%- include("../partials/cardWide",{car,"op":1}) %>
         <%});%>  
     </section>
   </main>

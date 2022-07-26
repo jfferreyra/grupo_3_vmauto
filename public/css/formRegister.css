@@ -75,7 +75,17 @@ input:-webkit-autofill:active */{
   border-bottom: var(--grisP) 1px solid;
   background-color: transparent;
   color: white;
-  
+}
+.personales__sel{
+  width: 100%;
+  font-size: 1.4rem;
+  border: none;
+  border-bottom: var(--grisP) 1px solid;
+  background-color: transparent;
+  color: white;
+}
+option{
+  background: peru;
 }
 
 .personales__ipt::placeholder{
@@ -142,6 +152,7 @@ input:-webkit-autofill:active */{
 }
 .personales__photo img{
   width: 100%;
+  aspect-ratio: 1;
   height: var(--photo);
   object-fit:cover;
   border-radius: 50%;
@@ -193,6 +204,23 @@ input:-webkit-autofill:active */{
   font-weight: bold;
   color: black;
   background-color: rgba(235, 145, 61, 0.85);
+}
+
+.alert-warning{
+  font-size: 1.1rem;
+  color: black;
+  border-radius: 5px;
+  background-color: #ffed86a1;
+}
+
+.is-valid{
+  border-bottom: 1px rgba(0, 255, 0, 0.5) solid;
+  box-shadow: 0px 6px 15px -5px rgba(0, 255, 0, 0.7);
+}
+
+.is-invalid{
+  border-bottom: 1px rgba(255, 0, 0, 0.5) solid;
+  box-shadow: 0px 6px 15px -5px rgba(255, 0, 0, 0.7);
 }
 
 /* ---------------------------- 1024 -------------------------------- */
