@@ -50,12 +50,11 @@ const cartController={
   addCar:function (req,res) {
     let user_id=+req.session.user.id;
     let car_id=+req.body.carId;
-    console.log(user_id,car_id);
-    db.Cart.create({
-      user_id,
-      car_id
+    db.Cart.findOrCreate({
+      where:{user_id,car_id},
+      defaults:{user_id,car_id}
     })
-      .then( result=> {
+      .then( ([cart,created])=> {
         return res.redirect(`/carrito/${user_id}`);
       });
   },

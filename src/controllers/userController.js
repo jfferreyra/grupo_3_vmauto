@@ -43,7 +43,7 @@
       address:body.address,
       phone:body.phone,
       pass:bcrypt.hashSync(body.pass,10),
-      img:img,
+      img:img
     };
     return user;
   };
@@ -68,7 +68,7 @@ const userController={
           let passOk=bcrypt.compareSync(req.body.pass,user.pass); //Compara password con la de la bd.
           if(passOk){ //Si la comparación dió ok coloca id, img y user_type_id en session
             req.session.user={}; //se crea la variable user en req.session
-            req.session.user.id=user.id;  
+            req.session.user.id=user.id;
             req.session.user.img=user.img; 
             req.session.user.user_type_id=user.user_type_id; 
             if(req.body.rememberUser){      //Si el usuario tildo "recordar usuario"
