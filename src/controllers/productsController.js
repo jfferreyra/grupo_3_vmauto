@@ -153,7 +153,7 @@
       let currencies=db.Currency.findAll();
       let fuel=db.Fuel.findAll();
       let transmissions=db.Transmission.findAll();
-      let car={brand:"Marca",model:"Modelo",year:2020,km:10000,engine:"5.7",description:"Tus observaciones y comentarios sobre tu coche.",doors:4,airbags:4,price:10000,currency:"$",imgs:["placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg"]};
+      let car={imgs:["placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg"]};
       Promise.all([brands,categories,colors,conditions,currencies,fuel,transmissions])
       .then(([brands,categories,colors,conditions,currencies,fuel,transmissions])=> {
         res.render('products/createProducts',{car,brands,categories,colors,conditions,currencies,fuel,transmissions});

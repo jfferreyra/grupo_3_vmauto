@@ -4,7 +4,7 @@
     <div class="cardmax__left">
       <!-- Foto principal y galeria -->
       <div class="cardmax__photos">
-        <h1 class="cardmax__photos-titulo"><span id="brandTitle"><%=car.brand%></span><span id="modelTitle"><%=car.model%></span><span id="yearTitle"><%=car.year%></span></h1>
+        <h1 class="cardmax__photos-titulo"><span id="brandTitle"><%=brands[0]?.name%></span><span id="modelTitle"></span><span id="yearTitle"></span></h1>
         <!-- Imagen Principal grande -->
         <div class="cardmax__photo">
           <button type="button" onclick="borrar(1)" class="cardmax__lbl-img-borra">BORRAR</button>
@@ -38,7 +38,7 @@
       <div class="cardmax__data">
         <!-- Precio. -->
         <div class="cardmax__precio">
-          <span id="priceTitle"><%=Intl.NumberFormat('de-DE').format(car.price)%></span> <span id="currencyTitle"><%=car.currency%></span>
+          <span id="priceTitle"></span><span id="currencyTitle"><%=currencies[0].symbol%></span>
         </div>
         <!-- Lista de detalles Especificaciones. -->
         <div class="cardmax__spec">
@@ -51,8 +51,8 @@
               </select>
             </p>
             <p class="cardmax__prop">
-              <label for="modelo" class="cardmax__key">Modelo:</label> 
-              <input type="text" placeholder="<%=car.model%>" onchange="changeTitle(this)" class="cardmax__value" id="model" name="model" required
+              <label for="model" class="cardmax__key">Modelo:</label> 
+              <input type="text" onchange="changeTitle(this)" class="cardmax__value" id="model" name="model" required
               minlength="3" maxlength="20">
             </p>
             <p class="cardmax__prop">
@@ -65,18 +65,17 @@
             </p>
             <p class="cardmax__prop">
               <label for="year" class="cardmax__key">Año:</label> 
-              <input type="number" placeholder="<%=car.year%>" onchange="changeTitle(this)" class="cardmax__value" id="year" name="year" required
+              <input type="number" onchange="changeTitle(this)" class="cardmax__value" id="year" name="year" required
               min="1900" max="2023">
             </p>
             <p class="cardmax__prop">
               <label for="km" class="cardmax__key">Km:</label>
-              <input type="text" placeholder="<%=car.km%>" class="cardmax__value" id="km" name="km" required
+              <input type="number" class="cardmax__value" id="km" name="km" required
               minlength="1" maxlength="20">
             </p>
             <p class="cardmax__prop">
               <label for="engine" class="cardmax__key">Motor:</label>
-              <input type="text" placeholder="<%=car.engine%>" class="cardmax__value" id="engine" name="engine" required
-              minlength="1" maxlength="4">
+              <input type="text" class="cardmax__value" id="engine" name="engine" required>
             </p>
             <p class="cardmax__prop">
               <label for="fuel" class="cardmax__key">Combustible:</label>
@@ -104,12 +103,12 @@
             </p>
             <p class="cardmax__prop">
               <label for="doors" class="cardmax__key">Puertas:</label>
-              <input type="text" placeholder="<%=car.doors%>" class="cardmax__value" id="doors" name="doors" required
+              <input type="text" class="cardmax__value" id="doors" name="doors" required
               minlength="1" maxlength="1">
             </p>
             <p class="cardmax__prop">
               <label for="airbags" class="cardmax__key">Airbags:</label>
-              <input type="text" placeholder="<%=car.airbags%>" class="cardmax__value" id="airbags" name="airbags" required
+              <input type="text" class="cardmax__value" id="airbags" name="airbags" required
               minlength="1" maxlength="1">
             </p>
             <p class="cardmax__prop">
@@ -122,7 +121,7 @@
             </p>
             <p class="cardmax__prop">
               <label for="price" class="cardmax__key">Precio:</label> 
-              <input type="text" placeholder="<%=car.price%>" onchange="changeTitle(this)" class="cardmax__value" id="price" name="price" required
+              <input type="text" onchange="changeTitle(this)" class="cardmax__value" id="price" name="price" required
               minlength="3" maxlength="20">
             </p>
             <p class="cardmax__prop">
@@ -137,7 +136,7 @@
       </div>
       <!-- Botones editar resetear -->
       <div class="cardmax__actualizar">
-        <button type="submit" class="btnNar">Crear</button>
+        <button id="btnSubmit" type="submit" class="btnNar">Crear</button>
         <a href="/products/create " class="btnNar btnNar--claro">resetear</a>
       </div>
     </div>
@@ -179,3 +178,4 @@
     return null; 
   }
 </script>
+<script src="/js/validatorFront/car/regValidator.js"></script>

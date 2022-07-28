@@ -1,16 +1,8 @@
 // ****************************** USUARIO - CONTROLLER *************************************************
 //***************** Importación *******************************
   //Base de datos
-  const path = require('path');
-  const fs=require('fs');
   const db = require('../database/models'); //Modelos y relaciones
-
-  //bcrypt
-  const bcrypt=require('bcryptjs');
-  const { promiseImpl } = require('ejs');
-
 //************************************** Controller **************************************************
-
 const cartController={
   cart: function(req, res) {
     let id=+req.session.user.id; //Obtiene id de req.session de usuario logueado.
@@ -44,32 +36,31 @@ const cartController={
     });   
   Promise.all([cart,hotcars]) // Recibe las dos promesas y envia a vista carrito
   .then( ([cart,hotcars])=> {
-        res.render('carrito', {cart,hotcars});
+        res.render('carrito', {cart,hotcars}); // Muestra carrito y promociones
       });
   },
   addCar:function (req,res) {
-    let user_id=+req.session.user.id;
-    let car_id=+req.body.carId;
-    db.Cart.findOrCreate({
-      where:{user_id,car_id},
-      defaults:{user_id,car_id}
+    let user_id=+req.session.user.id; // Obtiene id del usuario de session
+    let car_id=+req.body.carId; // Obtiene id del coche a agregar del body
+    db.Cart.findOrCreate({  // Busca el carrito y busca el auto si existe
+      where:{user_id,car_id}, // En caso de que ya exista no lo agrega
+      defaults:{user_id,car_id} // Si no existe entonces crea el registro y agrega el coche
     })
       .then( ([cart,created])=> {
-        return res.redirect(`/carrito/${user_id}`);
+        return res.redirect(`/carrito/${user_id}`); // Muestra carrito
       });
   },
   delCar:function (req,res) {
-    let user_id=+req.session.user.id;
-    let car_id=+req.body.carId;
-    console.log(user_id,car_id);
-    db.Cart.destroy({
+    let user_id=+req.session.user.id; // Obtiene id del usuario de session
+    let car_id=+req.body.carId; // Obtiene id del coche a borrar
+    db.Cart.destroy({   // Borra si existe el registro de usuario-coche
       where:{
         user_id,
         car_id
       }
     })
       .then( result=> {
-        return res.redirect(`/carrito/${user_id}`);
+        return res.redirect(`/carrito/${user_id}`); // Redirije al carrito
       });
   }
 }

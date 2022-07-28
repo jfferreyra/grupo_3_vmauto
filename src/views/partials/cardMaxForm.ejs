@@ -141,13 +141,12 @@
       </div>
       <!-- Botones editar resetear -->
       <div class="cardmax__actualizar">
-        <button type="submit" class="btnNar">editar</button>
+        <button id="btnSubmit" type="submit" class="btnNar">editar</button>
         <a href="/products/edit/<%=car.id%> " class="btnNar btnNar--claro">resetear</a>
       </div>
     </div>
   </div>
 </form>
-
 <!-- Scripts de javascript -->
 <script>
   // Función loadImg cuando carga imagen nueva la sube a su div y marca el checker como "imgc"
@@ -187,3 +186,4 @@
     return null; 
   }
 </script>
+<script src="/js/validatorFront/car/regValidator.js"></script>

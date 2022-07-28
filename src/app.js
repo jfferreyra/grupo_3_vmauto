@@ -40,7 +40,6 @@
   const productsRoute=require('../src/routes/productsRoute');  
   const cartRoute=require('../src/routes/cartRoute');
   const userRoute=require('../src/routes/userRoute');
-  const loginRoute=require('../src/routes/loginRoute');
   
 //Ruteadores
   app.use('/',indexRoute);

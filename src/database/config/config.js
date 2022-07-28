@@ -4,7 +4,8 @@ module.exports ={
     "password": "1244",
     "database": "vma",
     "host": "127.0.0.1",
-    "dialect": "mariadb"
+    "dialect": "mariadb",
+    "logging": false //para ver la salida sql por terminal poner true o borrar o comentar esta línea.
   },
   "test": {
     "username": "root",
