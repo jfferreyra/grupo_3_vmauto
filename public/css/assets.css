@@ -70,6 +70,7 @@ html{
 .ficon-register:before{content:'\0044';}
 .ficon-lupa:before{content:'\0045';}
 .ficon-user:before{content:'\0046';}
+.ficon-car:before{content:'\0047';}
 
 @font-face {
   font-family: 'ficon-redes';
