@@ -1,0 +1,28 @@
+[
+  {
+    "marca": "Marca",
+    "modelo": "Modelo",
+    "condicion": "usado",
+    "anio": 1995,
+    "km": 120000,
+    "motor": "5.7",
+    "combustible": "nafta",
+    "transmision": "automática",
+    "color": "blanco",
+    "puertas": 6,
+    "airbags": 0,
+    "categoria": "pickup",
+    "precio": 94500,
+    "moneda": "u$s",
+    "images": [
+      "placeholder.svg",
+      "placeholder.svg",
+      "placeholder.svg",
+      "placeholder.svg",
+      "placeholder.svg",
+      "placeholder.svg",
+      "placeholder.svg"
+    ],
+    "observaciones": "Ingrese aqui sus observaciones y comentarios"
+  }
+]

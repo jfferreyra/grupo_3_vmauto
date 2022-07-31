@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%-include("partials/head.ejs",{'css':['card','index']})%>
+<body>
+  <%- include("partials/header",{op:1}) %>
+  <div class="banner"><img class="banner__img" src="/assets/img/jpg/banner.jpg" alt="banner" srcset=""></div>
+  <main class="main">
+    <h1 class="ofertas__titulo"><span>Ofertas</span>12</h1>
+    <section class="ofertas">
+
+      <%ofertas.forEach(car=>{%>
+        <%-include("partials/card",{car})%>
+      <%});%>
+      
+    </section>
+  </main>
+  <%- include("partials/footer") %>
+</body>
+</html>

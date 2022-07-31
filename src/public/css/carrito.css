@@ -1,0 +1,139 @@
+.main{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+div, p{
+  margin: 0;
+  padding: 0;
+}
+
+.ofertas{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ofertas__titulo{
+  margin: 0;
+  font-family: inter-r;
+  font-size: 2rem;
+  font-weight: normal;
+}
+.ofertas__titulo :nth-child(1){
+  border-right: var(--grisT) 2px solid;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+.card{
+  flex: 0 0 23%;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin: 20px 1% 20px 1%;
+}
+
+.carrito{
+  width: 95vw;
+  margin:0 auto 4.8rem;
+  padding: 3vw;
+  border: var(--nar) 3px solid;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  background-color: var(--narClp);
+}
+.carrito h2{
+  margin: 0;
+  padding: 0;
+  font-family: inter-r;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.carrito__bottom{
+  margin:4.8rem auto 0;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: var(--nar) 3px solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: white;
+}
+
+.carrito__compra{
+  display: flex;
+  flex-direction: row;  
+}
+.btnNar{
+  margin: 1rem;
+  padding: 0.5em 0.7em;
+  font-family: nunito-b;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  border: var(--narObc) 1px solid;
+  color: white;
+  background-color: var(--narClc);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btnNar:hover{
+  background-color: var(--narObc);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s;
+}
+
+.btnNar--claro{
+  margin: 1rem;
+  color: var(--grisT);
+  background-color: var(--narClp);
+  transition: all 0.25s;
+}
+
+.btnNar--claro:hover{
+  background-color: var(--narObp);
+}
+
+.carrito__total :first-child{
+  font-family: rubik-r;
+  font-size: 1.6rem;
+  margin-bottom: 3.2rem;
+
+}
+.carrito__total :nth-child(2){
+  font-family: rubik-r;
+  font-size: 2.2rem;
+}
+
+@media screen and (min-width:480px) {
+  
+  .carrito{
+    width: 90vw;
+  }
+
+  .carrito__bottom{
+    justify-content: space-between;
+  }
+
+  .carrito__compra{
+    flex-direction: column;  
+  }
+
+}
+
+@media screen and (min-width:688px) {
+
+  .carrito__bottom{
+    padding: 2.5rem;
+    justify-content: space-between;
+  }
+
+  .carrito__total :first-child{
+    font-size: 2rem;
+  }
+
+  .carrito__total :nth-child(2){
+    font-size: 2.4rem;
+  }
+
+}

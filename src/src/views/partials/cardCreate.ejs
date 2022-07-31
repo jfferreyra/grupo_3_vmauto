@@ -1,0 +1,152 @@
+<form class="cardmax__form-producto-editor" action="/" method="post">
+  <div class="cardmax">
+    <div class="cardmax__left">
+      <div class="cardmax__photos">
+        <h1 class="cardmax__photos-titulo"><span><%=auto.marca%></span><span><%=auto.modelo%></span><span><%=auto.anio%></span></h1>
+        <div class="cardmax__photo">
+          <button type="button" onclick="borrar(1)" class="cardmax__lbl-img-borra">BORRAR</button>
+          <label for="imgPrincipal" class="cardmax__lbl-img-cambia">CAMBIAR</label>
+          <img id="cardmax__img-1" src="" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" srcset="">
+          <input type="file" accept="image/*" name="imgPrincipal" id="imgPrincipal"  onchange="loadImg(event)" style="display: none;">
+        </div>
+        <div class="cardmax__gallery">
+          <div class="cardmax__miniphoto">
+            <label for="img-2" class="cardmax__lbl-img-cambia cardmax__lbl-img-cambia--mini">CAMBIAR</label>
+            <button type="button" onclick="borrar(2)" class="cardmax__lbl-img-borra cardmax__lbl-img-borra--mini">BORRAR</button>
+            <input type="file" accept="image/*" name="img-2" id="img-2"  onchange="loadImgSec(event,2)" style="display: none;">
+            <img id="cardmax__img-2"src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-2.webp" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" class="cardmax__minimg">
+          </div>
+          <div class="cardmax__miniphoto">
+            <label for="img-3" class="cardmax__lbl-img-cambia cardmax__lbl-img-cambia--mini">CAMBIAR</label>
+            <button type="button" onclick="borrar(3)" class="cardmax__lbl-img-borra cardmax__lbl-img-borra--mini">BORRAR</button>
+            <input type="file" accept="image/*" name="img-3" id="img-3"  onchange="loadImgSec(event,3)" style="display: none;">
+            <img id="cardmax__img-3"src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-3.webp" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" class="cardmax__minimg">
+          </div>
+          <div class="cardmax__miniphoto">
+            <label for="img-4" class="cardmax__lbl-img-cambia cardmax__lbl-img-cambia--mini">CAMBIAR</label>
+            <button type="button" onclick="borrar(4)" class="cardmax__lbl-img-borra cardmax__lbl-img-borra--mini">BORRAR</button>
+            <input type="file" accept="image/*" name="img-2" id="img-4"  onchange="loadImgSec(event,4)" style="display: none;">
+            <img id="cardmax__img-4"src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-4.webp" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" class="cardmax__minimg">
+          </div>
+          <div class="cardmax__miniphoto">
+            <label for="img-5" class="cardmax__lbl-img-cambia cardmax__lbl-img-cambia--mini">CAMBIAR</label>
+            <button type="button" onclick="borrar(5)" class="cardmax__lbl-img-borra cardmax__lbl-img-borra--mini">BORRAR</button>
+            <input type="file" accept="image/*" name="img-5" id="img-5"  onchange="loadImgSec(event,5)" style="display: none;">
+            <img id="cardmax__img-5"src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-5.webp" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" class="cardmax__minimg">
+          </div>
+          <div class="cardmax__miniphoto">
+            <label for="img-6" class="cardmax__lbl-img-cambia cardmax__lbl-img-cambia--mini">CAMBIAR</label>
+            <button type="button" onclick="borrar(6)" class="cardmax__lbl-img-borra cardmax__lbl-img-borra--mini">BORRAR</button>
+            <input type="file" accept="image/*" name="img-6" id="img-6"  onchange="loadImgSec(event,6)" style="display: none;">
+            <img id="cardmax__img-6"src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-6.webp" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" class="cardmax__minimg">
+          </div>
+          <div class="cardmax__miniphoto">
+            <label for="img-7" class="cardmax__lbl-img-cambia cardmax__lbl-img-cambia--mini">CAMBIAR</label>
+            <button type="button" onclick="borrar(7)" class="cardmax__lbl-img-borra cardmax__lbl-img-borra--mini">BORRAR</button>
+            <input type="file" accept="image/*" name="img-7" id="img-7"  onchange="loadImgSec(event,7)" style="display: none;">
+            <img id="cardmax__img-7"src="/imagesAutos/<%=auto.id%>/<%=auto.id%>-7.webp" onload="this.style.visibility='visible'" onerror="this.style.visibility='hidden'" alt="" class="cardmax__minimg">
+          </div>
+        </div>
+      </div>
+      <div class="cardmax__obs">
+        <h2 class="cardmax__obs-titulo">Observaciones:</h2>
+        <p>
+          <textarea name="observaciones" class="cardmax__txta" rows="15" cols="60" maxlength="770">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus id aliquam massa nibh sit eget morbi
+             id urna. Vitae nisl ultrices solo para machos nunc accumsan donec. In natoque aliquam porttitor urna risus sagittis in
+              lectus. Sagittis suspendisse eget odio aenean sed. Viverra commodo id vulputate nunc. Commodo nunc,
+              velit, auctor venenatis, hendrerit dapibus erat. Gravida et molestie lacus vel lobortis sagittis
+              magna hac. Aliquam suscipit dapibus ac egestas sagittis. Nisi, nisl felis ullamcorper enim, arcu
+              habitant donec dolor.
+          </textarea>
+        </p>
+      </div>
+    </div>
+    <div class="cardmax__rigth">
+      <div class="cardmax__data">
+        <div class="cardmax__precio">
+          <span><%=Intl.NumberFormat('de-DE').format(auto.precio)%> <%=auto.moneda%></span>
+        </div>
+        <div class="cardmax__spec">
+            <p class="cardmax__prop">
+              <label for="marca" class="cardmax__key">Marca:</label> <input type="text" value="<%=auto.marca%>" class="cardmax__value" id="marca" name="marca" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="modelo" class="cardmax__key">Modelo:</label> <input type="text" value="<%=auto.modelo%>" class="cardmax__value" id="modelo" name="modelo" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="categoria" class="cardmax__key">Categoria:</label> <input type="text" value="<%=auto.categoria%>" class="cardmax__value" id="categoria" name="categoria" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="anio" class="cardmax__key">Año:</label> <input type="text" value="<%=auto.anio%>" class="cardmax__value" id="anio" name="anio" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="condicion" class="cardmax__key">Condición:</label> <input type="text" value="<%=auto.condicion%>" class="cardmax__value" id="condicion" name="condicion" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="km" class="cardmax__key">Km:</label> <input type="text" value="<%=auto.km%>" class="cardmax__value" id="km" name="km" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="combustible" class="cardmax__key">Combustible:</label> <input type="text" value="<%=auto.combustible%>" class="cardmax__value" id="combustible" name="combustible" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="motor" class="cardmax__key">Motor:</label> <input type="text" value="<%=auto.motor%>" class="cardmax__value" id="motor" name="motor" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="transmision" class="cardmax__key">Transmisión:</label> <input type="text" value="<%=auto.transmision%>" class="cardmax__value" id="transmision" name="transmision" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="color" class="cardmax__key">Color:</label> <input type="text" value="<%=auto.color%>" class="cardmax__value" id="color" name="color" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="puertas" class="cardmax__key">Puertas:</label> <input type="text" value="<%=auto.puertas%>" class="cardmax__value" id="puertas" name="puertas" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="airbags" class="cardmax__key">Airbags:</label> <input type="text" value="<%=auto.airbags%>" class="cardmax__value" id="airbags" name="airbags" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="precio" class="cardmax__key">Precio:</label> <input type="text" value="<%=auto.precio%>" class="cardmax__value" id="precio" name="precio" required
+              minlength="3" maxlength="20">
+            </p>
+            <p class="cardmax__prop">
+              <label for="moneda" class="cardmax__key">Moneda:</label> <input type="text" value="<%=auto.moneda%>" class="cardmax__value" id="moneda" name="moneda" required
+              minlength="3" maxlength="20">
+            </p>
+        </div>
+      </div>
+      <div class="cardmax__actualizar">
+        <button type="submit" class="btnNar"><%if(auto.id!==0){%>actualizar<%}else{%>crear<%}%></button>
+        <a href="/adminProducts/addProduct/<%=auto.id%> " class="btnNar btnNar--claro">resetear</a>
+      </div>
+    </div>
+  </div>
+</form>
+<script>
+  var loadImg = function(event) {
+    for(let i=1;i<8;i++){
+    var image = document.getElementById('cardmax__img-'+i);
+    image.src = URL.createObjectURL(event.target.files[i-1]);
+   }
+  };
+  var loadImgSec = function(event,numphoto) {
+    var imageSec = document.getElementById('cardmax__img-'+numphoto);
+    imageSec.src = URL.createObjectURL(event.target.files[0]);
+  };
+
+  var borrar = function(img) {
+    var imageSec = document.getElementById('cardmax__img-'+img);
+    imageSec.src = "";
+  };
+</script>

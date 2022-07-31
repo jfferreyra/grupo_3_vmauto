@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%-include("../partials/head.ejs",{'css':['loginForm']})%>
+<body>
+  <%- include("../partials/header",{op:0}) %> <!-- con op:1 incluye fondo auto y nav de categorias -->
+  <main class="main">
+    <% locals.errors?errors:errors=0%>
+    <% locals.old?old:old=0%>
+    <%- include("../partials/loginForm",{errors,old}) %>
+  </main>
+<%- include("../partials/footer") %>
+</body>
+</html>

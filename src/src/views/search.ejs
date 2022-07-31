@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%-include("partials/head.ejs",{'css':['card','search','asideFiltro','index']})%>
+<body>
+  <%- include("partials/header",{op:1}) %>
+  <main class="main">
+    <%- include("partials/asideFiltro") %>
+    <section class="search">
+      <h1 class="search__titulo">Resultados | <span>26.898</span></h1>
+      <div class="search__resultados">
+        <%search.forEach(auto=>{%>
+          <%-include("partials/card",{'auto':auto})%>
+        <%});%>
+      </div>
+    </section>
+  </main>
+  <%- include("partials/footer") %>
+</body>
+</html>

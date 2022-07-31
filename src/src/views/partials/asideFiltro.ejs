@@ -1,0 +1,96 @@
+<aside class="aside">
+  <div class="filtro">
+    <h2 class="filtro__titulo">Filtrado por</h2>
+    <div class="filtro__categoria">Nafta X</div>
+    <div class="filtro__categoria">Automático X</div>
+    <div class="filtro__categoria">Toyota X</div>
+    <div class="filtro__categoria">Nuevo X</div>
+    <div class="filtro__categoria">Rojo X</div>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Marca</h2>
+    <p class="filtro__p">Toyota: 1.035</p>
+    <p class="filtro__p">Volskwagen: 2.304</p>
+    <p class="filtro__p">Ford: 2.563</p>
+    <p class="filtro__p">Chevrolet: 1.253</p>
+    <p class="filtro__p">Fiat: 653</p>
+    <p class="filtro__p">BMW: 235</p>
+    <p class="filtro__p">Renault: 5662</p>
+    <p class="filtro__p">Peugeot: 1236</p>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Precio</h2>
+    <form action="/busqueda" class="filtro__form" method="post">
+      <input checked type="radio" class="filtro__iptr" name="moneda" id="pesos" value="pesos">
+      <label for="pesos" class="filtro__lblr">$</label>
+      <input type="radio" class="filtro__iptr" name="moneda" id="dolares" value="dolares">
+      <label for="dolares" class="filtro__lblr">u$s</label><br>
+      <div class="filtro__control">
+        <input type="text" name="minimo" pattern="[0-9]*" class="filtro__ipt" maxlength="12" placeholder="Mínimo">
+        <input type="text" name="maximo" pattern="[0-9]*" class="filtro__ipt" maxlength="12" placeholder="Máximo">
+        <button type="submit" class="filtro__btn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="rgba(0, 0, 0, 0.9)"><path d="M8.3,4.3L7.4,5.2L9.2,10l-1.8,4.8l0.8,0.8l5.6-5.6L8.3,4.3z" fill="rgba(0, 0, 0, 0.9)"></path></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Condición</h2>
+    <p class="filtro__p">Nuevos: 15.662</p>
+    <p class="filtro__p">Usados: 11.236</p>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Año</h2>
+    <form action="/busqueda" class="filtro__form" method="post">
+      <div class="filtro__control">
+        <input type="date" name="aniomin" class="filtro__ipt" placeholder="Mínimo">
+        <input type="date" name="aniomax" class="filtro__ipt" placeholder="Máximo">
+        <button type="submit" class="filtro__btn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="rgba(0, 0, 0, 0.9)"><path d="M8.3,4.3L7.4,5.2L9.2,10l-1.8,4.8l0.8,0.8l5.6-5.6L8.3,4.3z" fill="rgba(0, 0, 0, 0.9)"></path></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Kilometraje</h2>
+    <p class="filtro__p">0Km: 1.662</p>
+    <form action="/busqueda" class="filtro__form" method="post">
+      <div class="filtro__control">
+        <input type="number" name="aniomin" class="filtro__ipt" placeholder="Mínimo">
+        <input type="number" name="aniomax" class="filtro__ipt" placeholder="Máximo">
+        <button type="submit" class="filtro__btn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="rgba(0, 0, 0, 0.9)"><path d="M8.3,4.3L7.4,5.2L9.2,10l-1.8,4.8l0.8,0.8l5.6-5.6L8.3,4.3z" fill="rgba(0, 0, 0, 0.9)"></path></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Combustible</h2>
+    <p class="filtro__p">Nafta: 10.662</p>
+    <p class="filtro__p">Diesel: 6.236</p>
+    <p class="filtro__p">GNC: 1.662</p>
+    <p class="filtro__p">Hibridos: 11</p>
+    <p class="filtro__p">Eléctricos: 123</p>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Transmisión</h2>
+    <p class="filtro__p">Manual: 20.236</p>
+    <p class="filtro__p">Automática: 1.662</p>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Color</h2>
+    <p class="filtro__p">Blanco: 1.663</p>
+    <p class="filtro__p">Negro: 1.234</p>
+    <p class="filtro__p">Gris: 1.362</p>
+    <p class="filtro__p">Plateado: 2.235</p>
+    <p class="filtro__p">Dorado: 1.552</p>
+    <p class="filtro__p">Rojo: 3.237</p>
+    <p class="filtro__p">Azul: 1.882</p>
+    <p class="filtro__p">Marrón: 1.239</p>
+  </div>
+  <div class="filtro">
+    <h2 class="filtro__titulo">Financiable</h2>
+    <p class="filtro__p">Financiable: 18.772</p>
+    <p class="filtro__p">No-financiable: 12.145</p>
+  </div>
+</aside>

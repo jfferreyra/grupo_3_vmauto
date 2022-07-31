@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+  <%-include("../partials/head.ejs",{'css':['adminProducts','cardWide','formSearchProduct']})%>
+  
+<body>
+  <%- include("../partials/header",{op:0}) %>
+  <main class="main">
+    
+    <section class="admin-products">
+      <div class="search-product">
+        <form class="search-product__form" id="search-product__form" action="/" method="post">
+          <fieldset class="search-product__filtro">
+            <legend class="search-product__legend">Filtros</legend>
+            <div class="search-product__filtros">
+              <p class="search-product__p">
+                <label for="idAuto" class="search-product__lbl">Id</label><br>
+                <input type="number" name="idAuto" id="idAuto" class="search-product__ipt" placeholder="777">
+              </p>
+              <p class="search-product__p">
+                <label for="marcaAuto" class="search-product__lbl">Marca</label><br>
+                <input type="text" name="marcaAuto" id="marcaAuto" class="search-product__ipt" placeholder="Toyota" minlength="3">
+              </p>
+              <p class="search-product__p">
+                <label for="modeloAuto" class="search-product__lbl">Modelo</label><br>
+                <input type="text" name="modeloAuto" id="modeloAuto" class="search-product__ipt" placeholder="Pickups">
+              </p>
+              <p class="search-product__p">
+                <label for="categoriaAuto" class="search-product__lbl">Categoría</label><br>
+                <input type="text" name="categoriaAuto" id="categoriaAuto" class="search-product__ipt" placeholder="Pickups">
+              </p>
+              <p class="search-product__p">
+                <label for="anioAuto" class="search-product__lbl">Año</label><br>
+                <input type="number" name="anioAuto" id="anioAuto" class="search-product__ipt" placeholder="2018" minlength="4">
+              </p>
+              <p class="search-product__p">
+                <label for="condicionAuto" class="search-product__lbl">Condición</label><br>
+                <input type="text" name="condicionAuto" id="condicionAuto" class="search-product__ipt" placeholder="usado">
+              </p>
+              <p class="search-product__p">
+                <label for="colorAuto" class="search-product__lbl">Color</label><br>
+                <input type="text" name="colorAuto" id="colorAuto" class="search-product__ipt" placeholder="plateado">
+              </p>
+              <p class="search-product__p">
+                <label for="combustibleAuto" class="search-product__lbl">Combustible</label><br>
+                <input type="text" name="combustibleAuto" id="combustibleAuto" class="search-product__ipt" placeholder="diesel">
+              </p>
+            </div>
+            <div class="search-product__btns">
+              <button type="submit" class="search-product__btnEnviar btnNar btnNar--claro">Buscar</button>
+              <a href="/products/create" class="search-product__btn-agregar btnNar ">Agregar</a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <h2>Resultados (<%=listCars.length%>)</h2>
+        <% listCars.forEach(car => {;%>
+            <%- include("../partials/cardWide",{car,"op":1}) %>
+        <%});%>  
+    </section>
+  </main>
+  <%- include("../partials/footer") %>
+</body>
+</html>

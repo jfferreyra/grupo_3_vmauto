@@ -1,0 +1,133 @@
+/* VARIABLES */
+:root{
+  /* COLORES */
+  --narObc:#FF7511;
+  --narClc:#FF9900;
+  --nar:#FFAA00;
+  --narMe:#FFCB6C;
+  --narObp:#FFDDA0;
+  --narClp:#FFF9F0;
+  --negT:#111;
+  --negC:#333;
+  --grisTo:#3F3F3F;
+  --grisT:#6A6A6A;
+  --grisP:#B9B9B9;
+  --grisFc:#F1F1F1;
+  --grisF:#F5F5F5;
+  --verde: #3a990e;
+}
+
+html{
+  font-size: 8px;
+}
+
+
+
+/* FUENTES */
+@font-face {
+  font-family: 'rubik-r';
+  src: url(/assets/fonts/rubik/Rubik-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'inter-b';
+  src: url(/assets/fonts/inter/Inter-Bold.woff2);
+}
+@font-face {
+  font-family: 'inter-r';
+  src: url(/assets/fonts/inter/Inter-Regular.woff2);
+}
+@font-face {
+  font-family: 'nunito-b';
+  src: url(/assets/fonts/nunito/Nunito-Bold.woff2);
+}
+@font-face {
+  font-family: 'nunito-r';
+  src: url(/assets/fonts/nunito/Nunito-Regular.woff2);
+}
+@font-face {
+  font-family: 'nunito-sb';
+  src: url(/assets/fonts/nunito/Nunito-SemiBold.woff2);
+}
+@font-face {
+  font-family: 'ficon';
+  src: url(/assets/fonts/iconMenu/ficon.woff) format('woff');
+}
+[class*='ficon-']:before{
+ display: inline-block;
+ font-family: 'ficon';
+ font-style: normal;
+ font-weight: normal;
+ line-height: 1;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale
+}
+[class*='ficon-']{
+  margin-bottom: -5px;
+}
+.ficon-home:before{content:'\0041';}
+.ficon-login:before{content:'\0042';}
+.ficon-cart:before{content:'\0043';}
+.ficon-register:before{content:'\0044';}
+.ficon-lupa:before{content:'\0045';}
+.ficon-user:before{content:'\0046';}
+.ficon-car:before{content:'\0047';}
+
+@font-face {
+  font-family: 'ficon-redes';
+  src: url(/assets/fonts/iconRedes/ficon-redes.woff) format('woff');
+}
+[class*='ficon-redes__']:before{
+ display: inline-block;
+ font-family: 'ficon-redes';
+ font-style: normal;
+ font-weight: normal;
+ line-height: 1;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale
+}
+[class*='ficon-redes__']{
+  margin-bottom: -5px;
+  vertical-align: middle;
+}
+.ficon-redes__facebook:before{content:'\0041';}
+.ficon-redes__instagram:before{content:'\0042';}
+.ficon-redes__twitter:before{content:'\0043';}
+.ficon-redes__whatsapp:before{content:'\0044';}
+.ficon-redes__email:before{content:'\0045';}
+.ficon-redes__copyr:before{content:'\0046';}
+
+/*----------------------------------- Botones------------------------------- */
+
+.btnNar{
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: normal;
+  border-radius: 5px;
+  border: var(--narObc) 1px solid;
+  color: white;
+  background-color: var(--narClc);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btnNar:hover{
+  background-color: var(--narObc);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s;
+}
+
+.btnNar--claro{
+  color: var(--grisT);
+  background-color: var(--narClp);
+  transition: all 0.25s;
+}
+
+.btnNar--claro:hover{
+  background-color: var(--narObp);
+}
+
+@media screen and (min-width:768px) {
+  html{
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,120 @@
+input:-webkit-autofill
+/* input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active */{ 
+  transition-property: background-color color;
+  transition: 60000s;
+}
+.login{
+  max-width: 300px;
+  margin: 0px auto 30px;
+  padding: 2.4rem ;
+  font-family: inter-r;
+  font-weight: normal;
+  text-align: center;
+  /* border-radius: 0.5rem; */
+  box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.20);
+  background-image: 
+        linear-gradient(180deg, #ff9900 0%, rgba(0, 0, 0, 0.7) 88%, rgba(51, 51, 51, 0) 100%),
+        url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+  background-position: center;
+  background-size: cover;
+}
+
+.login__data{
+  margin-bottom: 1.6rem;
+  padding: 0;
+  font-size: 1.6rem;
+  border: none;
+  text-align: left;
+}
+.login__legend{
+  font-size: 2rem;
+}
+.login__p{
+  margin: 1rem 0; 
+  color: white;
+}
+.login__p--check{
+  margin-top: 3rem;
+  text-align: center;
+}
+.login__container-olvido .login__p{
+  margin-bottom: 0.48rem;
+}
+.login__hint{
+  font-size:1.2rem;
+  padding:0.5rem;
+  /* color: rgb(250, 93, 93); */
+  color: white;
+  border-radius: 5px;
+  border: rgba(255, 94, 0, 0.50) solid 1px;
+  box-shadow: 0px 0px 3px 4px rgba(255, 167, 126, 0.856);
+  background-color: rgba(255,255,255,0.2);
+}
+
+.login__lbl{
+  font-size: 1.4rem;
+}
+
+.login__ipt{
+  width: 100%;
+  padding:1rem 0;
+  margin-top: 0.8rem;
+  font-size: 1.4rem;
+  outline: none;
+  border: none;
+  border-bottom: var(--grisP) 1px solid;
+  background-color: transparent;
+  color: white;
+}
+
+.login__ipt:focus{
+  outline: none;
+  border-bottom:white 1px solid;
+}
+.login__ipt::placeholder{
+  color: var(--grisP);
+}
+
+.login__container-btn{
+  margin-top: 3rem;
+}
+
+.login__btn{
+  padding: 0.8rem 1.6rem;
+}
+
+.login__container-olvido{
+  margin-top: 3.2rem;
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-align: center;
+}
+.login__container-olvido a{
+  text-decoration: none;
+  color: var(--grisP);
+}
+.login__container-olvido a:hover{
+  color: white;
+}
+.alert-warning{
+  font-size: 1.1rem;
+  color: black;
+  border-radius: 5px;
+  background-color: #ffed86a1;
+}
+.is-valid{
+  border-bottom: 1px green solid;
+  box-shadow: 0px 8px 15px -8px rgba(0, 255, 0, 0.7);
+}
+.is-valid::after{
+  content:"0";
+}
+.is-invalid{
+  border-bottom: 1px red solid;
+  box-shadow: 0px 8px 15px -8px rgba(255, 0, 0, 0.7);
+}
+.is-invalid::after{
+  content:"0";
+}
