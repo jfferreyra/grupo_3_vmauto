@@ -42,6 +42,6 @@
   router.put('/edit/:id',userController.upload,registerValidations,userController.edited);
 
   // Vista Error cuando el usuario se registra con un email que ya esta en uso
-  router.get('/error/', userController.error)
+  //router.get('/error/', userController.error)
 
 module.exports = router;
