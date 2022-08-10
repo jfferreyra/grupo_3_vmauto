@@ -1,7 +1,7 @@
 module.exports ={
   "development": {
     "username": "root",
-    "password": "1244",
+    "password": "",
     "database": "vma",
     "host": "127.0.0.1",
     "dialect": "mariadb",

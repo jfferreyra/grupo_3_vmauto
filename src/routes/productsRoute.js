@@ -4,6 +4,9 @@ const router = express.Router();
 //Middlewares
 const userMware=require('../middlewares/user/userMware'); //Middlewares autorizaciones de usuario
 
+//Validación Formulario Producto
+const productValidations = require('../middlewares/validator/productValidations')
+
 //Importación de controlador
   const productsController=require('../controllers/productsController')
 
@@ -19,7 +22,7 @@ const userMware=require('../middlewares/user/userMware'); //Middlewares autoriza
 
 //Creación de Producto
   router.get('/create/',userMware.productRegister,productsController.create);
-  router.post('/create/',productsController.upload,productsController.created);
+  router.post('/create/',productsController.upload, productValidations, productsController.created);
 
 //Eliminación de Producto
   router.delete('/del/:id',productsController.deleted);

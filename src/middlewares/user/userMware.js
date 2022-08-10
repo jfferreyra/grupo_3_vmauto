@@ -8,7 +8,7 @@ const userMware={
     if(!user){  //Sino existe sesion redirije a login
       return res.redirect('/user/login');
     }
-    if(user.user_type_id!==2&&user.user_type_id!==4){ //verifica que sea administrador general o de usuario
+    if(user.user_type_id!==2 && user.user_type_id!==4){ //verifica que sea administrador general o de usuario
       return res.redirect('/'); //si es asi pasa sino redirije al inicio
     }
     next()
@@ -18,14 +18,14 @@ const userMware={
     if(!user){
       return res.redirect('/user/login');
     }
-    if(user.user_type_id!==2&&user.user_type_id!==3){
+    if(user.user_type_id!==2 && user.user_type_id!==3){
       return res.redirect('/');
     }
     next()
   },
   register:function(req,res,next){
-    let user=req.session.user??false;  //Usuario de session toma por defecto false
-    if(user.user_type_id!==2&&user.user_type_id!==4&&user!==false){
+    let user=req.session.user ?? false;  //Usuario de session toma por defecto false
+    if(user.user_type_id!==2 && user.user_type_id!==4 && user!==false){
       return res.redirect('/');
     }
     next()
@@ -43,7 +43,7 @@ const userMware={
     next()
   },
   cart:function(req,res,next){
-    let user=req.session.user??false;  //Usuario de session toma por defecto false
+    let user = req.session.user ?? false;  //Usuario de session toma por defecto false
     if(!user){  //si no existe usuario va al inicio
       return res.redirect('/');
     }
