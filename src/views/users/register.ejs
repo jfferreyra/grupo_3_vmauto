@@ -4,10 +4,11 @@
 <body>
   <%- include("../partials/header",{op:0}) %> <!-- con op:1 incluye fondo auto y nav de categorias -->
   <main class="main">
+    <% locals.emailerr ? emailerr : emailerr = 0%>
     <% locals.errors?errors:errors=0%>
     <% locals.old?old:old=0%>
     <% locals.oldImg?oldImg:oldImg=null%>
-    <%- include("../partials/formRegister",{errors,old,oldImg,states,locations,userLocations,edit:0}) %>
+    <%- include("../partials/formRegister",{errors,old,oldImg,states,locations,userLocations,edit:0,emailerr}) %>
   </main>
 <%- include("../partials/footer") %>
 </body>

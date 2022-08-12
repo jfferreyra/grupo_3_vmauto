@@ -123,7 +123,12 @@ const userController={
                 return res.redirect('/user/login'); //Redirige al login.
               });
           }else{
-            return res.render('users/register');    //Si el usuario existe regresa al formulario de registro.
+            let states=db.State.findAll();
+            let locations=db.Location.findAll();
+            Promise.all([states,locations])
+              .then(([states,locations])=> {
+              return res.render('users/register',{states,locations,userLocations:[{id:0,name:'Elija primero la provincia'}],emailerr:1});
+              }); // Si el usuario no existe, regresa al formulario de registro.
           }
         });
       }
