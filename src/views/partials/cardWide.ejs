@@ -4,7 +4,7 @@
   </div>
   <div class="cardwide__data">
     <div class="cardwide__top">
-      <p class="cardwide__marca"><span><%=car.brand?.name%></span><span><%=car.year%></span></p>
+      <p class="cardwide__marca"><span><%=car.brand?.name%></span><span><%=car.year%></span><span><%=car.model%></span></p>
       <p class="cardwide__precio"><%=car.currency?.symbol%> <%=Intl.NumberFormat('de-DE').format(car.price)%></p>
     </div>
     <div class="cardwide__spec">

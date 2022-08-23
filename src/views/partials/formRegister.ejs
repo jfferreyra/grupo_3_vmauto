@@ -1,4 +1,5 @@
 <form class="registro" action="/user/<%=edit?`edit/${old.id}?_method=PUT`:"register"%>" method="post" enctype="multipart/form-data">
+	
 	<fieldset class="personales">
 		<legend class="personales__legend">Datos Personales</legend>
 		<p class="personales__p">
@@ -60,6 +61,7 @@
 			<% if(locals.errors['email']?.msg){%><span class="personales__hint"> <%=locals.errors['email'].msg%></span><%}%>
 		</p>
 		<input type="email" name="email" id="email" class="personales__ipt" value="<%=locals.old?.email??""%>">
+		<%if(locals.emailerr==1){%><span class="personales__hint">El email que ingresó ya existe</span><br><%}%>
 		<p class="personales__p">
 			<label for="pass" class="personales__lbl">Elegí tu contraseña *</label>
 			<% if(locals.errors['pass']?.msg){%><span class="personales__hint"> <%=locals.errors['pass'].msg%></span><%}%>
