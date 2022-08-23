@@ -43,8 +43,8 @@ const cartController={
     let user_id=+req.session.user.id; // Obtiene id del usuario de session
     let car_id=+req.body.carId; // Obtiene id del coche a agregar del body
     db.Cart.findOrCreate({  // Busca el carrito y busca el auto si existe
-      where:{user_id,car_id}, // En caso de que ya exista no lo agrega
-      defaults:{user_id,car_id} // Si no existe entonces crea el registro y agrega el coche
+      where: { user_id,car_id }, // En caso de que ya exista no lo agrega
+      defaults: { user_id,car_id } // Si no existe entonces crea el registro y agrega el coche
     })
       .then( ([cart,created])=> {
         return res.redirect(`/carrito/${user_id}`); // Muestra carrito

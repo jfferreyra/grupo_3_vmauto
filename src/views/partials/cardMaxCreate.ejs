@@ -55,7 +55,7 @@
 			        <% if(errors.marca?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.marca.msg%></small><%}%>
 
               <select name="brand" id="brand" class="cardmax__value" onchange="changeTitle(this)">
-                <%brands.forEach(brand=>{%> 
+                <% brands.forEach(brand => { %> 
                   <option value="<%=brand.id%>" <%=brand.id===car.brand?.id?"selected":""%> ><%=brand.name%></option>
                 <%})%>
               </select>
