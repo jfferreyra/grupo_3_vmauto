@@ -6,7 +6,7 @@ const indexController={
   index: function(req, res) {
     db.Car.findAll({include:['brand','category','color','condition','currency','fuel','status','transmission'],raw:true,nest:true})
       .then(ofertas => {
-        res.render('index', {'ofertas':ofertas});
+        res.render('index', {'ofertas': ofertas});
       });
   },
 }

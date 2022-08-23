@@ -23,7 +23,7 @@
 //Declaracion de variables
 
   //Puerto
-  app.set('port',process.env.PORT||5000);
+  app.set('port',process.env.PORT||5001);
 
   //Ejs
   app.set('views', path.resolve('src/views'));
@@ -40,6 +40,9 @@
   const productsRoute=require('../src/routes/productsRoute');  
   const cartRoute=require('../src/routes/cartRoute');
   const userRoute=require('../src/routes/userRoute');
+
+  //API
+  const apiRoutes = require('./routes/api/apiRoutes')
   
 //Ruteadores
   app.use('/',indexRoute);
@@ -48,5 +51,6 @@
   app.use('/products',productsRoute); //rutas: /products/ ,detail/id ,edit/id ,create/
   app.use('/carrito',cartRoute);   //rutas: /carrito/idcarrito (1-4)
 
+  app.use('/api', apiRoutes) // rutas: /api/users , /api/users/:id, /api/products, /api/products/:id
 // Carga del servidor en puerto 5000
   app.listen(app.get('port'),()=>console.log('Server Ok in port',app.get('port')));

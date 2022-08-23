@@ -4,6 +4,10 @@
   const path = require('path');
   const fs=require('fs');
 
+  //Validaciones Backend
+  //Express-Validator
+  let {validationResult} = require('express-validator')
+
   //Multer Upload
   const upload = require('../middlewares/uploadMulter/uploadMulter');
   
@@ -88,7 +92,7 @@
     main:function(req, res) {
       db.Car.findAll({include:['brand','category','color','condition','currency','fuel','status','transmission'],raw:true,nest:true})
       .then(listCars => {
-        console.log(listCars);
+        // console.log(listCars);
         res.render('products/products', {listCars});
       });
     },
@@ -102,6 +106,10 @@
     },
     //*************** VISTA EDICIÓN ************ (solo administrador).
     edit:function(req, res) {
+      //Errores Express-Validator
+      let errorsUnmapped = validationResult(req) //Obtiene los errores, si es que hay
+      let errors = errorsUnmapped.mapped() // mapea el obj de los errores para mandarlos a la vista
+
       let id=+req.params.id;  //Obtiene id de req.params
       let car=db.Car.findByPk(id,{include:['brand','category','color','condition','currency','fuel','status','transmission'],raw:true,nest:true});
       let brands=db.Brand.findAll();  //Busca car con id y 
@@ -113,7 +121,7 @@
       let transmissions=db.Transmission.findAll();
       Promise.all([car,brands,categories,colors,conditions,currencies,fuel,transmissions])
       .then(([car,brands,categories,colors,conditions,currencies,fuel,transmissions])=> {
-        res.render('products/editProducts',{car,brands,categories,colors,conditions,currencies,fuel,transmissions});
+        res.render('products/editProducts',{car,brands,categories,colors,conditions,currencies,fuel,transmissions,errors});
       });
     },
     //************** EDITA registro ***************. Redirige a detail/id
@@ -146,6 +154,11 @@
     ]),
     //*************** VISTA CREAR ************ (solo administrador).
     create: (req, res) => {
+
+      //Errores Express-Validator
+      let errorsUnmapped = validationResult(req) //Obtiene los errores, si es que hay
+      let errors = errorsUnmapped.mapped() // mapea el obj de los errores para mandarlos a la vista
+
       let brands=db.Brand.findAll();    //Carga tablas foráneas para las listas del formulario.
       let categories=db.Category.findAll();
       let colors=db.Color.findAll();
@@ -155,26 +168,57 @@
       let transmissions=db.Transmission.findAll();
       let car={imgs:["placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg"]};
       Promise.all([brands,categories,colors,conditions,currencies,fuel,transmissions])
-      .then(([brands,categories,colors,conditions,currencies,fuel,transmissions])=> {
-        res.render('products/createProducts',{car,brands,categories,colors,conditions,currencies,fuel,transmissions});
+      .then(
+        ([brands,categories,colors,conditions,currencies,fuel,transmissions])=> {
+        res.render('products/createProducts',{car,brands,categories,colors,conditions,currencies,fuel,transmissions, errors});
       });
     },
     //*************** AGREGA nuevo registro. ************* (Redirige a detail/id).
-    created:(req,res) => {
-      let car=bodyCar(req.body);  //Crea car apartir del formulario dejando imgs vacio.
-      db.Car.create(car)          //Crea nuevo registro de car.
-      .then(result => {
-        let id=result.dataValues.id;  //Obtiene id del nuevo registro recién creado.
-        let images=imgsMulter(req.files); //Crea un array con los nombres de las imagenes de multer.
-        let imgs=imgsId(id,images); //Coloca id y ordena consecutivamente nombres de imagenes y devuelve string.
-        db.Car.update(      //Actualiza registro con imagenes renombradas con id y en orden.
-          {imgs:imgs},
-          {where:{id:id}}
-        )
-          .then(result => {
-            return res.redirect(`/products/detail/${id}`); //Redirige a detalle de producto.
-          });
-      });
+    created:(req,res,next) => {
+      //Errores Express-Validator
+      let errorsUnmapped = validationResult(req) //Obtiene los errores, si es que hay
+      let errors = errorsUnmapped.mapped() // mapea el obj de los errores para mandarlos a la vista
+      
+      if(errors.length !== 'undefined'){
+        console.log('errores===', errors, 'length::',errors.length)
+
+        let brands=db.Brand.findAll();    //Carga tablas foráneas para las listas del formulario.
+        let categories=db.Category.findAll();
+        let colors=db.Color.findAll();
+        let conditions=db.Condition.findAll();
+        let currencies=db.Currency.findAll();
+        let fuel=db.Fuel.findAll();
+        let transmissions=db.Transmission.findAll();
+        let car={imgs:["placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg","placeholder.svg"]};
+        Promise.all([brands,categories,colors,conditions,currencies,fuel,transmissions])
+        .then(
+          ([brands,categories,colors,conditions,currencies,fuel,transmissions])=> {
+            console.log('ERRORS CONTROLLER=',errors)
+          res.render('products/createProducts',{car,brands,categories,colors,conditions,currencies,fuel,transmissions, errors});
+        });
+
+      } else { 
+
+        let car=bodyCar(req.body);  //Crea car apartir del formulario dejando imgs vacio.
+        db.Car.create(car)          //Crea nuevo registro de car.
+        .then(result => {
+          let id=result.dataValues.id;  //Obtiene id del nuevo registro recién creado.
+          let images=imgsMulter(req.files); //Crea un array con los nombres de las imagenes de multer.
+          let imgs=imgsId(id,images); //Coloca id y ordena consecutivamente nombres de imagenes y devuelve string.
+          db.Car.update(      //Actualiza registro con imagenes renombradas con id y en orden.
+            {imgs:imgs},
+            {where:{id:id}}
+          )
+            .then(result => {
+              res.redirect(`/products/detail/${id}`); //Redirige a detalle de producto.
+            });
+        });
+
+      
+        
+      }
+
+      
     },
     //***************** ELIMINA.************* (Redirige al administrador de productos).
     deleted:(req, res) => {

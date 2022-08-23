@@ -24,14 +24,19 @@
           <% }) %> 
         </div>
       </div>
-      <!-- Observaciones -->
+      <!-- DESCRIPTION -->
       <div class="cardmax__obs">
         <h2 class="cardmax__obs-titulo">Observaciones:</h2>
         <p>
+          <!-- Description error -->
+          <% if(errors.description?.msg){%><p style="color: red; margin:0;padding:0;" class="personales__hint"> <%=errors.description.msg%></p><%}%>
+          <!-- Description input -->
           <textarea placeholder="<%=car.description%>" name="description" class="cardmax__txta" rows="15" cols="60" maxlength="770" ></textarea>
         </p>
       </div>
     </div>
+
+    <!-- INFORMACION PRODUCTO -->
     <!-- Parte Derecha -->
     <div class="cardmax__rigth">
       <!-- Especificaciones Datos -->
@@ -42,41 +47,73 @@
         </div>
         <!-- Lista de detalles Especificaciones. -->
         <div class="cardmax__spec">
+
+            <!-- MARCA -->
             <p class="cardmax__prop">
               <label for="brand" class="cardmax__key">Marca:</label>
+              <!-- Marca error -->
+			        <% if(errors.marca?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.marca.msg%></small><%}%>
+
               <select name="brand" id="brand" class="cardmax__value" onchange="changeTitle(this)">
-                <%brands.forEach(brand=>{%> 
+                <% brands.forEach(brand => { %> 
                   <option value="<%=brand.id%>" <%=brand.id===car.brand?.id?"selected":""%> ><%=brand.name%></option>
                 <%})%>
               </select>
             </p>
+
+            <!-- MODEL -->
             <p class="cardmax__prop">
               <label for="model" class="cardmax__key">Modelo:</label> 
-              <input type="text" onchange="changeTitle(this)" class="cardmax__value" id="model" name="model" required
+              <!-- Model error -->
+			        <% if(errors.model?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.model.msg%></small><%}%>
+              <!-- Model input -->
+              <input type="text" onchange="changeTitle(this)" class="cardmax__value" id="model" name="model" 
               minlength="3" maxlength="20">
             </p>
+
+            <!-- CONDITION -->
             <p class="cardmax__prop">
               <label for="condition" class="cardmax__key">Condición:</label>
+              <!-- Condition error -->
+			        <% if(errors.condition?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.condition.msg%></small><%}%>
+              <!-- Condition input -->
               <select name="condition" id="condition" class="cardmax__value">
                 <% conditions.forEach(condition=>{%> 
                   <option value="<%=condition.id%>" <%=condition.id===car.condition?.id?"selected":""%> ><%=condition.name%></option>
                 <%})%>
               </select>
             </p>
+
+            <!-- YEAR -->
             <p class="cardmax__prop">
               <label for="year" class="cardmax__key">Año:</label> 
-              <input type="number" onchange="changeTitle(this)" class="cardmax__value" id="year" name="year" required
+              <!-- Year error -->
+			        <% if(errors.year?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.year.msg%></small><%}%>
+              <!-- Year input -->
+              <input type="number" onchange="changeTitle(this)" class="cardmax__value" id="year" name="year" 
               min="1900" max="2023">
             </p>
+
+            <!-- KM -->
             <p class="cardmax__prop">
               <label for="km" class="cardmax__key">Km:</label>
-              <input type="number" class="cardmax__value" id="km" name="km" required
+              <!-- Km error -->
+			        <% if(errors.km?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.km.msg%></small><%}%>
+              <!-- Km input -->
+              <input type="number" class="cardmax__value" id="km" name="km" 
               minlength="1" maxlength="20">
             </p>
+
+            <!-- ENGINE  -->
             <p class="cardmax__prop">
               <label for="engine" class="cardmax__key">Motor:</label>
-              <input type="text" class="cardmax__value" id="engine" name="engine" required>
+              <!-- Engine error -->
+			        <% if(errors.engine?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.engine.msg%></small><%}%>
+              <!-- Engine input -->
+              <input type="text" class="cardmax__value" id="engine" name="engine" >
             </p>
+
+            <!-- FUEL -->
             <p class="cardmax__prop">
               <label for="fuel" class="cardmax__key">Combustible:</label>
               <select name="fuel" id="fuel" class="cardmax__value">
@@ -85,32 +122,48 @@
                 <%})%>
               </select>
             </p>
+
+            <!-- TRANSMISSION -->
             <p class="cardmax__prop">
               <label for="transmission" class="cardmax__key">Transmisión:</label>
+              <!-- TRANSMISSION error -->
+			        <% if(errors.transmission?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.transmission.msg%></small><%}%>
+
               <select name="transmission" id="transmission" class="cardmax__value">
                 <% transmissions.forEach(transmission=>{%> 
                   <option value="<%=transmission.id%>" <%=transmission.id===car.transmission?.id?"selected":""%> ><%=transmission.name%></option>
                 <%})%>
               </select>
             </p>
+
+            <!-- COLOR -->
             <p class="cardmax__prop">
               <label for="color" class="cardmax__key">Color:</label>
+              <!-- Color error -->
+			        <% if(errors.color?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.color.msg%></small><%}%>
+
               <select name="color" id="color" class="cardmax__value">
                 <%colors.forEach(color=>{%> 
                   <option value="<%=color.id%>" <%=color.id===car.color?.id?"selected":""%> ><%=color.name%></option>
                 <%})%>
               </select> 
             </p>
+
+            <!-- DOORS -->
             <p class="cardmax__prop">
               <label for="doors" class="cardmax__key">Puertas:</label>
-              <input type="text" class="cardmax__value" id="doors" name="doors" required
+              <input type="text" class="cardmax__value" id="doors" name="doors" 
               minlength="1" maxlength="1">
             </p>
+
+            <!-- AIRBAGS -->
             <p class="cardmax__prop">
               <label for="airbags" class="cardmax__key">Airbags:</label>
-              <input type="text" class="cardmax__value" id="airbags" name="airbags" required
+              <input type="text" class="cardmax__value" id="airbags" name="airbags" 
               minlength="1" maxlength="1">
             </p>
+
+            <!-- CATEGORY -->
             <p class="cardmax__prop">
               <label for="category" class="cardmax__key">Categoria:</label>
               <select name="category" id="category" class="cardmax__value">
@@ -119,13 +172,23 @@
                 <%})%>
               </select>
             </p>
+
+            <!-- PRICE -->
             <p class="cardmax__prop">
               <label for="price" class="cardmax__key">Precio:</label> 
-              <input type="text" onchange="changeTitle(this)" class="cardmax__value" id="price" name="price" required
+               <!-- Price error -->
+			        <% if(errors.price?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.price.msg%></small><%}%>
+
+              <input type="text" onchange="changeTitle(this)" class="cardmax__value" id="price" name="price" 
               minlength="3" maxlength="20">
             </p>
+
+            <!-- CURRENCY -->
             <p class="cardmax__prop">
               <label for="currency" class="cardmax__key">Moneda:</label>
+              <!-- Currency error -->
+			        <% if(errors.currency?.msg){%><small style="color: red;" class="personales__hint"> <%=errors.currency.msg%></small><%}%>
+
               <select name="currency" id="currency" class="cardmax__value" onchange="changeTitle(this)">
                 <%currencies.forEach(cur=>{%> 
                   <option value="<%=cur.id%>" <%=cur.id===car.currency?.id?"selected":""%>><%=cur.name%> - <%=cur.symbol%></option>
@@ -178,4 +241,4 @@
     return null; 
   }
 </script>
-<script src="/js/validatorFront/car/regValidator.js"></script>
+<script src="/js/validatorFront/car/regValidator.js"></script>    

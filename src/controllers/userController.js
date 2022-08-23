@@ -127,7 +127,7 @@ const userController={
             Promise.all([states,locations])
               .then(([states,locations])=> {
               return res.render('users/register',{states,locations,userLocations:[{id:0,name:'Elija primero la provincia'}],emailerr:1});
-              });
+              }); // Si el usuario no existe, regresa al formulario de registro.
           }
         });
       }
