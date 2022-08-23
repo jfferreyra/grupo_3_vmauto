@@ -1,0 +1,68 @@
+/* [class*='rIcon-'] */
+.BarV{
+  flex: 0 0 14%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.BarV__label{
+  width: 100%;
+  margin: 0.5rem 0.5rem 0 0;
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 0.5rem 0.5rem ;
+  color: #454545;
+  text-align: center;
+  font-family: inter-r;
+  font-size: 1rem;
+  box-shadow: 0 0 8px 2px rgba(100, 100, 100, 0.5);
+  box-sizing: border-box;
+}
+.BarV__label--1{
+  background-color: #FDDED8;
+  border: 1px solid #F56F56;
+}
+.BarV__label--2{
+  background-color: #F7E1CD;
+  border: 1px solid #FEAC67;
+}
+.BarV__label--3{
+  background-color: #DDF4ED;
+  border: 1px solid #94E5CC;
+}
+.BarV__label--4{
+  background-color: #DAEBF6;
+  border: 1px solid #6FBCED;
+}
+.BarV__label--5{
+  background-color: #D0DFEB;
+  border: 1px solid #5698D1;
+}
+
+.BarV__bar-1{
+  height: var(--BarV1);
+  background-color: #F56F56;
+}
+.BarV__bar-2{
+  height: var(--BarV2);
+  background-color: #FEAC67;
+}
+.BarV__bar-3{
+  height: var(--BarV3);
+  background-color: #94E5CC;
+}
+.BarV__bar-4{
+  height: var(--BarV4);
+  background-color: #6FBCED;
+}
+.BarV__bar-5{
+  height: var(--BarV5);
+  background-color: #5698D1;
+}
+
+[class*='BarV__bar-']{
+  /* border-radius: 0.5rem; */
+  width: 100%;
+  box-shadow: 0 0 4px 2px rgba(100, 100, 100, 0.5);
+}

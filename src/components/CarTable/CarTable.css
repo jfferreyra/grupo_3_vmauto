@@ -1,0 +1,35 @@
+.CarTable{
+  margin-bottom: 1rem;
+  border: 1px solid #b1b1b1;
+  border-radius: 1rem;
+  box-shadow: 0 0 16px 4px rgba(100, 100, 100, 0.5);
+}
+.CarTable__table{
+  width:100%; 
+  border-collapse:collapse;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-family: inter-r;
+}
+.CarTable__tr th{
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: normal;
+  /* text-align: left; */
+}
+.CarTable__table > :first-child{
+  background-color: rgb(190, 190, 190);
+}
+.CarTable__table > tr:nth-child(odd){
+  border: 2px solid transparent;
+  background-color: transparent;
+}
+.CarTable__table > tr:nth-child(even){
+  border: 2px solid transparent;
+  background-color: rgb(230, 230, 230);
+}
+.CarTable__table > tr:hover{
+  border: 2px solid rgb(255, 170, 72);
+  box-shadow: 0 0 6px 2px rgba(100, 100, 100, 0.5) ;
+  background-color: rgb(247, 214, 177);
+}

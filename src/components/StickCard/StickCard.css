@@ -1,0 +1,41 @@
+.StickCard{
+  flex: 0 1 11%;
+  border-radius: 1rem;
+  box-shadow: 0 0 6px 4px rgba(100, 100, 100, 0.5);
+}
+.StickCard__a{
+  height: var(--stickA);
+  padding: 0.5rem;
+  border-radius: 1rem 1rem 0 0;
+  background-color: #777777;
+}
+.StickCard__b{
+  height: var(--stickB);
+  padding: 0.5rem;
+  border-radius: 0 0 1rem 1rem;
+  background-color: #575757;
+}
+.StickCard__c{
+  height: var(--stickC);
+  padding: 0.5rem;
+  border-radius: 1rem 1rem 0 0;
+  background-color: #777777;
+}
+.StickCard__d{
+  height: var(--stickD);
+  padding: 0.5rem;
+  border-radius: 0 0 1rem 1rem;
+  background-color: #575757;
+}
+.StickCard__pCat{
+  font-size: 1.3rem;
+  color: white;
+  font-family: inter-r;
+  text-align: center;
+}
+.StickCard__pCount{
+  font-size: 1.3rem;
+  color: white;
+  font-family: inter-b;
+  text-align: center;
+}

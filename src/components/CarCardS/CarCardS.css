@@ -1,0 +1,78 @@
+.CarCardS{
+  padding: 1rem;
+  background-color: #dbdbdb;
+  border-radius: 2rem;
+  border: 1px solid #909090;
+}
+.CarCardS__top{
+  flex: 0 0 50%;
+  display: flex;
+  border: 1px solid #909090;
+  border-radius: 1rem;
+  box-shadow: 0 0 6px 2px rgba(100, 100, 100, 0.5);
+}
+.CarCardS__header{
+  width: 70%;
+  padding: 1rem;
+  border-radius: 0 1rem 1rem 0;
+  background-color: rgb(240, 240, 240);
+}
+.CarCardS__pTitle{
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: inter-b;
+  font-size: 1.6rem;
+  color: #505050;
+}
+.CarCardS__pName{
+  width: 100%;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-family: inter-b;
+  font-size: 2rem;
+  color: #404040;
+}
+.CarCardS__pText{
+  width: 100%;
+  text-align: center;
+  font-family: inter-b;
+  font-size: 1.2rem;
+  color: #404040;
+}
+.CarCardS__photo{
+  flex: 0 0 30%;
+  line-height: 0;
+}
+.CarCardS__img{
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+  border-radius: 1rem 0 0 1rem;
+}
+.CarCardS__btm{
+  margin-top: 2rem;
+  width: 100%;
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.CarCardS__left, .CarCardS__right{
+  padding: 1rem;
+  flex: 0 0 45%;
+}
+.CarCardS__address{
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px 2px rgba(100, 100, 100, 0.5);
+  background-color: rgb(240, 240, 240);
+
+}
+.CarCardS__pData{
+  margin-bottom: 2rem;
+  font-family: inter-r;
+  font-size:  1.4rem;
+}
+.CarCardS__sData{
+  font-family: inter-b;
+}

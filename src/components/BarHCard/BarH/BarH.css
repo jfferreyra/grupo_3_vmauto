@@ -1,0 +1,71 @@
+/* [class*='rIcon-'] */
+.BarH{
+  margin-bottom: 1rem;
+  display: flex;
+}
+.BarH__label{
+  width: var(--barLabel);
+  margin: 0 0.5rem 0 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem 0rem 0rem 0.5rem ;
+  color: white;
+  text-align: center;
+  font-family: inter-r;
+  font-size: 1.3rem;
+  box-shadow: 0 0 8px 2px rgba(100, 100, 100, 0.5);
+}
+.BarH__label--1{
+  background-color: #1A74C1;
+}
+.BarH__label--2{
+  background-color: #3CA5E6;
+}
+.BarH__label--3{
+  background-color: #4ED6AB;
+}
+.BarH__label--4{
+  background-color: #FFC013;
+}
+.BarH__label--5{
+  background-color: #FD7501;
+}
+.BarH__label--6{
+  background-color: #F13C1A;
+}
+.BarH__label--7{
+  background-color: #C11A92;
+}
+.BarH__bar-1{
+  width: var(--barh1);
+  background-color: #1A74C1;
+}
+.BarH__bar-2{
+  width: var(--barh2);
+  background-color: #3CA5E6;
+}
+.BarH__bar-3{
+  width: var(--barh3);
+  background-color: #4ED6AB;
+}
+.BarH__bar-4{
+  width: var(--barh4);
+  background-color: #FFC013;
+}
+.BarH__bar-5{
+  width: var(--barh5);
+  background-color: #FD7501;
+}
+.BarH__bar-6{
+  width: var(--barh6);
+  background-color: #F13C1A;
+}
+.BarH__bar-7{
+  width: var(--barh7);
+  background-color: #C11A92;
+}
+[class*='BarH__bar-']{
+  /* border-radius: 0.5rem; */
+  box-shadow: 0 0 4px 2px rgba(100, 100, 100, 0.5);
+}

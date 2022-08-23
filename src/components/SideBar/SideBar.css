@@ -1,0 +1,41 @@
+.SideBar{
+  flex: 0 0 14%;
+  background-color: #656565;
+}
+.SideBar__nav{
+  padding: 4rem 1.5rem 4rem 1.5rem;
+  border-bottom: 2px solid #505050;
+}
+.SideBar__ul{
+  padding: 0;
+}
+.SideBar__li {
+  
+  padding:2rem 0 2rem 0;
+  text-align: center;
+  list-style: none;
+  color: white;
+  border-top: 1px solid #959595;
+}
+.SideBar__ul>:last-child{
+  border-top: 1px solid #959595;
+  border-bottom: 1px solid #959595;
+}
+.SideBar__NavLink{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-family: inter-r;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  line-height: 2rem;
+  vertical-align: middle;
+}
+.SideBar__NavLink i{
+  margin-right: 1.5rem;
+}
+.rIcon-users,.rIcon-cars,.rIcon-metric,.rIcon-lastUser{
+  font-size: 2.5rem;
+}

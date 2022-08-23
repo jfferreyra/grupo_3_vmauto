@@ -1,0 +1,14 @@
+.BarVCard{
+  position: relative;
+  flex: 0 1 35%;
+  display: flex;
+  justify-content: space-between;
+}
+.BarVCard__pTitle{
+  position: absolute;
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: inter-b;
+  color: #505050;
+  text-align: center;
+}
