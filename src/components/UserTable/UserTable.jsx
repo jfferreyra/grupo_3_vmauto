@@ -2,21 +2,20 @@ import React from 'react';
 import UserRow from './UserRow/UserRow';
 import './UserTable.css'
 
-let users=[
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
-  {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'}
-]
+// let users=[
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'},
+//   {id:235,name:'Name',surname:'Surname',dni:'DNI',email:'macgiver@gmail.com',phone:'+549351458896'}
+// ]
 
 
-function UserTable(){
-  
+function UserTable({users}){
   return (
     <div className='UserTable'>
       <table className="UserTable__table" id="dataTable">
