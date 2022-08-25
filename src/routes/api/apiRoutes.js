@@ -10,12 +10,12 @@ let apiProductController = require('../../controllers/apiControllers/apiProductC
 // RUTAS USUARIOS - USER
 router.get('/users', apiUserController.list)                       // lista total usuarios
 router.get('/users/:id', apiUserController.detail)                  // detalle de 1 usuario en particular
-router.post('/users/del/:id', apiUserController.delete)
+router.delete('/users/del/:id', apiUserController.delete)
 
 // RUTAS PRODUCTOS - PRODUCTS
-router.get('/products', apiProductController.list)                 // lista todos los productos
-router.get('/products/:id', apiProductController.detail)            // detalle de producto
-router.post('/products/del/:id', apiProductController.delete)       // eliminar un producto
+router.get('/cars', apiProductController.list)                 // lista todos los productos
+router.get('/cars/:id', apiProductController.detail)            // detalle de producto
+router.post('/cars/del/:id', apiProductController.delete)       // eliminar un producto
 
 
 module.exports = router

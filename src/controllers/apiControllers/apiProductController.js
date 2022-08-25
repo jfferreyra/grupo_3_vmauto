@@ -1,15 +1,11 @@
 // ******************* API PRODUCT CONTROLLER ******************
-
 let db = require('../../database/models')
 let sequelize = require('sequelize')
 
-
-
 const apiProductController = {
-
     /******** API LISTA DE PRODUCTOS/AUTOS CON RELACIONES Y CATEGORIAS ************/
     list: function(req,res){
-
+      let page=+req.query.page; //Número de página enviado por query /cars?page=n
         // Carga tablas foráneas para las listas del formulario.
         // Busca todas las categorias y relaciones
         // UTILIZO EL ATTRIBUTES -> EXCLUDE PARA SACAR LO QUE NO QUIERO
@@ -19,28 +15,31 @@ const apiProductController = {
         let conditions = db.Condition.findAll({ attributes: { exclude: ['id'] } });
         let currencies = db.Currency.findAll({ attributes: { exclude: ['id'] } });
         let fuel = db.Fuel.findAll({ attributes: { exclude: ['id'] } });
-        let cars = db.Car.findAll()
+        let cars = db.Car.findAndCountAll({
+                      limit:8,
+                      offset:8*page,
+                      include: [{association:'brand'},{association:'condition'},{association:'color'}],
+                      attributes:['id','model','year']
+                    })
 
         // OTRA FORMA DE TRAER LO QUE YO QUIERO, USANDO ATTRIBUTES -> poniendo el valor de la key/clave que quiero
         let transmissions = db.Transmission.findAll({ attributes: ['name'] });
 
         // contador de categorias
         let countByCategory = db.Car.findAll({                            
-          include: [{association:'category',attributes:['name']}],
-          attributes: [[sequelize.literal("category.name"), "cat"],
-                      [sequelize.fn('COUNT',sequelize.col('Car.id')),'count']                       
-                      ],
-          group:'cat'
-        })
+                                include: [{association:'category',attributes:['name']}],
+                                attributes: [[sequelize.literal("category.name"), "cat"],
+                                            [sequelize.fn('COUNT',sequelize.col('Car.id')),'count']                       
+                                            ],
+                                group:'cat'
+                              })
         
         // Promesas que espera todos los findAll anteriores
         Promise.all([ cars, countByCategory, brands, categories, colors, conditions, currencies, fuel, transmissions ])
         .then( data => {
-
-
             let totalResponse = {            // respuesta con todos los datos
-              count: data[0].length,
-              products: data[0],
+              count: data[0].count,
+              cars: data[0].rows,
               countByCategory: data[1],
               relations: {
                   brands: data[2],
@@ -59,48 +58,42 @@ const apiProductController = {
 
     /************ API DETALLE DE PRODUCTO *********/
     detail: function(req,res){
+      let id = +req.params.id 
+      db.Car.findByPk(id,{ 
+        include:['brand','category','color','condition','currency','fuel','status','transmission']
+        }
+      ).then(data => {
+    
+    if(!data){
+      res.json(`ERROR: no tenemos ningun producto con el id: ${ id }`)
+    } else {
+        
+          let imgs = JSON.parse(data.imgs);
       
-      let id = req.params.id 
-
-        db.Car.findByPk(
-              id, 
-              {include:
-                ['brand','category','color','condition','currency','fuel','status','transmission'],
-                raw:true,
-                nest:true
-              }
-            ).then(data => {
-          
-          if(!data){
-            res.json(`ERROR: no tenemos ningun producto con el id: ${ id }`)
-          } else {
-              
-                let imgs = JSON.parse(data.imgs)
-            
-                let product = {   
-                    id: id,
-                    model: data.model,
-                    description: data.description,
-                    image_url: `/products/carsImages/${imgs[0]}`,
-                    status:data.status.name,
-                    brand:data.brand.name,
-                    condition:data.condition.name,
-                    year:data.year,
-                    km:data.km,
-                    engine:data.engine,
-                    fuel:data.fuel.name,
-                    transmission:data.transmission.name,
-                    color:data.color.name,
-                    doors:data.doors,
-                    airbags:data.airbags,
-                    category:data.category.name,
-                    price:data.price,
-                    currency:data.currency.name,
-                }
-
-                res.json(product)
-            }
-        })
+          let car = {   
+              id: id,
+              model: data.model,
+              description: data.description,
+              image_url: `//localhost:5001/products/carsImages/${imgs[0]}`,
+              status:data.status.name,
+              brand:data.brand.name,
+              condition:data.condition.name,
+              year:data.year,
+              km:data.km,
+              engine:data.engine,
+              fuel:data.fuel.name,
+              transmission:data.transmission.name,
+              color:data.color.name,
+              doors:data.doors,
+              airbags:data.airbags,
+              category:data.category.name,
+              price:data.price,
+              currency:data.currency.name,
+              currencySymbol:data.currency.symbol,
+          }
+          res.json(car)
+      }
+      })
     },
     
     /************ API BORRADO DE PRODUCTOS/AUTOS ***********/
@@ -135,7 +128,6 @@ const apiProductController = {
           )      
     }
 }
-
 
 module.exports = apiProductController
 
