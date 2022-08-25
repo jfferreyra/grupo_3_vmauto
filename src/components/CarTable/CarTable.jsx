@@ -1,23 +1,23 @@
 import React from 'react';
 import CarRow from './CarRow/CarRow';
 import './CarTable.css'
-let cars=[
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-  {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'}
-]
-function CarTable(){
+// let cars=[
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
+//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'}
+// ]
+function CarTable({cars,setRowCar}){
   return (
     <div className='CarTable'>
       <table className="CarTable__table" id="dataTable">
         <thead className='CarTable__tableHeader'>
-          <tr className='CarTable__tr'>
+          <tr>
             <th>Id</th>
             <th>Marca</th>
             <th>Modelo</th>
@@ -26,9 +26,11 @@ function CarTable(){
             <th>Color</th>
           </tr>
         </thead>
-        {cars.map((car,i)=>
-          <CarRow car={car} key={i}/>
-        )}
+        <tbody className='UserTable__body'>
+          {cars.length > 0 && cars.map((car,i)=>
+            <CarRow car={car} key={i} k={i} setRowCar={setRowCar}/>
+          )}
+        </tbody>
       </table>
     </div>
   )

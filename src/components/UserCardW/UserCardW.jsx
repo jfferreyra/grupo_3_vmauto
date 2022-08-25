@@ -1,22 +1,22 @@
 import React from 'react';
 import './UserCardW.css';
-import userPhoto from '../../assets/img/jpg/mac2giver.jpg';
+// let userf={
+//   name:'Richard Dean',
+//   surname:'Anderson',
+//   type:'usuario',
+//   dni:'22777555',
+//   born:'1950-01-23',
+//   address:'Victorinox 234',
+//   phone:'+549351656894',
+//   email:'macgiver@gmail.com',
+//   states:'Córdoba',
+//   location:'Córdoba'
+// }
+// let{name, surname,type,dni,born,address,phone,email,states,location}=user;
 
-let user={
-  name:'Richard Dean',
-  surname:'Anderson',
-  type:'usuario',
-  dni:'22777555',
-  born:'1950-01-23',
-  address:'Victorinox 234',
-  phone:'+549351656894',
-  email:'macgiver@gmail.com',
-  states:'Córdoba',
-  location:'Córdoba'
-}
-let{name, surname,type,dni,born,address,phone,email,states,location}=user;
-
-function UserCardW(){
+function UserCardW({user}){
+  let{id,name, surname,dni,birth,address,type,phone,state,email,location,image_url}=user;
+  let userPhoto = image_url;
   return (
     <div className='UserCardW'>
       <div className="UserCardW__left">
@@ -24,9 +24,8 @@ function UserCardW(){
           <img src={userPhoto} alt="" className="UserCardW__img" />
         </div>
         <div className="UserCardW__header">
-          <p className="UserCardW__pTitle">Usuario</p>
+          <p className="UserCardW__pTitle">{type}</p>
           <p className="UserCardW__pName">{name} {surname}</p>
-          <p className="UserCardW__pText">Tipo: {type}</p>
         </div>
       </div>
       <div className="UserCardW__data">
@@ -42,13 +41,13 @@ function UserCardW(){
       </div>
       <div className="UserCardW__data">
         <p className="UserCardW__pData"><span className="UserCardW__sData">Provincia: </span>
-          {states}
+          {state}
         </p>
         <p className="UserCardW__pData"><span className="UserCardW__sData">Localidad: </span>
           {location}
         </p>
         <p className="UserCardW__pData"><span className="UserCardW__sData">Cumpleaños: </span>
-          {born}
+          {birth}
         </p>
       </div>
       <div className="UserCardW__addressBtn">

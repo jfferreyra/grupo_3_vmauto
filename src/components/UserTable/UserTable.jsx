@@ -15,7 +15,7 @@ import './UserTable.css'
 // ]
 
 
-function UserTable({users}){
+function UserTable({users,setRowUser}){
   return (
     <div className='UserTable'>
       <table className="UserTable__table" id="dataTable">
@@ -31,7 +31,7 @@ function UserTable({users}){
         </thead>
         <tbody className='UserTable__body'>
           {users.length > 0 && users.map((user,i)=>
-            <UserRow user={user} key={i}/>
+            <UserRow user={user} key={i} k={i} setRowUser={setRowUser}/>
           )}
         </tbody>
       </table>

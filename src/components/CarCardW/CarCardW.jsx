@@ -1,41 +1,24 @@
 import React from 'react';
 import './CarCardW.css';
-import userPhoto from '../../assets/img/jpg/ToyotaHilux.webp';
 
-let user={
-  brand:'Toyota',
-  model:'Hilux',
-  year:2022,
-  condition:'Nuevo',
-  category:'Pickup',
-  km:0,
-  price:19000000,
-  transmission:'Manual',
-  fuel:'Diesel',
-  engine:'3.2',
-  color:'Rojo',
-  doors:4,
-  airbags:4,
-  currency:'$'
-}
-let{brand,model,year,condition,category,km,price,transmission,fuel,engine,color,doors,airbags,currency}=user;
-
-function CarCardW(){
+function CarCardW({car}){
+  let{brand, model,year,condition,km,engine,fuel,transmission,color,doors,airbags,category,price,currencySymbol,image_url}=car;
+  let carPhoto = image_url;
   return (
     <div className='CarCardW'>
       <div className="CarCardW__left">
         <div className="CarCardW__photo">
-          <img src={userPhoto} alt="" className="CarCardW__img" />
+          <img src={carPhoto} alt="" className="CarCardW__img" />
         </div>
         <div className="CarCardW__header">
-          <p className="CarCardW__pTitle">Coche {condition}</p>
+          <p className="CarCardW__pTitle">{condition}</p>
           <p className="CarCardW__pName">{brand} {model}</p>
           <p className="CarCardW__pText">Año: {year}</p>
         </div>
       </div>
       <div className="CarCardW__data">
         <p className="CarCardW__pData"><span className="CarCardW__sData">Kms: </span>
-          {km}
+          {Intl.NumberFormat('de-DE').format(km)}
         </p>
         <p className="CarCardW__pData"><span className="CarCardW__sData">Combustible: </span>
           {fuel}
@@ -63,7 +46,7 @@ function CarCardW(){
       </div>
       <div className="CarCardW__priceBtn">
         <div className="CarCardW__price">
-          <p>{price} {currency}</p>
+          <p>{Intl.NumberFormat('de-DE').format(price)} {currencySymbol}</p>
         </div>
         <div className="CarCardW__buttons">
           <div className="CarCardW__btnEdit"><i className="rIcon-edit"></i></div>

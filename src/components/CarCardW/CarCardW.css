@@ -26,6 +26,7 @@
   width: 100%;
   margin-bottom: 2rem;
   text-align: center;
+  text-transform: capitalize;
   font-family: inter-b;
   font-size: 1.6rem;
   color: #505050;
@@ -34,6 +35,7 @@
   width: 100%;
   margin-bottom: 2rem;
   text-align: center;
+  text-transform: capitalize;
   font-family: inter-b;
   font-size: 2rem;
   color: #404040;
@@ -84,7 +86,8 @@
   background-color: rgb(240, 240, 240);
 }
 .CarCardW__pData{
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
   font-family: inter-r;
   font-size:  1.4rem;
 }

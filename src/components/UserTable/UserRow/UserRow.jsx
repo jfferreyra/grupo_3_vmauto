@@ -1,9 +1,9 @@
 import React from 'react';
 import './UserRow.css'
-function UserRow(props){
-const {id,name,surname,dni,email,phone}=props.user;
+function UserRow({user,setRowUser,k}){
+const {id,name,surname,dni,email,phone}=user;
   return (
-    <tr>
+    <tr onClick={()=>setRowUser(k)}>
       <td className='UserRow__celd'>{id}</td>
       <td className='UserRow__celd'>{name}</td>
       <td className='UserRow__celd'>{surname}</td>
