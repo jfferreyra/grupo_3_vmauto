@@ -2,8 +2,8 @@ input:-webkit-autofill
 /* input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active */{ 
-  transition-property: background-color color;
   transition: 60000s;
+  transition-property: background-color , color ;
 }
 .login{
   max-width: 300px;

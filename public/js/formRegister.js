@@ -20,6 +20,7 @@ window.addEventListener('load',function () {  //Cuando carga la pagina
       fragment.appendChild(option); // Lo agrega al fragment 
     });
     location.replaceChildren(fragment); //Agrega el fragment con todas las localidades de la provincia seleccionada
+    location.focus(); //Pone en foco a location cada vez que se actualiza location por cambio en state.
   });
   name.focus(); //Pone en foco al campo name
 })

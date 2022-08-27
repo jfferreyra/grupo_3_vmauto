@@ -95,7 +95,7 @@ classes={
     //Expresiones Regulares usadas mas abajo
     const name=/^([a-zA-ZñÑñÑüÜ]+\s?[a-zA-ZñÑüÜ]+)*$/;
     const dni=/^\d+$/;
-    const address=/^([\w+ñÑñÑüÜ]\s?[\w+ñÑñÑüÜ]+)*$/;
+    const address=/^([\w+ñÑñÑüÜ\.]+\s?[\w+ñÑñÑüÜ]+)*$/;
     const phone=/^\+\d+$/;
     const pass=/^(?=\w*\d)(?=\w*[a-z])\S{6,12}$/;
 
@@ -107,7 +107,7 @@ fields=[
             {val:(value)=>{return value.length>=3},msg:"Debe tener al menos 3 caracteres."},
             {val:(value)=>{return name.test(value)},msg:"Sólo letras sin espacios al inicio o al final."}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     }, //aca termina un campo y sigue el otro. no olvidar la coma si sigue otro. Se ponen la cantidad que quiera.
     {
         id:"surname",     //id del campo en el html
@@ -116,7 +116,7 @@ fields=[
             {val:(value)=>{return value.length>=3},msg:"Debe tener al menos 3 caracteres."},
             {val:(value)=>{return name.test(value)},msg:"Sólo letras sin espacios al inicio o al final."}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     }, //aca termina un campo y sigue el otro. no olvidar la coma si sigue otro. Se ponen la cantidad que quiera.
     {
         id:"dni",     //id del campo en el html
@@ -125,7 +125,7 @@ fields=[
             {val:(value)=>{return value.length>=7&&value.length<=8},msg:"Debe tener al entre 7 y 8 números."},
             {val:(value)=>{return dni.test(value)},msg:"Sólo números."}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     },
     {
         id:"birth",     //id del campo en el html
@@ -146,7 +146,7 @@ fields=[
         id:"location",     //id del campo en el html
         validations:[   //val es un callback con parametro value (es el valor del campo, el programador solo debe cambiar la condición) y retorna una condición.(que la establece el programador)
             {val:(value)=>{return value!==""},msg:"Debe seleccionar una localidad."},
-            {val:(value)=>{return value!=="0"},msg:"Debe seleccionar una localidad."}
+            {val:(value)=>{return value!=="0"},msg:"Debe seleccionar una localidad."},
         ],
         events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     },
@@ -157,7 +157,7 @@ fields=[
             {val:(value)=>{return value.length>=5},msg:"Debe tener al menos 5 caracteres."},
             {val:(value)=>{return address.test(value)},msg:"Sin espacios al inicio o al final."}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     },
     {
         id:"phone",     //id del campo en el html
@@ -166,7 +166,7 @@ fields=[
             {val:(value)=>{return value.length===14},msg:"Debe tener 14 caractéres."},
             {val:(value)=>{return phone.test(value)},msg:"Sólo números y + al principio."}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     },
     {
         id:"email",     //id del campo en el html
@@ -175,7 +175,7 @@ fields=[
             {val:(value)=>{return value.length>=12},msg:"Debe tener al menos 12 caractéres."},
             {val:(value)=>{return exEmail.test(value)},msg:"Debe ser un email válido."}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     },
     {
         id:"pass",     //id del campo en el html
@@ -183,7 +183,7 @@ fields=[
             {val:(value)=>{return value!==""},msg:"Debe ingresar una contraseña."},
             {val:(value)=>{return pass.test(value)},msg:"La contraseña debe tener entre 6 y 12 caracteres, y al menos un dígito"}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     }
 ]   //Aca termina fields (configuración de las validaciones y campos).
 

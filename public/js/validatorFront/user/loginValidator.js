@@ -102,7 +102,7 @@ fields=[
             {val:(value)=>{return value.length>=12},msg:"Debe tener al menos 12 caracteres."},
             {val:(value)=>{return exEmail.test(value)},msg:"Debe ingresar un email válido."}
         ],
-        events:["keyup","blur","focus"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
+        events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.
     }, //aca termina un campo y sigue el otro. no olvidar la coma si sigue otro. Se ponen la cantidad que quiera.
     {
         id:"pass",
@@ -110,7 +110,7 @@ fields=[
             {val:(value)=>{return value!==""},msg:"La contraseña no puede estar vacía."},
             {val:(value)=>{return pass.test(value)},msg:"La contraseña debe tener entre 6 y 12 caracteres, y al menos un dígito"}
         ],
-        events:["keyup","blur","focus"] //cuando el campo es numérico conviene agregar también "Change" por si el usuario presiona las flechas para cambiar número
+        events:["keyup","blur","focus","change"] //cuando el campo es numérico conviene agregar también "Change" por si el usuario presiona las flechas para cambiar número
     }
 ]   //Aca termina fields (configuración de las validaciones y campos).
 
