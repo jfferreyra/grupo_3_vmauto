@@ -4,7 +4,7 @@ import './BarV.css';
 function BarV(props){
   let {count,name,percent,i}=props;
   let root=document.querySelector(':root');
-  root.style.setProperty(`--BarV${i+1}`,`calc(${percent} * ( 100% - var(--barLabel) - 3rem )`)
+  root.style.setProperty(`--BarV${i+1}`,`calc(${percent} * ( 100% - var(--barVLabel) - 3rem )`)
 
   return (
     <div className={`BarV`}>

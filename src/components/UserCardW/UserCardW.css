@@ -35,6 +35,7 @@
   width: 100%;
   margin-bottom: 2rem;
   text-align: center;
+  text-transform: capitalize;
   font-family: inter-b;
   font-size: 2rem;
   color: #404040;

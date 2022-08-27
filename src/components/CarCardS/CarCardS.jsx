@@ -2,34 +2,20 @@ import React from 'react';
 import './CarCardS.css';
 import CarPhoto from '../../assets/img/jpg/audi1.webp';
 
-let Car={
-  brand:'Audi',
-  model:'A8',
-  year:2022,
-  condition:'Nuevo',
-  km:0,
-  engine:'3.2',
-  color:'Gris',
-  category:'Deportivo',
-  fuel:'Nafta',
-  transmission:'Manual',
-  doors:2,
-  airbags:4
-}
-let{brand, model,year,condition,km,engine,color,category,fuel,transmission,doors,airbags}=Car;
-
-function CarCardS(){
+function CarCardS({last}){
+  let{brand, model,year,condition,km,engine,color,category,fuel,transmission,doors,airbags,imgs}=last;
+  let carPhoto = `//localhost:5001/products/carsImages/${JSON.parse(imgs)[0]}`;
   return (
     <div className='CarCardS'>
       <div className="CarCardS__top">
         <div className="CarCardS__photo">
-          <img src={CarPhoto} alt="" className="CarCardS__img" />
+          <img src={carPhoto} alt="" className="CarCardS__img" />
         </div>
         <div className="CarCardS__header">
           <p className="CarCardS__pTitle">Último Coche</p>
-          <p className="CarCardS__pName">{brand} {model}</p>
+          <p className="CarCardS__pName">{brand.name} {model}</p>
           <p className="CarCardS__pText">Año: {year}</p>
-          <p className="CarCardS__pText">Condición: {condition}</p>
+          <p className="CarCardS__pText">Condición: {condition.name}</p>
         </div>
       </div>
       <div className="CarCardS__btm">
@@ -41,18 +27,18 @@ function CarCardS(){
             {engine}
           </p>
           <p className="CarCardS__pData"><span className="CarCardS__sData">Color: </span>
-          {color}
+          {color.name}
           </p>
           <p className="CarCardS__pData"><span className="CarCardS__sData">Categoria: </span>
-          {category}
+          {category.name}
           </p>
         </div>
         <div className="CarCardS__right">
           <p className="CarCardS__pData"><span className="CarCardS__sData">Combustible: </span>
-            {fuel}
+            {fuel.name}
           </p>
           <p className="CarCardS__pData"><span className="CarCardS__sData">Transmisión: </span>
-            {transmission}
+            {transmission.name}
           </p>
           <p className="CarCardS__pData"><span className="CarCardS__sData">Puertas: </span>
           {doors}

@@ -43,11 +43,20 @@ function WrapperCar(){
       setPage(page-1);
     }
   }
+  function destroy(id) {
+    fetch(`http://localhost:5001/api/cars/del/${id}`,{ method: 'DELETE' })
+    .then(() =>{
+      if(page>Math.ceil((count-1)/8)-1){
+        setPage(page-1);
+      }
+      setCount(count-1);
+    }) 
+  };
 
   useEffect(()=>{   // Trae usuarios luego del primer renderizado
 		setRow(0);
     getCars();
-	},[page]);
+	},[page,count]);
 
   useEffect(()=>{   // Trae usuarios luego del primer renderizado
 		if(cars.length!==0){
@@ -57,7 +66,7 @@ function WrapperCar(){
 
   return (
     <div className="WrapperCar">
-      <CarTop count={count??0} car={car}/>
+      <CarTop count={count??0} car={car} destroy={destroy}/>
       <CarBtm cars={cars??[]} setRowCar={setRowCar} incPage={incPage} decPage={decPage}/>
     </div>
   )

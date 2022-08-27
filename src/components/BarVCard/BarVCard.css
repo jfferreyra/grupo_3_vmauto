@@ -1,6 +1,6 @@
 .BarVCard{
   position: relative;
-  flex: 0 1 35%;
+  flex: 0 1 45%;
   display: flex;
   justify-content: space-between;
 }

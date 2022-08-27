@@ -3,12 +3,12 @@ import BarHCard from '../BarHCard/BarHCard';
 import LastCard from '../LastCard/LastCard';
 import './MetricBtm.css';
 
-
-function MetricBtm(){
+function MetricBtm({categories,lastUser,lastCar}){
+  console.log(categories,'****** categories ******');
   return (
     <div className='MetricBtm'>
-      <BarHCard />
-      <LastCard />
+      <BarHCard categories={categories}/>
+      <LastCard lastUser={lastUser} lastCar={lastCar}/>
     </div>
   )
 }

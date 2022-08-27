@@ -1,22 +1,9 @@
 import React from 'react';
 import './UserCardS.css';
-import userPhoto from '../../assets/img/jpg/lobo.jpg';
 
-let user={
-  name:'Jan Michael',
-  surname:'Vincent',
-  type:'usuario',
-  dni:'22777888',
-  born:'1944-07-15',
-  address:'Lobo 235',
-  phone:'+549351656895',
-  email:'lobo@gmail.com',
-  states:'Córdoba',
-  location:'Córdoba'
-}
-let{name, surname,type,dni,born,address,phone,email,states,location}=user;
-
-function UserCardS(){
+function UserCardS({last}){
+  let{name, surname,userType,dni,birth,address,phone,email,location,img}=last;
+  let userPhoto = `//localhost:5001/users/images/${img}`;
   return (
     <div className='UserCardS'>
       <div className="UserCardS__top">
@@ -26,7 +13,7 @@ function UserCardS(){
         <div className="UserCardS__header">
           <p className="UserCardS__pTitle">Último Usuario</p>
           <p className="UserCardS__pName">{name} {surname}</p>
-          <p className="UserCardS__pText">Tipo: {type}</p>
+          <p className="UserCardS__pText">Tipo: {userType.name}</p>
         </div>
       </div>
       <div className="UserCardS__btm">
@@ -35,7 +22,7 @@ function UserCardS(){
             {dni}
           </p>
           <p className="UserCardS__pData"><span className="UserCardS__sData">Cumpleaños: </span>
-            {born}
+            {birth}
           </p>
           <div className="UserCardS__address">
             <p className="UserCardS__pData"><span className="UserCardS__sData">Domicilio: </span><br></br>
@@ -52,12 +39,12 @@ function UserCardS(){
           </p>
           <div className="UserCardS__data">
                 <p className="UserCardS__pData"><span className="UserCardS__sData">Provincia: </span>
-                {states}
+                {location.state.name}
                 </p>
               </div>
               <div className="UserCardS__data">
                 <p className="UserCardS__pData"><span className="UserCardS__sData">Localidad: </span>
-                {location}
+                {location.name}
                 </p>
               </div>
         </div>

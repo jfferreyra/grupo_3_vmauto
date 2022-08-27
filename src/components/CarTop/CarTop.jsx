@@ -5,11 +5,11 @@ import TotalCard from '../TotalCard/TotalCard';
 
 let carTitle='Total Coches';
 
-function CarTop({count,car}){
+function CarTop({count,car,destroy}){
   return (
     <div className='CarTop'>
       <TotalCard title={carTitle} count={count} />
-      <CarCardW car={car}/>
+      <CarCardW car={car} destroy={destroy}/>
     </div>
   )
 }

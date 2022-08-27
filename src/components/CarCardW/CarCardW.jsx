@@ -1,8 +1,8 @@
 import React from 'react';
 import './CarCardW.css';
 
-function CarCardW({car}){
-  let{brand, model,year,condition,km,engine,fuel,transmission,color,doors,airbags,category,price,currencySymbol,image_url}=car;
+function CarCardW({car,destroy}){
+  let{id,brand, model,year,condition,km,engine,fuel,transmission,color,doors,airbags,category,price,currencySymbol,image_url}=car;
   let carPhoto = image_url;
   return (
     <div className='CarCardW'>
@@ -50,7 +50,7 @@ function CarCardW({car}){
         </div>
         <div className="CarCardW__buttons">
           <div className="CarCardW__btnEdit"><i className="rIcon-edit"></i></div>
-          <div className="CarCardW__btnDelete"><i className="rIcon-delete"></i></div>
+          <div className="CarCardW__btnDelete" onClick={()=>destroy(id)}><i className="rIcon-delete"></i></div>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ function App() {
       <Route path='/' element={<><TopBar /><Main /></>}>
         <Route path='users' element={<WrapperUser/>}/>
         <Route path='cars' element={<WrapperCar/>}/>
-        <Route path='metrics/:last' element={<WrapperMetric/>}/>
+        <Route path='metrics/:lastOp' element={<WrapperMetric/>}/>
         <Route path="*" element={<NotFound />}/>
       </Route>
       <Route path="*" element={<NotFound />}/>

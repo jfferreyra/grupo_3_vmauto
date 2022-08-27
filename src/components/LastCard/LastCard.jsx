@@ -5,12 +5,11 @@ import UserCardS from '../UserCardS/UserCardS';
 import CarCardS from '../CarCardS/CarCardS';
 
 
-function LastCard(props){
-  let {last}=useParams();
+function LastCard({lastUser,lastCar}){
+  let {lastOp}=useParams();
   return (
     <div className='LastCard'>
-      {last==="lastUser" ? <UserCardS/>:
-      last==="lastCar" && <CarCardS/>}
+      {lastOp==="lastUser" ? <UserCardS last={lastUser}/>:<CarCardS last={lastCar}/>}
     </div>
   )
 }

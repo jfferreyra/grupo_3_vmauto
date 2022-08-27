@@ -1,6 +1,7 @@
 import React from 'react';
 import './WrapperUser.css';
 import UserTop from '../UserTop/UserTop';
+// import UserBtm from '../UserBtm/UserBtm';
 import UserBtm from '../UserBtm/UserBtm';
 import { useState,useEffect} from 'react';
 
@@ -43,21 +44,20 @@ function WrapperUser(){
     setPage(page-1);
    }
   }
-  // function destroy(id) {
-  //   fetch(`http://localhost:5001/api/users/del/${id}`,{ method: 'DELETE' })
-  //   .then(() =>{
-  //     if(page<=Math.ceil((count-1)/8)){
-  //       setPage(page);
-  //     }else{
-  //       setPage(page-1);
-  //     }
-  //   }) 
-  // }
+  function destroy(id) {
+    fetch(`http://localhost:5001/api/users/del/${id}`,{ method: 'DELETE' })
+    .then(() =>{
+      if(page>Math.ceil((count-1)/8)-1){
+        setPage(page-1);
+      }
+      setCount(count-1);
+    }) 
+  };
 
   useEffect(()=>{   // Trae usuarios luego del primer renderizado
 		setRow(0);
     getUsers();
-	},[page]);
+	},[page,count]);
 
   useEffect(()=>{   // Trae usuarios luego del primer renderizado
 		if(users.length!==0){
@@ -67,7 +67,7 @@ function WrapperUser(){
 
   return (
     <div className="WrapperUser">
-      <UserTop count={count??0} user={user}/> {/*Si existe users.count sino 0 y lo envia a UserTop */}
+      <UserTop count={count??0} user={user} destroy={destroy}/> {/*Si existe users.count sino 0 y lo envia a UserTop */}
       <UserBtm users={users??[]} setRowUser={setRowUser} incPage={incPage} decPage={decPage}/> {/*Si existe users.users sino [] y lo envia a UserBtm */}
     </div>
   )
