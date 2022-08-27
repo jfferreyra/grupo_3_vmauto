@@ -22,7 +22,8 @@ const productValidations = require('../middlewares/validator/productValidations'
 
 //Creación de Producto
   router.get('/create/',userMware.productRegister,productsController.create);
-  router.post('/create/',productsController.upload, productValidations, productsController.created);
+  router.post('/create/',productsController.upload, productValidations,productsController.created);
+//, productValidations queda de hacer
 
 //Eliminación de Producto
   router.delete('/del/:id',productsController.deleted);

@@ -1,62 +1,60 @@
-// ******************* API PRODUCT CONTROLLER ******************
-const path = require('path');
-const fs=require('fs');
-//Directorio de imágenes de coches Path
-const carImagePath=path.resolve('./public/products/carsImages')
+// ******************* API METRICS CONTROLLER ******************
 // Modelos de base de datos
 let db = require('../../database/models')
 let sequelize = require('sequelize')
 
-const apiProductController = {
-    /******** API LISTA DE PRODUCTOS/AUTOS CON RELACIONES Y CATEGORIAS ************/
-    list: function(req,res){
-      let page=+req.query.page; //Número de página enviado por query /cars?page=n
-        // Carga tablas foráneas para las listas del formulario.
-        // Busca todas las categorias y relaciones
-        // UTILIZO EL ATTRIBUTES -> EXCLUDE PARA SACAR LO QUE NO QUIERO
-        let brands = db.Brand.findAll({ attributes: { exclude: ['id'] } });  
-        let categories = db.Category.findAll( {attributes: { exclude: ['id'] } });
-        let colors = db.Color.findAll({ attributes: { exclude: ['id'] } });
-        let conditions = db.Condition.findAll({ attributes: { exclude: ['id'] } });
-        let currencies = db.Currency.findAll({ attributes: { exclude: ['id'] } });
-        let fuel = db.Fuel.findAll({ attributes: { exclude: ['id'] } });
-        let cars = db.Car.findAndCountAll({
-                      limit:8,
-                      offset:8*page,
-                      include: [{association:'brand'},{association:'condition'},{association:'color'}],
-                      attributes:['id','model','year']
-                    })
-
-        // OTRA FORMA DE TRAER LO QUE YO QUIERO, USANDO ATTRIBUTES -> poniendo el valor de la key/clave que quiero
-        let transmissions = db.Transmission.findAll({ attributes: ['name'] });
-
+const apiMetricsController = {
+    /******** Métricas de Coches ************/
+    metrics: function(req,res){
         // contador de categorias
+        let lastUser=db.User.findOne({
+          order: [ [ 'id', 'DESC' ]],
+          include: [{association:'userType',attributes:['name']},
+                    {association:'location',include:[{association:'state'}]}
+                   ],
+          attributes: { exclude: ['pass','created_at','updated_at'] }
+        });
+        let lastCar=db.Car.findOne({
+          order: [ [ 'id', 'DESC' ]],
+          include: ['brand','condition','fuel','transmission','color','category','currency']
+        });
+        let totalUser = db.User.count();
+        let totalCar = db.Car.count();
         let countByCategory = db.Car.findAll({                            
                                 include: [{association:'category',attributes:['name']}],
-                                attributes: [[sequelize.literal("category.name"), "cat"],
-                                            [sequelize.fn('COUNT',sequelize.col('Car.id')),'count']                       
-                                            ],
-                                group:'cat'
+                                attributes: [[sequelize.fn('COUNT','id'),'count']],
+                                group:'category.name'
+                              });
+        let countByCondition= db.Car.findAll({                            
+                                include: [{association:'condition',attributes:['name']}],
+                                attributes: [[sequelize.fn('COUNT','id'),'count']],
+                                group:'condition.name'
+                              });
+        let countByFuel = db.Car.findAll({                            
+                                include: [{association:'fuel',attributes:['name']}],
+                                attributes: [[sequelize.fn('COUNT','id'),'count']],
+                                group:'fuel.name'
+                              });
+        let countByTransmission = db.Car.findAll({                            
+                                include: [{association:'transmission',attributes:['name']}],
+                                attributes: [[sequelize.fn('COUNT','id'),'count']],
+                                group:'transmission.name'
                               });
         
         // Promesas que espera todos los findAll anteriores
-        Promise.all([ cars, countByCategory, brands, categories, colors, conditions, currencies, fuel, transmissions ])
+        Promise.all([ totalUser,totalCar,countByCategory,countByCondition,countByFuel,countByTransmission,lastUser,lastCar])
         .then( data => {
+
             let totalResponse = {            // respuesta con todos los datos
-              count: data[0].count,
-              cars: data[0].rows,
-              countByCategory: data[1],
-              relations: {
-                  brands: data[2],
-                  categories: data[3],
-                  colors: data[4],
-                  conditions: data[5],
-                  currencies: data[6],
-                  fuel: data[7],
-                  transmission: data[8]
-              }
+              totalUser: data[0],
+              totalCar: data[1],
+              category: data[2],
+              condition: data[3],
+              fuel: data[4],
+              transmission: data[5],
+              lastUser:data[6],
+              lastCar:data[7],
             }
-  
             return  res.json(totalResponse) ; // envia todos los datos
         })
     },
@@ -133,26 +131,4 @@ const apiProductController = {
     }
 }
 
-module.exports = apiProductController;
-
-/*
-        status_id:1,
-        brand_id:body.brand,
-        model:body.model,
-        condition_id:body.condition,
-        year:body.year,
-        km:body.km,
-        engine:body.engine,
-        fuel_id:body.fuel,
-        transmission_id:body.transmission,
-        color_id:body.color,
-        doors:body.doors,
-        airbags:body.airbags,
-        category_id:body.category,
-        price:body.price,
-        currency_id:body.currency,
-        description:body.description,
-
-
-
-*/
+module.exports = apiMetricsController;

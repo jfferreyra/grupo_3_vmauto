@@ -177,11 +177,8 @@
     created:(req,res,next) => {
       //Errores Express-Validator
       let errorsUnmapped = validationResult(req) //Obtiene los errores, si es que hay
-      let errors = errorsUnmapped.mapped() // mapea el obj de los errores para mandarlos a la vista
-      
-      if(errors.length !== 'undefined'){
-        console.log('errores===', errors, 'length::',errors.length)
-
+      if(!errorsUnmapped.isEmpty()){
+        let errors = errorsUnmapped.mapped() // mapea el obj de los errores para mandarlos a la vista
         let brands=db.Brand.findAll();    //Carga tablas foráneas para las listas del formulario.
         let categories=db.Category.findAll();
         let colors=db.Color.findAll();
@@ -213,12 +210,7 @@
               res.redirect(`/products/detail/${id}`); //Redirige a detalle de producto.
             });
         });
-
-      
-        
       }
-
-      
     },
     //***************** ELIMINA.************* (Redirige al administrador de productos).
     deleted:(req, res) => {

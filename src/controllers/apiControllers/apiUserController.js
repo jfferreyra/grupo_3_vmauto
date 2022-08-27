@@ -1,3 +1,6 @@
+const path = require('path');
+const fs=require('fs');
+const userImagePath=path.resolve('./public/users/images') //Carpeta imagenes de usuario
 let db = require('../../database/models')
 
 const apiUserController = {
@@ -65,11 +68,10 @@ const apiUserController = {
               return  res.json(`ERROR: no hay ningun usuario con el id: ${id}`)
             }
 
-            // {user.imgs.length > 1 && (                   // SI ENCUENTRA UN PRODUCTO PROCEDE 
-            //   JSON.parse(user.imgs).forEach( image =>   // Elimina las imagenes del directorio.
-            //         image === "placeholder.svg" ? 0 : fs.unlinkSync(`${ userImagePath }/${ image }`)
-            //   )
-            // )}
+            let image=user.img;  //Del usuario obtiene el nombre de imagen de avatar.
+            if(image){
+              fs.unlinkSync(`${userImagePath}/${image}`)  //Elimina imagen de avatar de la carpeta users/images
+            };
            
             db.User.destroy({                    //Una vez eliminadas las imagenes, elimina el registro.
               where:{id:id}
@@ -82,6 +84,5 @@ const apiUserController = {
           )      
     }
 }
-
 
 module.exports = apiUserController
