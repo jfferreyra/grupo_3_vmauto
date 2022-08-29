@@ -13,53 +13,53 @@ function WrapperUser(){
   const [page,setPage]=useState(0); //Estado page. Página del listado de usuarios, cada página tiene
   // un tamaño predeterminado de 8 registros. 
 
-  function getUsers() {     // Metodo trae usuarios y conteo.
+  function getUsers() {     // Trae usuarios y conteo.
     fetch(`http://localhost:5001/api/users?page=${page}`)
       .then(response=>response.json())
       .then(data => {
-        setUsers(data.users);
-        setCount(data.count);
+        setUsers(data.users); // Array de usuarios
+        setCount(data.count); // Total de usuarios
       })
       .catch(e=>{console.log(e);})
   }
-  function getUser() {
+  function getUser() {  //  Trae un usuario cuando se selecciona un fila row de la tabla.
     let id = users[row].id;
     fetch(`http://localhost:5001/api/users/${id}`)
       .then(response=>response.json())
       .then(data => {
-        setUser(data);
+        setUser(data); // Usuario
       })
       .catch(e=>{console.log(e);})
   }
-  function setRowUser(i){
+  function setRowUser(i){ // Registra la fila seleccionada de la tabla.
     setRow(i);
   }
-  function incPage() {
-    if(page<Math.ceil(count/8)-1){
+  function incPage() {  // Incrementa en uno la pagina al hacer click en siguiente.
+    if(page<Math.ceil(count/8)-1){  // Comprueba si es última página.
       setPage(page+1);
     }
   }
-  function decPage() {
-   if(page >= 1){
+  function decPage() {  // Incrementa en uno la pagina al hacer click en siguiente.
+   if(page >= 1){ // Comprueba si es primera página.
     setPage(page-1);
    }
   }
-  function destroy(id) {
+  function destroy(id) {  // Elimina registro
     fetch(`http://localhost:5001/api/users/del/${id}`,{ method: 'DELETE' })
     .then(() =>{
-      if(page>Math.ceil((count-1)/8)-1){
-        setPage(page-1);
+      if(page>Math.ceil((count-1)/8)-1){ //Comprueba si la última pagina queda vacia .
+        setPage(page-1);                 // Elimina y regresa a la anterior.
       }
-      setCount(count-1);
+      setCount(count-1);  // Disminuye el total en 1.
     }) 
   };
 
   useEffect(()=>{   // Trae usuarios luego del primer renderizado
-		setRow(0);
+		setRow(0);    // Establece el primer registro de la página actual como predeterminado para mostrar detalle.
     getUsers();
 	},[page,count]);
 
-  useEffect(()=>{   // Trae usuarios luego del primer renderizado
+  useEffect(()=>{   // Muestra el usuario seleccionado en la tabla.
 		if(users.length!==0){
       getUser(row);  
     }

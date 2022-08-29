@@ -10,7 +10,7 @@ function BarHCard({categories}){
   return (
     <div className='BarHCard'>
       {categories.map((cat,i)=>
-        <BarH count={cat.count} name={cat.category.name} percent={cat.count/maxCount} key={i} i={i}/>
+        <BarH count={cat.count} name={cat.name} percent={cat.count/maxCount} key={i} i={i}/>
       )}
     </div>
   )

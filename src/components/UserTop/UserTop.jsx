@@ -3,7 +3,6 @@ import './UserTop.css';
 import UserCardW from '../UserCardW/UserCardW';
 import TotalCard from '../TotalCard/TotalCard';
 
-// let {userTitle,userCount}={userTitle:'Total Usuarios',userCount:325,}
 let userTitle='Total Usuarios';
 
 function UserTop({count,user,destroy}){

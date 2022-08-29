@@ -9,7 +9,7 @@ function BarVCard({fuel}){
     <div className='BarVCard'>
       <p className='BarVCard__pTitle'>Combustible</p>
       {fuel.map((f,i)=>
-        <BarV count={f.count} name={f.fuel.name} percent={f.count/maxCount} key={i} i={i}/>
+        <BarV count={f.count} name={f.name} percent={f.count/maxCount} key={i} i={i}/>
       )}
     </div>
   )
