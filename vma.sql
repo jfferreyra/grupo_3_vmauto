@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2022 a las 20:44:42
+-- Tiempo de generación: 29-08-2022 a las 17:50:34
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -163,7 +163,11 @@ INSERT INTO `cars` (`id`, `status_id`, `brand_id`, `model`, `condition_id`, `yea
 (11, 1, 23, 'RAM-Laramie', 2, 2014, 80000, '5.7', 1, 2, 13, 4, 4, 3, 35999, 1, 'GD MOTORS\r\nJuana Manso 299\r\nPuerto Madero\r\n\r\nDodge Ram 1500\r\n5.7 4X4 LARAMIE V8\r\n6 asientos!!\r\n3 Plazas adelante y 3 atras!!\r\nAño 2014\r\n80000 km.\r\nUnico dueño\r\nService oficiales\r\nVarios accesorios\r\n\r\n\r\n\r\nPrecio de contado efectivo usd 35.999\r\nPrecio de lista usd 37.999\r\nPermuta o financiación', '[\"11-img1.webp\",\"11-img2.webp\",\"11-img3.webp\",\"11-img4.webp\",\"11-img5.webp\",\"11-img6.webp\",\"11-img7.webp\"]', '2022-07-26 05:32:49', '2022-07-26 05:32:49'),
 (12, 1, 25, 'pulse', 1, 2022, 0, '1.3', 1, 2, 5, 5, 2, 5, 3850000, 3, '-- VENTA FINANCIADA --\r\n\r\nnuevo FIAT PULSE 0km 2022 // Todas las versiones disponibles', '[\"12-img1.webp\",\"12-img2.webp\",\"12-img3.webp\",\"12-img4.webp\",\"12-img5.webp\",\"12-img6.webp\",\"12-img7.webp\"]', '2022-07-26 05:44:50', '2022-07-26 05:44:50'),
 (13, 1, 14, 'cruze', 1, 2022, 0, '1.4', 1, 2, 5, 4, 4, 4, 5599900, 3, 'TENEMOS AUTOS PARA ENTREGA INMEDIATA\r\n\r\n[ 5-6 DIAS Y TE LO LLEVAS ]\r\n', '[\"13-img1.webp\",\"13-img2.webp\",\"13-img3.webp\",\"13-img4.webp\",\"13-img5.webp\",\"13-img6.webp\",\"13-img7.webp\"]', '2022-07-26 05:55:15', '2022-07-26 05:55:15'),
-(15, 1, 74, 'hilux', 1, 2022, 10000, '2.5', 2, 1, 1, 2, 2, 3, 9500000, 3, 'Toyota Hilux Nueva modelo año 2022', '[\"15-img1.webp\",\"15-img2.webp\",\"15-img3.webp\",\"15-img4.webp\",\"15-img5.webp\",\"15-img6.webp\",\"15-img7.webp\"]', '2022-07-28 14:01:22', '2022-07-28 14:01:22');
+(15, 1, 74, 'hilux', 1, 2022, 10000, '2.5', 2, 1, 1, 2, 2, 3, 9500000, 3, 'Toyota Hilux Nueva modelo año 2022', '[\"15-img1.webp\",\"15-img2.webp\",\"15-img3.webp\",\"15-img4.webp\",\"15-img5.webp\",\"15-img6.webp\",\"15-img7.webp\"]', '2022-07-28 14:01:22', '2022-07-28 14:01:22'),
+(18, 1, 77, 'Golf Variant 1.4', 2, 2016, 33000, '1.4', 1, 2, 15, 5, 4, 7, 4690000, 3, 'Buen Estado.', '[\"18-img1.webp\",\"18-img2.webp\",\"18-img3.webp\",\"18-img4.webp\",\"18-img5.webp\",\"18-img6.webp\",\"18-img7.webp\"]', '2022-08-27 02:50:31', '2022-08-27 02:50:31'),
+(19, 1, 14, 'Tracker 1.8 Ltz+ Awd', 2, 2015, 84325, '140cv', 3, 1, 5, 5, 4, 2, 4190000, 3, 'Buen estado pocos kms gnc.', '[\"19-img1.webp\",\"19-img2.webp\",\"19-img3.webp\",\"19-img4.webp\",\"19-img5.webp\",\"19-img6.webp\",\"19-img7.webp\"]', '2022-08-27 03:05:18', '2022-08-27 03:05:18'),
+(20, 1, 45, 'Gs450h', 2, 2018, 57263, 'V6H', 5, 2, 2, 4, 6, 4, 70000, 1, 'Poco uso motor v6 híbrido.', '[\"20-img1.webp\",\"20-img2.webp\",\"20-img3.webp\",\"20-img4.webp\",\"20-img5.webp\",\"20-img6.webp\",\"20-img7.webp\"]', '2022-08-27 03:19:44', '2022-08-27 03:19:44'),
+(21, 1, 56, 'Leaf Tekna', 1, 2022, 0, 'electrico', 4, 2, 5, 5, 6, 2, 8490000, 3, 'Nuevo motor eléctrico.', '[\"21-img1.webp\",\"21-img2.webp\",\"21-img3.webp\",\"21-img4.webp\",\"21-img5.webp\",\"21-img6.webp\",\"21-img7.webp\"]', '2022-08-27 03:36:46', '2022-08-27 03:36:47');
 
 -- --------------------------------------------------------
 
@@ -2861,9 +2865,20 @@ INSERT INTO `users` (`id`, `name`, `user_type_Id`, `surname`, `dni`, `birth`, `e
 (23, 'lee', 3, 'major', 22555666, '1939-04-23', 'nuclear@gmail.com', 494, 'nuclear 234', '+5493515211855', '$2a$10$EAQ1JXToxwVnAqU1.6jvlundNqDwcFzeqWlZJ3xDbn7CWFyLE7utG', '23-img.png', '2022-07-22 23:09:41', '2022-07-26 16:35:07'),
 (24, 'lindsay', 4, 'wagner', 21444555, '1949-06-22', 'bionica@gmail.com', 502, 'bionica 19', '+5493515235812', '$2a$10$xErI2kR24a3a5e92TMLeKOAzDIv6PVtigQ9dt.vtCNldsZnUUkZ9C', '24-img.jpg', '2022-07-23 03:22:30', '2022-07-26 15:15:03'),
 (25, 'michael', 1, 'landon', 22111111, '1936-10-31', 'camino@gmail.com', 543, 'cielo 258', '+5493512639999', '$2a$10$q6ziR/2Q650hlhAcx5ZP4ukuv9RrLavi2nAkGXUCsRzNGW4efpBRO', '25-img.jpg', '2022-07-23 20:38:49', '2022-07-23 20:38:49'),
-(26, 'bill', 1, 'bixby', 20000000, '1934-01-22', 'hulk@gmail.com', 497, 'verde 333', '+5493515211801', '$2a$10$39ihtx.2lF3YXxwj72UriOZ7yHtbHPrnfJXL4a7/H6fM1c.KtC3J2', '26-img.jpg', '2022-07-23 20:51:53', '2022-07-23 20:51:53'),
+(26, 'bill', 1, 'bixby', 20000000, '1934-01-22', 'hulk@gmail.com', 499, 'verde 333', '+5493515211801', '$2a$10$PxopBHdVdJ2/WnDsLoy4yeAmna7emyeikmcVg/KACfB1uRlLJDE36', '26-img.jpg', '2022-07-23 20:51:53', '2022-08-26 02:13:39'),
 (28, 'david', 1, 'carradine', 22555333, '1936-12-03', 'kung@gmail.com', 1045, 'maestro po 153', '+5493512229858', '$2a$10$x.xdKW6DKMzSA1C/l9Tk..cJcL4nJodpauhCy0o88n3rQEspf9oSm', '28-img.jpg', '2022-07-26 16:57:40', '2022-07-26 16:57:40'),
-(29, 'jan michael', 1, 'Vincent', 21777888, '1944-07-15', 'lobo@gmail.com', 1353, 'lobo 237', '+5493515299912', '$2a$10$4J.Hi08IGoUg9zq4fMGSEulPlZG3AA27DMe19N/4PftbBsvc/jfm2', '29-img.jpg', '2022-07-26 17:57:29', '2022-07-26 21:16:38');
+(29, 'jan michael', 1, 'Vincent', 21777888, '1944-07-15', 'lobo@gmail.com', 1353, 'lobo 237', '+5493515299912', '$2a$10$4J.Hi08IGoUg9zq4fMGSEulPlZG3AA27DMe19N/4PftbBsvc/jfm2', '29-img.jpg', '2022-07-26 17:57:29', '2022-07-26 21:16:38'),
+(31, 'Robert', 1, 'Conrad', 2256896, '1935-03-01', 'jim@gmail.com', 991, 'jimwest 235', '+5493515211825', '$2a$10$S0DcBZoEW/1bMaxSt3QgpuxgYqGJQfmOG68/5ArCIlIkMvKHO56sa', '31-img.jpg', '2022-08-25 16:47:43', '2022-08-25 16:47:43'),
+(32, 'Benji', 1, 'Benji', 22333888, '2015-01-01', 'benji@gmail.com', 502, 'can 253', '+5493515285695', '$2a$10$oEHJVNkJm1c.pyUTYK3FpeIzUcGML4LYU5dyMuczVZ15Nu1BO924e', '32-img.jpg', '2022-08-25 16:54:32', '2022-08-25 16:54:32'),
+(33, 'Bob', 1, 'Denver', 21555668, '1935-01-09', 'gilligan@gmail.com', 348, 'LaIsla 235', '+5493545186554', '$2a$10$5SlzA5uUMK5fHSmjFFb53OQrq4zyAyZj23tETSzv2eet5UA1ss4My', '33-img.jpg', '2022-08-25 17:24:36', '2022-08-25 17:24:36'),
+(34, 'Chavo', 1, 'Rondamon', 2033665, '1923-09-02', 'rondamon@gmail.com', 379, 'Vecindad 235', '+5493512631225', '$2a$10$AuiYwF1iSkKyPmdFDNariO29DJ8L.8KjfbdNnIurfyXJWYp25a74S', '34-img.jpg', '2022-08-25 17:41:48', '2022-08-25 17:41:48'),
+(35, 'David', 1, 'Rasche', 20000111, '1944-08-07', 'martillo@gmail.com', 382, 'revolver 235', '+5493515200125', '$2a$10$3H0ZrWEJ9VJw7yG6.fImZu/x7xcJ37DBEaObd5xBASF4utE8dYngy', '35-img.jpg', '2022-08-25 17:48:15', '2022-08-25 17:48:15'),
+(36, 'Thomas William', 1, 'Selleck', 27777777, '1945-01-29', 'magnum@gmail.com', 1437, 'Magnum 357', '+5493512632236', '$2a$10$X1UvDFEVAIbvruM.uKpayeGqEK16NlGRqWKfGpEtZP9dYxIEIyX0u', '36-img.jpg', '2022-08-25 17:58:31', '2022-08-25 17:58:32'),
+(37, 'Don', 1, 'Adams', 28686868, '1923-04-13', 'control@gmail.com', 1292, 'Control 235', '+5493512639811', '$2a$10$ZGuViZwAu7nHmL0SrWBsaOtzDLyZ3qEucd1sdT88Jg8YecmTEme1e', '37-img.jpg', '2022-08-25 18:04:23', '2022-08-25 18:04:23'),
+(38, 'Gordon', 1, 'Shumway', 23566885, '1756-10-28', 'alf@gmail.com', 503, 'Melmac 235', '+5493512631125', '$2a$10$4yj0FlfxkQ.9xlUFRcIYw.eab4uF1pXOHf6Csa61TlrgF6lOsC4f.', '38-img.jpg', '2022-08-25 18:17:11', '2022-08-25 18:17:11'),
+(39, 'Martin', 1, 'Landau', 22999999, '1928-06-20', 'cosmos@gmail.com', 1759, 'cosmos 235', '+5493511020205', '$2a$10$ULgn2JVvfxAFsIvRS4B3H.YVbFg/XDau.W511C7o6GksJ9O2S2EXu', '39-img.jpg', '2022-08-25 18:33:37', '2022-08-25 18:33:37'),
+(45, 'Gilbert', 1, 'Gerard', 25336698, '1943-01-23', 'buckrogers@gmail.com', 287, 'Siglo 25', '+5493515211811', '$2a$10$0m17jxPHhPKI5YZEfNotluckoqjGY3HOHH2/OH2o/FzDmvm6yawHK', '45-img.webp', '2022-08-26 12:50:10', '2022-08-26 12:50:10'),
+(48, 'Fulanito', 1, 'Fulano', 22982300, '2022-08-25', 'fulano@gmail.com', 2270, 'Av fulano homer 234', '+5493515211812', '$2a$10$xyx6xbV82HdiVnDba3ABjuCGsRjv.xdkGImKUPqkODrIqYjo9GSaS', '48-img.jpg', '2022-08-27 16:39:33', '2022-08-27 16:39:33');
 
 -- --------------------------------------------------------
 
@@ -3017,7 +3032,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT de la tabla `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `carts`
@@ -3089,7 +3104,7 @@ ALTER TABLE `transmissions`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `user_types`
