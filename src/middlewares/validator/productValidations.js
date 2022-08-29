@@ -1,7 +1,6 @@
 const {body}=require('express-validator');
 
 //Validaciones para el login
-console.log('pase por validator')
 const productValidations = [
   // Validacion Marca
 

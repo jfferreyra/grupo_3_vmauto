@@ -17,7 +17,6 @@ router.delete('/users/del/:id', apiUserController.delete)
 router.get('/cars', apiProductController.list)                 // lista todos los productos
 router.get('/cars/:id', apiProductController.detail)            // detalle de producto
 router.delete('/cars/del/:id', apiProductController.delete)       // eliminar un producto
-
-router.get('/metrics', apiMetricsController.metrics)                 // lista todos los productos
+router.get('/metrics', apiMetricsController.metrics)                 // Métricas
 
 module.exports = router

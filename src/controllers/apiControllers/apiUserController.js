@@ -4,57 +4,63 @@ const userImagePath=path.resolve('./public/users/images') //Carpeta imagenes de 
 let db = require('../../database/models')
 
 const apiUserController = {
-    //*******   LISTAR    *********// lista todos los usuarios
-    list: function(req,res){
-      let page=+req.query.page;
-      db.User.findAndCountAll({
-        limit:8,
-        offset:8*page,
-        attributes:['id','name','surname','dni','email','phone'],
-        // attributes: { exclude: ['pass','birth','dni','user_type_id','created_at','updated_at','phone','address','location_id']}
-      })
-      .then( data  => {  //users
-          let response = {
-              count: data.count, //users.length
-              users: data.rows    //users
-          }
-        return  res.json(response) ; //res.json(users)
-      })
-      .catch( err => {
-        return res.send(err);
-      });
-    },
+  //*******   Api Users -----  api/users?page=n    *********
+  list: function(req,res){
+    let page=0; //Establece primera página del paginado, por defecto.
+    if (req.query.page) {
+      page=+req.query.page; // Si existe query establece page con el valor req.query.page
+    }// Sino sigue con page=0
+  
+    // Busqueda de 8 registros correspondientes a la página establecida en page.
+    db.User.findAndCountAll({//Además cuenta el total de los registros.
+      limit:8,
+      offset:8*page,
+      attributes:['id','name','surname','dni','email','phone'],
+    })
+    .then( data  => {  //users
+      let response = {  //Se arma la respuesta de api
+        count: data.count, //Cantidad de usuarios
+        users: data.rows   //Usuarios
+      }
+      return  res.json(response) ; //Respuesta de api
+    })
+    .catch( err => {
+      return res.send(err);
+    });
+  },
 
-    /******** DETALLE DE PRODUCTO  ***********/
-    detail: function(req,res){
-        let id = +req.params.id 
-        db.User.findByPk(id,{
-          include: [{association:'location',include:[{association:'state'}]},'userType'],
-          attributes: { exclude: ['pass','created_at','updated_at'] }
+  /******** Detalle de Usuario ----- api/users/id  ***********/
+  detail: function(req,res){
+        
+    let id = +req.params.id //Se obtiene el id solicitado.
+
+    // Se busca el usuario.
+    db.User.findByPk(id,{ // Se busca por id el usuario solicitado.
+      include: [{association:'location',include:[{association:'state'}]},'userType'],
+      attributes: { exclude: ['pass','created_at','updated_at'] }
+    })
+    .then(data => {
+      if(!data){
+        res.json(`ERROR: no se encontro ningun usuario con el id: ${id}`)
+      } else {
+        let user = { //Armado de usuario para respuesta.
+          id: data.id,
+          name: data.name,
+          surname: data.surname,
+          dni: data.dni,
+          birth: data.birth,
+          email: data.email,
+          address: data.address,
+          type: data.userType.name,
+          phone: data.phone,
+          location: data.location.name,
+          state:data.location.state.name,
+          image_url: `http://localhost:5001/users/images/${data.img}`
         }
-        )
-        .then(data => {
-            if(!data){
-                res.json(`ERROR: no se encontro ningun usuario con el id: ${id}`)
-            } else {
-                let user = {
-                    id: data.id,
-                    name: data.name,
-                    surname: data.surname,
-                    dni: data.dni,
-                    birth: data.birth,
-                    email: data.email,
-                    address: data.address,
-                    type: data.userType.name,
-                    phone: data.phone,
-                    location: data.location.name,
-                    state:data.location.state.name,
-                    image_url: `//localhost:5001/users/images/${data.img}`
-                }
-                res.json(user)
-            }
-        })
-    },
+        res.json(user)
+      }
+    })
+  },
 
     /********* BORRAR USUARIO *********/
     delete: function(req,res){
