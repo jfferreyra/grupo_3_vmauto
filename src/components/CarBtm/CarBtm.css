@@ -21,6 +21,7 @@
   border-radius: 0.5rem;
   border: 1px solid #b4b4b4;
   background-color: #f3f3f3;
+  box-shadow: 0 0 6px 1px rgba(100, 100, 100, 0.5);
 }
 .CarBtm__before:hover, .CarBtm__after:hover{
   width: 10rem;
@@ -30,8 +31,9 @@
   align-items: center;
   font-size: 1.2rem;
   font-family: inter-r;
+  font-weight: bold;
   border-radius: 0.5rem;
-  border: 1px solid #e0a245;
-  background-color: #f5dca8;
-  box-shadow: 0 0 4px 2px rgba(168, 117, 7, 0.5);
+  border: 1px solid #ff9900;
+  background-color: #ffecc4;
+  box-shadow: 0 0 6px 2px rgba(255, 123, 0, 0.5);
 }

@@ -14,7 +14,7 @@
   display: flex;
   border: 1px solid #909090;
   border-radius: 1rem;
-  /* box-shadow: 0 0 6px 2px rgba(100, 100, 100, 0.5); */
+  box-shadow: 0 0 2px 1px rgba(100, 100, 100, 0.5);
 }
 .UserCardW__header{
   flex: 1 1 60%;

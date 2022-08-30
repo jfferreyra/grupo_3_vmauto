@@ -3,7 +3,7 @@ import './UserRow.css'
 function UserRow({user,setRowUser,k}){
 const {id,name,surname,dni,email,phone}=user;
   return (
-    <tr onClick={()=>setRowUser(k)}>
+    <tr className={`UserRow__tr-${k%2}`} id={`tr-${k}`} onClick={()=>setRowUser(k)}>
       <td className='UserRow__celd'>{id}</td>
       <td className='UserRow__celd'>{name}</td>
       <td className='UserRow__celd'>{surname}</td>

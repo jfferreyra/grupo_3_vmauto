@@ -1,17 +1,7 @@
 import React from 'react';
 import CarRow from './CarRow/CarRow';
 import './CarTable.css'
-// let cars=[
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'},
-//   {id:235,brand:'Marca',model:'Modelo',condition:'Nuevo',year:2020,color:'rojo'}
-// ]
+
 function CarTable({cars,setRowCar}){
   return (
     <div className='CarTable'>
@@ -26,7 +16,7 @@ function CarTable({cars,setRowCar}){
             <th>Color</th>
           </tr>
         </thead>
-        <tbody className='UserTable__body'>
+        <tbody className='CarTable__body'>
           {cars.length > 0 && cars.map((car,i)=>
             <CarRow car={car} key={i} k={i} setRowCar={setRowCar}/>
           )}

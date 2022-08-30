@@ -1,5 +1,30 @@
 .UserRow__celd{
-  padding: 1rem;
-  border: 1px solid #909090;
+  padding: 0.9rem;
+  border: inherit;
+  border-left: 1px solid rgb(165, 165, 165);
+  border-right: 1px solid rgb(165, 165, 165);
+  font-size: 1.3rem;
+  font-weight: inherit;
   text-align: center;
+}
+[class*='UserRow__tr-']{
+  border: 1px solid rgb(165, 165, 165);
+  font-weight: normal;
+}
+.UserRow__tr-1{
+  background-color: rgb(230, 230, 230);
+}
+[class*='UserRow__tr-']:hover{
+  position: relative;
+  background-color: rgba(247, 214, 177,60%);
+  box-shadow: 0 0 6px 2px rgba(100, 100, 100, 0.5) ;
+}
+.UserRow__selectedRow{
+  position: relative;
+  border: 1.1px solid rgb(255, 169, 71);
+  background-color: rgb(247, 214, 177);
+  box-shadow: 0 0 6px 2px rgba(255, 60, 0, 0.5);
+  z-index: 10;
+  font-weight: bold;
+
 }

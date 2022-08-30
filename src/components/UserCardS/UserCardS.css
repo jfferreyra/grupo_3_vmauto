@@ -1,4 +1,5 @@
 .UserCardS{
+  height: 100%;
   padding: 1rem;
   background-color: #dbdbdb;
   border-radius: 2rem;
@@ -27,7 +28,7 @@
 }
 .UserCardS__pName{
   width: 100%;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
   font-family: inter-b;
   font-size: 2rem;

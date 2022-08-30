@@ -1,4 +1,5 @@
 .TopBar {
+  min-height: 17vh;
   padding: 1rem 2rem 0 1rem;
   display: flex;
   justify-content: space-between;

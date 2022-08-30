@@ -15,20 +15,6 @@
   padding: 1rem;
   font-size: 1.4rem;
   font-weight: normal;
-  /* text-align: left; */
   background-color: rgb(190, 190, 190);
-}
-.UserTable__body > tr:nth-child(odd){
-  border: 2px solid transparent;
-  background-color: transparent;
-}
-.UserTable__body > tr:nth-child(even){
-  border: 2px solid transparent;
-  background-color: rgb(230, 230, 230);
-}
-.UserTable__body > tr:hover{
-  border: 2px solid rgb(255, 170, 72);
-  box-shadow: 0 0 6px 2px rgba(100, 100, 100, 0.5) ;
-  background-color: rgb(247, 214, 177);
 }
 
