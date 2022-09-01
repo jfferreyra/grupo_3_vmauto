@@ -8,8 +8,8 @@
     <section class="search">
       <h1 class="search__titulo">Resultados | <span>26.898</span></h1>
       <div class="search__resultados">
-        <%search.forEach(auto=>{%>
-          <%-include("partials/card",{'auto':auto})%>
+        <%search.forEach(car=>{%>
+          <%-include("partials/card",{'car':car})%>
         <%});%>
       </div>
     </section>

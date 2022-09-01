@@ -5,6 +5,8 @@ function valField(ok,f,l,field,validations,ulField,classes,btnSubmit) {  //Valid
     let results=validations.filter(validation=>validation.val(field.value)===false); // Filtra en las validaciones false o sea los errores.
     let msgs=results.map(result=>result.msg); //Deja en un array solo los mensajes de error
     if(msgs.length>0){  //Si msgs es distinto de cero es porque hay errores
+        btnSubmit.disabled=true;    //Deshabilito boton submit porque hay errores.
+        btnSubmit.classList.add(classes.btnDisabled);
         ulField.classList.add(classes.msgClass); //Le agrega una clase de alerta de error
         field.classList.add(classes.inpClass.invalid);  //agrega clase invalido
         field.classList.remove(classes.inpClass.valid); //quita clase valido

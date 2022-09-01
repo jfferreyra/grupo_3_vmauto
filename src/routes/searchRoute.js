@@ -8,7 +8,7 @@ const router = express.Router();
 
 //Muestra Buscador recibe por post resultado de consulta temporario y simulado.
   //Prueba de auth. Sólo puede verlo el auth
-  router.get('/',userMware.auth,searchController.search);
+  router.post('/',userMware.auth,searchController.search);
   // router.post('/', searchController.search);
 
 module.exports = router;

@@ -5,6 +5,8 @@ function valField(ok,f,l,field,validations,ulField,classes,btnSubmit) {  //Valid
     let results=validations.filter(validation=>validation.val(field.value)===false); // Filtra en las validaciones false o sea los errores.
     let msgs=results.map(result=>result.msg); //Deja en un array solo los mensajes de error
     if(msgs.length>0){  //Si msgs es distinto de cero es porque hay errores
+        btnSubmit.disabled=true;    //Deshabilito boton submit porque hay errores.
+        btnSubmit.classList.add(classes.btnDisabled);
         ulField.classList.add(classes.msgClass); //Le agrega una clase de alerta de error
         field.classList.add(classes.inpClass.invalid);  //agrega clase invalido
         field.classList.remove(classes.inpClass.valid); //quita clase valido
@@ -22,10 +24,10 @@ function valField(ok,f,l,field,validations,ulField,classes,btnSubmit) {  //Valid
         field.classList.add(classes.inpClass.valid);    //agrega clase valido
         field.classList.remove(classes.inpClass.invalid);//quita clase invalido
         ok[f]= 1; //retorna 1 pues no hay errores
-        console.log(ok);
+        // console.log(ok);
         let sum = ok.reduce((a,e)=>a+e);    //Hace la suma de las componentes del array de ok
-        console.log(sum);
-        console.log(l);
+        // console.log(sum);
+        // console.log(l);
         if(sum===l){ //Si da igual a l (la cantidad de campos a validar o sea todos 1s)
             btnSubmit.disabled=false;   //Habilita botón submit
             btnSubmit.classList.remove(classes.btnDisabled);   //Quita al botón submit la clase deshabilitado.
@@ -122,7 +124,7 @@ fields=[
         id:"dni",     //id del campo en el html
         validations:[   //val es un callback con parametro value (es el valor del campo, el programador solo debe cambiar la condición) y retorna una condición.(que la establece el programador)
             {val:(value)=>{return value!==""},msg:"Debe ingresar un DNI."},
-            {val:(value)=>{return value.length>=7&&value.length<=8},msg:"Debe tener al entre 7 y 8 números."},
+            {val:(value)=>{return value.length>=7&&value.length<=8},msg:"Debe tener entre 7 y 8 números."},
             {val:(value)=>{return dni.test(value)},msg:"Sólo números."}
         ],
         events:["keyup","blur","focus","change"]   // Aca van los eventos que uno quiera, separados por comas y entre comillas.

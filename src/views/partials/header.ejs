@@ -59,8 +59,8 @@
           </ul>
       </nav>
     </div>
-    <form class="searchBar" action="/search" method="get">
-        <input class="searchBar__ipt" type="searchBar" placeholder="Buscá tu auto">
+    <form class="searchBar" action="/search/" method="POST">
+        <input id="search" name="search" class="searchBar__ipt" type="searchBar" placeholder="Buscá tu auto">
         <button class="searchBar__btn" type="submit"><i class="ficon-lupa"></i></button>
     </form>
     <% if (op==1) { %>

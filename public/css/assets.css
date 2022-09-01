@@ -126,6 +126,15 @@ html{
   background-color: var(--narObp);
 }
 
+.btnSubmitDisabled{
+  color: white;
+  background-color: var(--grisT);
+}
+.btnSubmitDisabled:hover{
+  color: white;
+  background-color: var(--grisT);
+}
+
 @media screen and (min-width:768px) {
   html{
     font-size: 10px;

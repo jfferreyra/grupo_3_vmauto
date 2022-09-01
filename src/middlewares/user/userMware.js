@@ -55,7 +55,7 @@ const userMware={
   addCar:function(req,res,next){
     let user=req.session.user??false;  //Usuario de session toma por defecto false
     if(!user){  //si no existe usuario va al inicio
-      return res.redirect('/');
+      return res.redirect('/user/login');
     }
     if(user.user_type_id===2||user.user_type_id===3||user.user_type_id===4){ //Si usuario es administrador no tiene carrito
       return res.redirect('/');

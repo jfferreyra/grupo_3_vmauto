@@ -1,18 +1,13 @@
 window.addEventListener('load',function(e){
  
 // Función Validator
-function valField(ok,f,l,field,validations,classes,btnSubmit) {  //Validación del Campo.(campo a validar, validaciones, donde van a ir los mensajes de errores)
+function valField(ok,f,l,field,validations,ulField,classes,btnSubmit) {  //Validación del Campo.(campo a validar, validaciones, donde van a ir los mensajes de errores)
     let results=validations.filter(validation=>validation.val(field.value)===false); // Filtra en las validaciones false o sea los errores.
     let msgs=results.map(result=>result.msg); //Deja en un array solo los mensajes de error
-    let ulFieldExist=!!document.getElementById(`errorField-${f}`);  // Existe etiqueta de errores?
     if(msgs.length>0){  //Si msgs es distinto de cero es porque hay errores
-        if(!ulFieldExist){
-            let ulField=document.createElement(classes.contErrors);   //Crea un elemento en el html con etiqueta configurada en classes 
-            ulField.setAttribute('id',`errorField-${f}`);   //Le coloca nombre errorField-numero de campo
-            field.after(ulField);//Lo sitúa a continuación del campo
-            ulField.classList.add(classes.msgClass); //Le agrega una clase de alerta de error
-        }
-        let ulField=document.getElementById(`errorField-${f}`); //Captura la etiqueta de errores
+        btnSubmit.disabled=true;    //Deshabilito boton submit porque hay errores.
+        btnSubmit.classList.add(classes.btnDisabled);
+        ulField.classList.add(classes.msgClass); //Le agrega una clase de alerta de error
         field.classList.add(classes.inpClass.invalid);  //agrega clase invalido
         field.classList.remove(classes.inpClass.valid); //quita clase valido
         let fragment=document.createDocumentFragment(); //Crea un fragmento de html vacio (es para no abrir a cada rato el dom es como un array de elementos html)
@@ -20,18 +15,19 @@ function valField(ok,f,l,field,validations,classes,btnSubmit) {  //Validación d
             let li=document.createElement(classes.tagError); // crea li
             li.textContent=msg; // le pone el mensaje
             fragment.appendChild(li);   //lo agrega a fragment
-        });
-        ulField.replaceChildren(fragment); //remplaza el fragment en el ul de los errores del campo (cada campo tiene uno ver el html)
-        ok[f]= 0; //retorna cero pues hay errores.
-    }else{ 
-        if(ulFieldExist){
-            let ulField=document.getElementById(`errorField-${f}`); //Captura la etiqueta de errores
-            ulField.remove(); // como no hay errores borra el contenedor de errores del campo.
-        }
+            });
+            ulField.replaceChildren(fragment); //remplaza el fragment en el ul de los errores del campo (cada campo tiene uno ver el html)
+            ok[f]= 0; //retorna cero pues hay errores.
+    }else{
+        ulField.innerHTML=""; // como no hay errores borra el contenido de ul de errores del campo.
+        ulField.classList.remove(classes.msgClass); //Le quita la clase de alerta de error al contenedor de errores
         field.classList.add(classes.inpClass.valid);    //agrega clase valido
         field.classList.remove(classes.inpClass.invalid);//quita clase invalido
         ok[f]= 1; //retorna 1 pues no hay errores
+        // console.log(ok);
         let sum = ok.reduce((a,e)=>a+e);    //Hace la suma de las componentes del array de ok
+        // console.log(sum);
+        // console.log(l);
         if(sum===l){ //Si da igual a l (la cantidad de campos a validar o sea todos 1s)
             btnSubmit.disabled=false;   //Habilita botón submit
             btnSubmit.classList.remove(classes.btnDisabled);   //Quita al botón submit la clase deshabilitado.
@@ -49,16 +45,17 @@ function valForm(submitId,fields,classes){  //Validación del formulario
     let btnSubmit=document.getElementById(submitId); //Captura el botón submit
     btnSubmit.disabled=true;    //Deshabilito boton submit por defecto.
     btnSubmit.classList.add(classes.btnDisabled);   //Agrega al botón submit una clase para cuando está deshabilitado.
-    fields.forEach((field,f) => {   //Itera en cada campo, i es el índice del campo actual.
+    fields.forEach((field,i) => {   //Itera en cada campo, i es el índice del campo actual.
         let element=document.getElementById(field.id); //Captura el campo
-        field.events.forEach(event => { // Pone en escucha al campo en todos los eventos configurados
-            element.addEventListener(event,function(e){    //Agrega escucha de evento al campo
-                ok=valField(ok,f,l,this,field.validations,classes,btnSubmit);    //Ejecuta validador de campo, devuelve 1 si cumple todas o 0 sino.
-                console.log(ok);
+        let ulField=document.createElement(classes.contErrors);   //Crea un ul en el html
+        element.after(ulField); //Lo sitúa a continuación del campo
+        field.events.forEach(event => {
+            element.addEventListener(event,function(e){    //Agrega escucha de evento keyup al campo
+                ok=valField(ok,i,l,this,field.validations,ulField,classes,btnSubmit);    //Ejecuta validador de campo, devuelve 1 si cumple todas o 0 sino.
             });
         });
         if(element.value){
-            ok=valField(ok,f,l,element,field.validations,classes,btnSubmit); // Si el valor al iniciar ya tiene un valor lo valida haciendo foco
+            ok=valField(ok,i,l,element,field.validations,ulField,classes,btnSubmit); // Si el valor al iniciar ya tiene un valor lo valida haciendo foco
         }
     });
 }

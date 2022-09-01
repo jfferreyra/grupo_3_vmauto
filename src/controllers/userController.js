@@ -94,6 +94,7 @@ const userController={
   registered:function(req,res) {
     let oldImg=req.file?.filename ?? req.body?.oldImg ?? null;
     let user=bodyUser(req.body,oldImg);
+    console.log(user);
     const errors=validationResult(req);
     if(!errors.isEmpty()){               //Si hay errores vuelve al formulario y persiste campos correctos y devuelve errores.
       user.stateId=+req.body.state;
@@ -110,10 +111,10 @@ const userController={
         where:{email:req.body.email},
         defaults:user
       })
-        .then(([user, created])=> { //user es el registro creado o existente.
+        .then(([usernew, created])=> { //usernew es el registro creado o existente.
           if(created){    //si "created" es true entonces significa que no existía y fue creado.
-            let id=user.id; //Obtiene el id del usuario recién creado.
-            let img=imgId(id,user.img); //Renombra img con el id del usuario.
+            let id=usernew.id; //Obtiene el id del usuario recién creado.
+            let img=imgId(id,usernew.img); //Renombra img con el id del usuario.
             db.User.update(             //Actualiza el registro de usuario con el nuevo nombre de img.
               {img:img},
               {where:{id:id}}
@@ -122,12 +123,18 @@ const userController={
                 return res.redirect('/user/login'); //Redirige al login.
               });
           }else{
+            console.log(user,'segundo**********');
             let states=db.State.findAll();
             let locations=db.Location.findAll();
             Promise.all([states,locations])
               .then(([states,locations])=> {
-              return res.render('users/register',{states,locations,userLocations:[{id:0,name:'Elija primero la provincia'}],emailerr:1});
-              }); // Si el usuario no existe, regresa al formulario de registro.
+              // return res.render('users/register',{states,locations,userLocations:[{id:0,name:'Elija primero la provincia'}],emailerr:1});
+              user.stateId=+req.body.state;
+              user.locationId=+req.body.location;
+              let userLocations=locations.filter(location=>location.state_id===user.stateId);
+              return res.render('users/register',{old:user,oldImg,states,locations,userLocations,emailerr:1});
+              // Si el email ya existe, regresa al formulario de registro.
+              }); 
           }
         });
       }

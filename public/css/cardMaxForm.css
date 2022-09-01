@@ -336,6 +336,15 @@
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
 }
 
+.btnSubmitDisabled{
+  color: white;
+  background-color: var(--grisT);
+}
+.btnSubmitDisabled:hover{
+  color: white;
+  background-color: var(--grisT);
+}
+
 .btnNar--claro{
   color: var(--grisT);
   background-color: var(--narClp);
