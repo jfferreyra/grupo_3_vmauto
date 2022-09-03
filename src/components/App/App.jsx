@@ -4,11 +4,10 @@ import {Route,Routes} from 'react-router-dom';
 import NotFound from '../NotFound/NotFound';
 import TopBar from '../TopBar/TopBar'
 import Main from '../Main/Main'
-import MetricTop from '../MetricTop/MetricTop';
-import MetricBtm from '../MetricBtm/MetricBtm';
 import WrapperUser from '../WrapperUser/WrapperUser';
 import WrapperCar from '../WrapperCar/WrapperCar';
 import WrapperMetric from '../WrapperMetric/WrapperMetric';
+import End from '../End/End';
 
 function App() {
   return (
@@ -19,9 +18,10 @@ function App() {
         <Route path='users' element={<WrapperUser/>}/>
         <Route path='cars' element={<WrapperCar/>}/>
         <Route path='metrics/:lastOp' element={<WrapperMetric/>}/>
-        <Route path="*" element={<NotFound />}/>
+        <Route path='end' element={<End/>}/>
+        <Route path="*" exact={true} element={<NotFound />}/>
       </Route>
-      <Route path="*" element={<NotFound />}/>
+      <Route path="*" exact={true} element={<NotFound />}/>
     </Routes>
 
       

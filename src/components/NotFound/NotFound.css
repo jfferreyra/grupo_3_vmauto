@@ -1,0 +1,27 @@
+.NotFound__wrapp{
+  max-width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.NotFound__ul{
+  margin-top: 0.5rem;
+}
+.NotFound__li{
+  padding: 0.5rem;
+  font-size: 1.6rem;
+}
+.NotFound__msg{
+  position: relative;
+  margin-top: -235px;
+  margin-left: 30px;
+  font-size: 2rem;
+}
+.NotFound__img{
+  height: 100%;
+  object-fit: cover;
+}
+.NotFound__wrappUls{
+  display: flex;
+  
+}

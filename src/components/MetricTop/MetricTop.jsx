@@ -13,7 +13,7 @@ function MetricTop({totalUser,totalCar,condition,fuel,transmission}){
     <div className='MetricTop'>
       <TotalCard title={'Total Usuarios'} count={totalUser} />
       <TotalCard title={'Total Coches'} count={totalCar} />
-      <StickCard catA={'Nuevos'} catB={'Usados'} countA={news} countB={used} catC={'Caja Manual'} catD={'Caja Automática'} countC={manual} countD={automatic}/>
+      <StickCard catA={'Nuevos'} catB={'Usados'} countA={news} countB={used} catC={'Caja Automática'} catD={'Caja Manual'} countC={manual} countD={automatic}/>
       <BarVCard fuel={fuel} />
     </div>
   )
