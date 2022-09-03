@@ -94,7 +94,6 @@ const userController={
   registered:function(req,res) {
     let oldImg=req.file?.filename ?? req.body?.oldImg ?? null;
     let user=bodyUser(req.body,oldImg);
-    console.log(user);
     const errors=validationResult(req);
     if(!errors.isEmpty()){               //Si hay errores vuelve al formulario y persiste campos correctos y devuelve errores.
       user.stateId=+req.body.state;
@@ -123,7 +122,6 @@ const userController={
                 return res.redirect('/user/login'); //Redirige al login.
               });
           }else{
-            console.log(user,'segundo**********');
             let states=db.State.findAll();
             let locations=db.Location.findAll();
             Promise.all([states,locations])
